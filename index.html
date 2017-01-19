@@ -128,10 +128,9 @@ example are written in shell, using the curl command.</p>
 <p>TL;DR: all requests to the API must have the following header:
 <code class="prettyprint">application/vnd.api+json; version=1</code>.</p>
 
-<p>Hiptest API follow the <a href="http://jsonapi.org">{json:api}</a> specification. Requests
-should be made in HTTP POST (<code class="prettyprint">application/x-www-form-urlencoded</code>). The header
-<code class="prettyprint">accept</code> is always required and should be <code class="prettyprint">application/vnd.api+json</code>. It must
-also request for the desired API version - currently only version 1 is
+<p>Hiptest API follow the <a href="http://jsonapi.org">{json:api}</a> specification. The 
+header <code class="prettyprint">accept</code> is always required and should be <code class="prettyprint">application/vnd.api+json</code>. It
+must also request for the desired API version - currently only version 1 is
 available.</p>
 
 <p>Our API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>.</p>
