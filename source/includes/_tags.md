@@ -3,7 +3,7 @@
 
 ```shell
 curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/tags"
-  -H 'accept: application/json; version=1'
+  -H 'accept: application/vnd.api+json; version=1'
   -H 'token-type: Bearer'
   -H <all your authentication headers>
 ```
