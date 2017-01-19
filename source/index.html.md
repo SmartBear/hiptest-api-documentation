@@ -33,10 +33,9 @@ example are written in shell, using the curl command.
 TL;DR: all requests to the API must have the following header:
 `application/vnd.api+json; version=1`.
 
-Hiptest API follow the [{json:api}](http://jsonapi.org) specification. Requests
-should be made in HTTP POST (`application/x-www-form-urlencoded`). The header
-`accept` is always required and should be `application/vnd.api+json`. It must
-also request for the desired API version - currently only version 1 is
+Hiptest API follow the [{json:api}](http://jsonapi.org) specification. The 
+header `accept` is always required and should be `application/vnd.api+json`. It
+must also request for the desired API version - currently only version 1 is
 available.
 
 Our API documentation was created with [Slate](https://github.com/slatedocs/slate).
