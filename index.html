@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Hiptest API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -118,15 +118,56 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the <a href="https://hiptest.net">Hiptest</a> API! You can use our API to access Hiptest API endpoints, which can get information on your projects in our database.</p>
+<p>Welcome to the <a href="https://hiptest.net">Hiptest</a> API! You can use our 
+API to access Hiptest API endpoints, which can get information on your projects 
+in our database.</p>
 
-<p>Since we don&rsquo;t provide integration with any programming languages (yet!), the example are written in shell, using the curl command.</p>
+<p>Since we don&rsquo;t provide integration with any programming languages (yet!), the 
+example are written in shell, using the curl command.</p>
+
+<p>TL;DR: all requests to the API must have the following header:
+<code class="prettyprint">application/vnd.api+json; version=1</code>.</p>
+
+<p>Hiptest API follow the <a href="http://jsonapi.org">{json:api}</a> specification. Requests
+should be made in HTTP POST (<code class="prettyprint">application/x-www-form-urlencoded</code>). The header
+<code class="prettyprint">accept</code> is always required and should be <code class="prettyprint">application/vnd.api+json</code>. It must
+also request for the desired API version - currently only version 1 is
+available.</p>
 
 <p>Our API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>.</p>
 
           <h1 id="authentication">Authentication</h1>
 
-<p>Before sending requests to our endpoints, you will need to get an authentication token.
+<blockquote>
+<p>To get your credentials:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="gp">$ </span>curl -XPOST 
+    -H <span class="s2">"Content-Type: application/json"</span>
+    -d <span class="s1">'{"email": "my_hiptest_account", "password": "my_hiptest_account"}'</span>
+    -D - https://hiptest.net/api/auth/sign_in
+
+HTTP/1.1 200 OK
+<span class="c"># snip.</span>
+access-token: sUaWO8m8v5Lkv5pxnLCXzA
+token-type: Bearer
+client: AfLp4PsN9ZieqHas-X5lrA
+expiry: 1486047985
+uid: my_hiptest_account 
+<span class="c"># snip.</span>
+
+</code></pre>
+<blockquote>
+<p>An API call example</p>
+</blockquote>
+<pre class="highlight shell"><code>  curl https://hiptest.net/api/&lt;endpoint&gt;
+            -H <span class="s1">'accept: application/vnd.api+json; version=1'</span>
+            -H <span class="s1">'access-token: &lt;your access token&gt;'</span>
+            -H <span class="s1">'expiry: &lt;the expiry date of your token&gt;'</span>
+            -H <span class="s1">'token-type: Bearer'</span>
+            -H <span class="s1">'uid: &lt;your uid&gt;'</span>
+            -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre>
+<p>Before sending requests to our endpoints, you need an authentication token.
 This token is made up of three data:</p>
 
 <ul>
@@ -135,36 +176,23 @@ This token is made up of three data:</p>
 <li>Your uid</li>
 </ul>
 
-<blockquote>
-<p>To get your credentials:</p>
-</blockquote>
-<pre class="highlight shell"><code>  curl -XPOST <span class="s2">"https://hiptest.net/api/auth/sign_in"</span>
-    -d <span class="s1">'{"email": "my_hiptest_account", "password": "my_hiptest_account"}'</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
-</code></pre>
-<p>You can get this authentication token using one of our API endpoint (only working if you registered to Hiptest using your email) or directly
+<p>You can get this authentication token using the <code class="prettyprint">auth/sign_in</code> endpoint 
+(only working if you registered to Hiptest using your email) or directly
 in your Hiptest profile page (TODO).</p>
 
-<aside class="notice"> If you are getting your credentials through the API, your token will be set in the response headers</aside>
+<aside class="notice">
+  If you are getting your credentials through the API, your token will be set
+  in the response headers
+</aside>
 
-<p>Hiptest expects for the authentication token to be included in all API requests to the server, in the HTTP headers of your requests</p>
+<p>Hiptest expects for the authentication token to be included in all API requests
+ to the server, in the HTTP headers of your requests</p>
 
-<blockquote>
-<p>An API call example</p>
-</blockquote>
-<pre class="highlight shell"><code>  curl &lt; Hiptest API endpoint &gt;
-            -H <span class="s1">'accept: application/json; version=1'</span>
-            -H <span class="s1">'access-token: &lt;your access token&gt;'</span>
-            -H <span class="s1">'expiry: &lt;the expiry date of your token&gt;'</span>
-            -H <span class="s1">'token-type: Bearer'</span>
-            -H <span class="s1">'uid: &lt;your uid&gt;'</span>
-            -H <span class="s1">'client: &lt;your client id&gt;'</span>
-</code></pre>
           <h1 id="scenarios">Scenarios</h1>
 
 <h2 id="get-scenarios-of-a-given-project">Get scenarios of a given project</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://hiptest-net/api/projects/&lt;project_id&gt;/scenarios"</span>
-  -H <span class="s1">'accept: application/json; version=1'</span>
+  -H <span class="s1">'accept: application/vnd.api+json; version=1'</span>
   -H <span class="s1">'token-type: Bearer'</span>
   -H &lt;all your authentication headers&gt;
 </code></pre>
@@ -216,7 +244,7 @@ in your Hiptest profile page (TODO).</p>
 
 <h2 id="get-tags-of-a-given-scenario">Get tags of a given scenario</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://hiptest-net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags"</span>
-  -H <span class="s1">'accept: application/json; version=1'</span>
+  -H <span class="s1">'accept: application/vnd.api+json; version=1'</span>
   -H <span class="s1">'token-type: Bearer'</span>
   -H &lt;all your authentication headers&gt;
 </code></pre>
