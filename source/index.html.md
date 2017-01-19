@@ -7,8 +7,8 @@ language_tabs:
 toc_footers:
   - <a href='https://hiptest.net'>Sign Up for Hiptest!</a>
 
-includes:
-  - errors
+<!-- includes:
+  - errors -->
 
 search: true
 ---
@@ -23,102 +23,84 @@ Our API documentation was created with [Slate](https://github.com/tripit/slate).
 
 # Authentication
 
-> To authorize, use this code:
+Before sending requests to our endpoints, you will need to get an authentication token.
+This token is made up of three data:
+
+* The access-token
+* Your client id
+* Your uid
+
+> To get your credentials:
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  curl -XPOST "https://hiptest.net/api/auth/sign_in"
+    -d '{"email": "my_hiptest_account", "password": "my_hiptest_account"}'
+    -H "Content-Type: application/json"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+You can get this authentication token using one of our API endpoint (only working if you registered to Hiptest using your email) or directly
+in your Hiptest profile page (TODO).
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+<aside class="notice"> If you are getting your credentials through the API, your token will be set in the response headers</aside>
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+ Hiptest expects for the authentication token to be included in all API requests to the server, in the HTTP headers of your requests
 
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
+> An API call example
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+  curl < Hiptest API endpoint >
+            -H 'accept: application/json; version=1'
+            -H 'access-token: <your access token>'
+            -H 'expiry: <the expiry date of your token>'
+            -H 'token-type: Bearer'
+            -H 'uid: <your uid>'
+            -H 'client: <your client id>'
 ```
 
-> The above command returns JSON structured like this:
+# Scenarios
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
+## Get scenarios of a given project
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://hiptest-net/api/projects/<project_id>/scenarios"
+  -H 'accept: application/json; version=1'
+  -H 'token-type: Bearer'
+  -H <all your authentication headers>
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": [
+    {
+      "type": "scenarios",
+      "id": "1",
+      "attributes": {
+        "name": "Find horcruxes"
+      },
+      "links": {
+        "self": "/scenarios/1"
+      }
+    },
+    {
+      "type": "scenarios",
+      "id": "2",
+      "attributes": {
+        "name": "Defeat Voldemort"
+      },
+      "links": {
+        "self": "/scenarios/2"
+      }
+    }
+  ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
+This endpoint retrieves all scenarios of a given project.
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+project_id | The ID of the project you want to retrieve the scenarios from
