@@ -15,11 +15,11 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the <a href="https://hiptest.net">Hiptest</a> API! You can use our API to access Hiptest API endpoints, which can get information on your projects in our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Since we don't provide integration with any programming languages (yet!), the example are written in shell, using the curl command.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Our API documentation was created with [Slate](https://github.com/tripit/slate).
 
 # Authentication
 
