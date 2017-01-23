@@ -297,6 +297,115 @@ in your Hiptest profile page (TODO).</p>
 </tr>
 </tbody></table>
 
+          <h1 id="datasets">Datasets</h1>
+
+<h2 id="get-datasets-of-a-given-scenario">Get datasets of a given scenario</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest-net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets"</span>
+  -H <span class="s1">'accept: application/vnd.api+json; version=1'</span>
+  -H <span class="s1">'token-type: Bearer'</span>
+  -H &lt;all your authentication headers&gt;
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 1-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 1-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 2-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 2-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all datasets of a given scenario.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the tags from</td>
+</tr>
+</tbody></table>
+
+<h1 id="datatables">Datatables</h1>
+<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest-net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datatable"</span>
+  -H <span class="s1">'accept: application/vnd.api+json; version=1'</span>
+  -H <span class="s1">'token-type: Bearer'</span>
+  -H &lt;all your authentication headers&gt;
+</code></pre>
+<blockquote>
+<p>The above command returns the same JSON as <code class="prettyprint">https://hiptest-net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 1-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 1-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 2-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 2-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A <code class="prettyprint">datatable</code> endpoint is available as an alias for the <a href="#datasets"><code class="prettyprint">datasets</code></a>
+resource.</p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
