@@ -4,9 +4,6 @@
 
 ```shell
 curl "https://hiptest-net/api/projects/<project_id>/scenarios"
-  -H 'accept: application/vnd.api+json; version=1'
-  -H 'token-type: Bearer'
-  -H <all your authentication headers>
 ```
 
 > The above command returns JSON structured like this:
@@ -52,9 +49,6 @@ project_id | The ID of the project you want to retrieve the scenarios from
 
 ```shell
 curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>"
-  -H 'accept: application/json; version=1'
-  -H 'token-type: Bearer'
-  -H <all your authentication headers>
 ```
 
 > The above command returns JSON structured like this:
