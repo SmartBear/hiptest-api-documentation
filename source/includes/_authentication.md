@@ -41,7 +41,7 @@ This token is made up of three data:
 
 You can get this authentication token using the `auth/sign_in` endpoint
 (only working if you registered to Hiptest using your email) or directly
-in your Hiptest profile page (TODO).
+in your Hiptest profile page.
 
 <aside class="notice">
   If you are getting your credentials through the API, your token will be set
