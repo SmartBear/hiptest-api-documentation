@@ -11,6 +11,7 @@ includes:
   - authentication
   - scenarios
   - tags
+  - datasets
 
 search: true
 ---
