@@ -3,9 +3,6 @@
 
 ```shell
 curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/datasets"
-  -H 'accept: application/vnd.api+json; version=1'
-  -H 'token-type: Bearer'
-  -H <all your authentication headers>
 ```
 
 > The above command returns JSON structured like this:
@@ -51,15 +48,12 @@ This endpoint retrieves all datasets of a given scenario.
 Parameter | Description
 --------- | -----------
 project_id | The ID of the project that contains the wanted scenario
-scenario_id | The ID of the scenario you want to retrieve the tags from
+scenario_id | The ID of the scenario you want to retrieve the datasets from
 
 # Datatables
 
 ```shell
 curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/datatable"
-  -H 'accept: application/vnd.api+json; version=1'
-  -H 'token-type: Bearer'
-  -H <all your authentication headers>
 ```
 
 > The above command returns the same JSON as `https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/datasets`
@@ -101,4 +95,3 @@ curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/data
 
 A `datatable` endpoint is available as an alias for the [`datasets`](#datasets)
 resource.
-
