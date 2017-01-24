@@ -20,10 +20,6 @@ curl "https://hiptest-net/api/projects/<project_id>/folders"
       },
       "links": {
         "self": "/folders/1"
-      },
-      "relationships": {
-        "children": {},
-        "scenarios": {}
       }
     },
     {
@@ -36,10 +32,6 @@ curl "https://hiptest-net/api/projects/<project_id>/folders"
       },
       "links": {
         "self": "/folders/2"
-      },
-      "relationships": {
-        "children": {},
-        "scenarios": {}
       }
     }
   ]
@@ -47,7 +39,7 @@ curl "https://hiptest-net/api/projects/<project_id>/folders"
 ```
 
 This endpoint retrieves all folders of a given project.
-<aside class="warning"> Note that this endpoint will only return the attributes of the folders
+<aside class="warning"> Note that this endpoint will only return the attributes of folders
 and not their elements (scenarios and subfolders)</aside>
 
 ### URL Parameters
@@ -76,10 +68,6 @@ curl "https://hiptest-net/api/projects/<project_id>/folders/<folder_id>"
       },
       "links": {
         "self": "/folders/2"
-      },
-      "relationships": {
-        "children": {},
-        "scenarios": {}
       }
     }
 }
@@ -116,10 +104,6 @@ curl "https://hiptest-net/api/projects/<project_id>/folders/<folder_id>/children
       },
       "links": {
         "self": "/folders/2"
-      },
-      "relationships": {
-        "children": {},
-        "scenarios": {}
       }
     },
     {
@@ -132,10 +116,6 @@ curl "https://hiptest-net/api/projects/<project_id>/folders/<folder_id>/children
       },
       "links": {
         "self": "/folders/3"
-      },
-      "relationships": {
-        "children": {},
-        "scenarios": {}
       }
     }
   ]
