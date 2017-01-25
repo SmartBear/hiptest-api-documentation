@@ -2,7 +2,7 @@
 
 ## Get folders of a given project
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/folders"
+curl "https://hiptest.net/api/projects/<project_id>/folders"
 ```
 > The above command returns JSON structured like this:
 
@@ -51,7 +51,7 @@ project_id | The ID of the project you want to retrieve the folders from
 ## Get a single folder
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/folders/<folder_id>"
+curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>"
 ```
 > The above command returns JSON structured like this:
 
@@ -87,7 +87,7 @@ folder_id | The ID of the folder you want to get
 ## Get children of a folder
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/folders/<folder_id>/children"
+curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/children"
 ```
 > The above command returns JSON structured like this:
 
@@ -133,7 +133,7 @@ folder_id | The ID of the folder you want to get the children
 ## Get scenarios of a folder
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/folders/<folder_id>/scenarios"
+curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/scenarios"
 ```
 
 > The above command returns JSON structured like this:

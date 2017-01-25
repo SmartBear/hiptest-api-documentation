@@ -2,7 +2,7 @@
 ## Get tags of a given scenario
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/tags"
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags"
 ```
 
 > The above command returns JSON structured like this:
