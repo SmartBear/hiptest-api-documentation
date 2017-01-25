@@ -3,7 +3,7 @@
 ## Get tests of a test run
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots"
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots"
 ```
 
 > The above command returns JSON structured like this:
@@ -86,7 +86,9 @@ test_run_id | The ID of the test run that contains the tests you want
 ## Get a test
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>"
+curl "https://hiptest.net/api/projects/<project_id>/test_runs\
+                                      /<test_run_id>/test_snapshots\
+                                      /<test_snapshot_id>"
 ```
 
 > The above command returns JSON structured like this:
@@ -138,7 +140,7 @@ test_snapshot_id | The ID of the test you want to get
 ## Get a test additional data
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs\
+curl "https://hiptest.net/api/projects/<project_id>/test_runs\
                                       /<test_run_id>/test_snapshots\
                                       /<test_snapshot_id>?include=<fields>"
 ```
@@ -156,7 +158,7 @@ dataset | The dataset that produced the test (if it comes from a scenario using 
 
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs\
+curl "https://hiptest.net/api/projects/<project_id>/test_runs\
                                       /<test_run_id>/test_snapshots\
                                       /<test_snapshot_id>?include=scenario"
 ```
@@ -164,7 +166,7 @@ curl "https://hiptest-net/api/projects/<project_id>/test_runs\
 > Get a test scenario
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs\
+curl "https://hiptest.net/api/projects/<project_id>/test_runs\
                                       /<test_run_id>/test_snapshots\
                                       /<test_snapshot_id>?include=dataset"
 ```

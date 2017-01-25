@@ -3,7 +3,7 @@
 ## Get scenarios of a given project
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/scenarios"
+curl "https://hiptest.net/api/projects/<project_id>/scenarios"
 ```
 
 > The above command returns JSON structured like this:
@@ -48,7 +48,7 @@ project_id | The ID of the project you want to retrieve the scenarios from
 ## Get a single scenario
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>"
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>"
 ```
 
 > The above command returns JSON structured like this:

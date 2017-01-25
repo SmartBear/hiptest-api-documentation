@@ -2,7 +2,7 @@
 ## Get test runs of a project
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs"
+curl "https://hiptest.net/api/projects/<project_id>/test_runs"
 ```
 
 > The above command returns JSON structured like this:
@@ -66,7 +66,7 @@ project_id | The ID of the project you want to retrieve the test runs from
 ## Get a single test run
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/test_runs/<test_run_id>"
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>"
 ```
 
 > The above command returns JSON structured like this:

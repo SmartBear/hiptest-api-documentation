@@ -2,7 +2,7 @@
 ## Get datasets of a given scenario
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/datasets"
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/datasets"
 ```
 
 > The above command returns JSON structured like this:
@@ -53,10 +53,10 @@ scenario_id | The ID of the scenario you want to retrieve the datasets from
 # Datatables
 
 ```shell
-curl "https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/datatable"
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/datatable"
 ```
 
-> The above command returns the same JSON as `https://hiptest-net/api/projects/<project_id>/scenarios/<scenario_id>/datasets`
+> The above command returns the same JSON as `https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/datasets`
 
 ```json
 {
