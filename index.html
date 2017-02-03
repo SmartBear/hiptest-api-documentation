@@ -125,15 +125,17 @@ in our database.</p>
 <p>Since we don&rsquo;t provide integration with any programming languages (yet!), the
 example are written in shell, using the curl command.</p>
 
-<p>TL;DR: all requests to the API must have the following header:
-<code class="prettyprint">application/vnd.api+json; version=1</code>.</p>
+<p>Our API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>.</p>
 
-<p>Hiptest API follow the <a href="http://jsonapi.org">{json:api}</a> specification. The
+<h2 id="important">Important</h2>
+
+<p>Hiptest API follows the <a href="http://jsonapi.org">{json:api}</a> specification. The
 header <code class="prettyprint">accept</code> is always required and should be <code class="prettyprint">application/vnd.api+json</code>. It
 must also request for the desired API version - currently only version 1 is
 available.</p>
 
-<p>Our API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>.</p>
+<p>So all requests to the API must have the following header:
+<code class="prettyprint">Accept: application/vnd.api+json; version=1</code>.</p>
 
           <h1 id="authentication">Authentication</h1>
 
