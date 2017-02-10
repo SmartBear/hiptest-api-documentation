@@ -1,10 +1,26 @@
 # Folders
 
 ## Get folders of a given project
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/folders"
+
+```http
+GET https://hiptest.net/api/projects/<project_id>/folders HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
 ```
-> The above command returns JSON structured like this:
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/folders" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {
@@ -50,10 +66,25 @@ project_id | The ID of the project you want to retrieve the folders from
 
 ## Get a single folder
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>"
+```http
+GET https://hiptest.net/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
 ```
-> The above command returns JSON structured like this:
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {
@@ -86,10 +117,25 @@ folder_id | The ID of the folder you want to get
 
 ## Get children of a folder
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/children"
+```http
+GET https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/children HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
 ```
-> The above command returns JSON structured like this:
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/children" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {
@@ -132,11 +178,25 @@ folder_id | The ID of the folder you want to get the children
 
 ## Get scenarios of a folder
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/scenarios"
+```http
+GET https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/scenarios HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/scenarios" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {
