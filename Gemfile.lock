@@ -141,5 +141,12 @@ DEPENDENCIES
 RUBY VERSION
    ruby 2.7.2p137
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
+<<<<<<< HEAD
    2.2.22
+=======
+   1.14.3
+>>>>>>> 86030c5 (Add a getting started paragraph)

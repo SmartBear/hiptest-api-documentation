@@ -2,10 +2,26 @@
 
 > To get your credentials:
 
+```http
+POST https://hiptest.net/api/auth/sign_in HTTP/1.1
+Content-Type: application/json
+
+{"email": "my_hiptest_account", "password": "my_hiptest_account"}
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+access-token: sUaWO8m8v5Lkv5pxnLCXzA
+token-type: Bearer
+client: AfLp4PsN9ZieqHas-X5lrA
+expiry: 1486047985
+uid: my_hiptest_account
+```
+
 ```shell
-$ curl -XPOST
-    -H "Content-Type: application/json"
-    -d '{"email": "my_hiptest_account", "password": "my_hiptest_account"}'
+curl -XPOST \
+    -H "Content-Type: application/json" \
+    -d '{"email": "my_hiptest_account", "password": "my_hiptest_account"}' \
     -D - https://hiptest.net/api/auth/sign_in
 
 HTTP/1.1 200 OK
@@ -21,14 +37,20 @@ uid: my_hiptest_account
 
 > An API call example
 
+```http
+GET https://hiptest.net/api/<endpoint> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
 ```shell
-  curl https://hiptest.net/api/<endpoint>
-            -H 'accept: application/vnd.api+json; version=1'
-            -H 'access-token: <your access token>'
-            -H 'expiry: <the expiry date of your token>'
-            -H 'token-type: Bearer'
-            -H 'uid: <your uid>'
-            -H 'client: <your client id>'
+curl https://hiptest.net/api/<endpoint> \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
 ```
 
 

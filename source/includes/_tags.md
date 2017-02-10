@@ -1,11 +1,25 @@
 # Tags
 ## Get tags of a given scenario
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags"
+```http
+GET https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {

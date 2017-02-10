@@ -1,11 +1,25 @@
 # Test runs
 ## Get test runs of a project
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs"
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {
@@ -65,11 +79,25 @@ project_id | The ID of the project you want to retrieve the test runs from
 
 ## Get a single test run
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>"
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 {
