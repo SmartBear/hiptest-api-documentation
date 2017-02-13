@@ -2,11 +2,25 @@
 
 ## Get tests of a test run
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots"
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
 
@@ -85,13 +99,25 @@ test_run_id | The ID of the test run that contains the tests you want
 
 ## Get a test
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs\
-                                      /<test_run_id>/test_snapshots\
-                                      /<test_snapshot_id>"
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
 
 ```json
   {
@@ -139,11 +165,26 @@ test_snapshot_id | The ID of the test you want to get
 
 ## Get a test additional data
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs\
-                                      /<test_run_id>/test_snapshots\
-                                      /<test_snapshot_id>?include=<fields>"
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=<fields> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
 ```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=<fields>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
 > The data you want to include in the response must be coma-separated
 
 You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-includes) to fetch additional data
@@ -156,20 +197,48 @@ Field name | Description
 scenario | The original scenario that produced the test
 dataset | The dataset that produced the test (if it comes from a scenario using a datatable)
 
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=scenario HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs\
-                                      /<test_run_id>/test_snapshots\
-                                      /<test_snapshot_id>?include=scenario"
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=scenario" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
 ```
 
 > Get a test scenario
 
-```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs\
-                                      /<test_run_id>/test_snapshots\
-                                      /<test_snapshot_id>?include=dataset"
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=dataset HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
 ```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=dataset" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
 > Get a test dataset
 
 
