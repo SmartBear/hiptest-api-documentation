@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,6 +101,7 @@
     <div class="tocify-wrapper">
       <img src="images/hiptest-logo.png" alt="Hiptest logo" />
         <div class="lang-selector">
+              <a href="#" data-language-name="http">http</a>
               <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
@@ -119,32 +120,196 @@
         <h1 id="introduction">Introduction</h1>
 
 <p>Welcome to the <a href="https://hiptest.net">Hiptest</a> API! You can use our
-API to access Hiptest API endpoints, which can get information on your projects
-in our database.</p>
+API endpoints to get information on your projects in our database. It is
+RESTFull and follows the <a href="http://jsonapi.org">{json:api}</a> specification.</p>
 
 <p>Since we don&rsquo;t provide integration with any programming languages (yet!), the
-example are written in shell, using the curl command.</p>
+examples are written in shell, using the curl command.</p>
 
 <p>Our API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>.</p>
 
-<h2 id="important">Important</h2>
+<h2 id="api-rate-limits">API rate limits</h2>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">429</span> <span class="ne">Too Many Requests</span>
+<span class="na">X-Ratelimit-Limit</span><span class="p">:</span> <span class="s">500</span>
+<span class="na">X-Ratelimit-Remaining</span><span class="p">:</span> <span class="s">0</span>
+<span class="na">X-Ratelimit-Reset</span><span class="p">:</span> <span class="s">2017-01-01 12:00:00 +0100</span>
+</code></pre><pre class="highlight shell"><code>HTTP/1.1 429 Too Many Requests
+<span class="c"># snip #</span>
+X-Ratelimit-Limit: 500
+X-Ratelimit-Remaining: 0
+X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
+<span class="c"># snip #</span>
+</code></pre>
+<p>Your application can make up to <strong>500</strong> API requests per <strong>5</strong> minutes. Once you exceed the limit, calls will return HTTP status <strong>429</strong> and a message telling you that you&rsquo;ve been limited.</p>
 
-<p>Hiptest API follows the <a href="http://jsonapi.org">{json:api}</a> specification. The
-header <code class="prettyprint">accept</code> is always required and should be <code class="prettyprint">application/vnd.api+json</code>. It
-must also request for the desired API version - currently only version 1 is
-available.</p>
+<p>Once the API endpoint is limited, you can check the headers for informations about the reset time. </p>
 
-<p>So all requests to the API must have the following header:
-<code class="prettyprint">Accept: application/vnd.api+json; version=1</code>.</p>
+<h3 id="note">Note</h3>
+
+<p>The throttling is based on the IP address</p>
+
+<h1 id="getting-started">Getting Started</h1>
+
+<p>This little tutorial will guide you to request our API for the first time.</p>
+
+<h2 id="your-api-credentials">Your API credentials</h2>
+
+<p>Before accessing our API you need to generate your API credentials. Sign in to
+your account on <a href="https://hiptest.net">Hiptest.net</a> then go to
+<a href="https://hiptest.net/app/profile">your profile page</a>. Click the
+<code class="prettyprint">Generate new API credentials</code> button.</p>
+
+<p><img src="images/getting-started/doc-api-cred-01.png" alt="User profile page" /></p>
+
+<p><img src="images/getting-started/doc-api-cred-02.png" alt="User API credentials" /></p>
+
+<h2 id="your-first-request">Your first request</h2>
+
+<blockquote>
+<p>Replace <code class="prettyprint">$PROJECT_ID</code>, <code class="prettyprint">$ACCESS_TOKEN</code>, <code class="prettyprint">$CLIENT_ID</code> and <code class="prettyprint">$UID</code>
+with yours</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/$PROJECT_ID/scenarios</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">$ACCESS_TOKEN</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">$CLIENT_ID</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">$UID</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl https://hiptest.net/api/projects/<span class="nv">$PROJECT_ID</span>/scenarios <span class="se">\</span>
+    -H <span class="s1">'Accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: $ACCESS_TOKEN'</span> <span class="se">\</span>
+    -H <span class="s1">'client: $CLIENT_ID'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: $UID'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"668555"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Card has been disabled (1)"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/668555"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"668556"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Account has sufficient funds for transferring cash (1)"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/668556"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>For your first request, you&rsquo;ll need your <a href="#your-api-credentials">API credentials</a>,
+and <strong>a project ID</strong>. All the API endpoints depend on a project. You can
+retrieve their ID in the address bar of your browser while you are viewing the
+dashboard of your project.</p>
+
+<p>In the following example we are looking for the ID of the sample project 
+<code class="prettyprint">Testing CASH WITHDRAWAL</code>: the ID is 37025.</p>
+
+<p><img src="images/getting-started/doc-api-project-id.png" alt="Retrieve project id" /></p>
+
+<p>Now to retrieve all the scenarios of your project use the endpoint
+<code class="prettyprint">api/projects/$PROJECT_ID/scenarios</code>. The HTTP call looks
+like the following:</p>
+
+<p><code class="prettyprint">GET https://hiptest.net/api/projects/$PROJECT_ID/scenarios</code></p>
+
+<p>Replace the $PROJECT_ID with the ID of one of your project. The following
+headers MUST be part of the query:</p>
+
+<ul>
+<li><code class="prettyprint">Accept: application/vnd.api+json; version=1</code></li>
+<li><code class="prettyprint">access-token: $ACCESS_TOKEN</code> (replace $ACCESS_TOKEN with your access token)</li>
+<li><code class="prettyprint">client: $CLIENT_ID</code> (replace $CLIENT_ID with your client ID)</li>
+<li><code class="prettyprint">uid: $UID</code> (replace $UID with your UID)</li>
+</ul>
+
+<p>Every requests to the API must include those 4 headers.</p>
+
+<p>The access token, the client ID and the UID are your
+<a href="#your-api-credentials">API Credentials</a>.</p>
+
+<p>The header <code class="prettyprint">Accept</code> tells the API to respond using the
+<a href="http://jsonapi.org">{json:api}</a> format and asks for the version 1 of the API.</p>
+
+<h2 id="renewing-your-api-credentials">Renewing your API Credentials</h2>
+
+<blockquote>
+<p>Replace <code class="prettyprint">$EMAIL_ADDRESS</code> and <code class="prettyprint">$PASSWORD</code> with your Hiptest credentials</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/auth/sign_in</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$EMAIL_ADDRESS"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$PASSWORD"</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">iHr2dTV-UBK3Xa9vXOXERA</span>
+<span class="na">token-type</span><span class="p">:</span> <span class="s">Bearer</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">TscNP_R2vdAV-yQc8ZjftQ</span>
+<span class="na">expiry</span><span class="p">:</span> <span class="s">1518274095</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">...@...</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST https://hiptest.net/api/auth/sign_in <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -d <span class="s1">'{"email": "$EMAIL_ADDRESS", "password": "$PASSWORD"}'</span> <span class="se">\</span>
+    -D /dev/stdout
+
+HTTP/1.1 200 OK
+<span class="c"># some response headers have been sniped</span>
+access-token: iHr2dTV-UBK3Xa9vXOXERA
+token-type: Bearer
+client: TscNP_R2vdAV-yQc8ZjftQ
+expiry: 1518274095
+uid: ...@...
+<span class="c"># other response headers have been sniped</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Your access token, as explain on your profile page after it has been generated,
+will expire. You can generate a new one on your profile page by clicking the
+<code class="prettyprint">Generate new API credentials</code> button again, but it is also possible to manage
+it programmaticaly, using the API.</p>
+
+<p>To generate or renew your API credentials use this endpoint: <code class="prettyprint">api/auth/sign_in</code>.</p>
+
+<p><code class="prettyprint">POST https://hiptest.net/api/auth/sign_in</code></p>
+
+<p>Post your Hiptest credentials (email and password) encoded as JSON. If you have
+been successfully authenticated your API credentials will be in the response
+headers within the keys <code class="prettyprint">access-token</code>, <code class="prettyprint">client</code> and <code class="prettyprint">uid</code>. The <code class="prettyprint">expiry</code> header
+is the expiration timestamp of your new token.</p>
 
           <h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To get your credentials:</p>
 </blockquote>
-<pre class="highlight shell"><code><span class="gp">$ </span>curl -XPOST
-    -H <span class="s2">"Content-Type: application/json"</span>
-    -d <span class="s1">'{"email": "my_hiptest_account", "password": "my_hiptest_account"}'</span>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/auth/sign_in</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_hiptest_account"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_hiptest_account"</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">sUaWO8m8v5Lkv5pxnLCXzA</span>
+<span class="na">token-type</span><span class="p">:</span> <span class="s">Bearer</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">AfLp4PsN9ZieqHas-X5lrA</span>
+<span class="na">expiry</span><span class="p">:</span> <span class="s">1486047985</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">my_hiptest_account</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{"email": "my_hiptest_account", "password": "my_hiptest_account"}'</span> <span class="se">\</span>
     -D - https://hiptest.net/api/auth/sign_in
 
 HTTP/1.1 200 OK
@@ -160,13 +325,16 @@ uid: my_hiptest_account
 <blockquote>
 <p>An API call example</p>
 </blockquote>
-<pre class="highlight shell"><code>  curl https://hiptest.net/api/&lt;endpoint&gt;
-            -H <span class="s1">'accept: application/vnd.api+json; version=1'</span>
-            -H <span class="s1">'access-token: &lt;your access token&gt;'</span>
-            -H <span class="s1">'expiry: &lt;the expiry date of your token&gt;'</span>
-            -H <span class="s1">'token-type: Bearer'</span>
-            -H <span class="s1">'uid: &lt;your uid&gt;'</span>
-            -H <span class="s1">'client: &lt;your client id&gt;'</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/&lt;endpoint&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight shell"><code>curl https://hiptest.net/api/&lt;endpoint&gt; <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
 </code></pre>
 <p>Before sending requests to our endpoints, you need an authentication token.
 This token is made up of three data:</p>
@@ -200,12 +368,19 @@ the API anymore. Don&rsquo;t forget to generate a new token before the expiratio
           <h1 id="scenarios">Scenarios</h1>
 
 <h2 id="get-scenarios-of-a-given-project">Get scenarios of a given project</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
@@ -247,12 +422,19 @@ the API anymore. Don&rsquo;t forget to generate a new token before the expiratio
 </tbody></table>
 
 <h2 id="get-a-single-scenario">Get a single scenario</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
@@ -289,12 +471,19 @@ the API anymore. Don&rsquo;t forget to generate a new token before the expiratio
           <h1 id="folders">Folders</h1>
 
 <h2 id="get-folders-of-a-given-project">Get folders of a given project</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
@@ -343,12 +532,19 @@ and not their elements (scenarios and subfolders)</aside></p>
 </tbody></table>
 
 <h2 id="get-a-single-folder">Get a single folder</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
@@ -387,12 +583,19 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tbody></table>
 
 <h2 id="get-children-of-a-folder">Get children of a folder</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/children"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/children</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/children"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
@@ -442,12 +645,19 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tbody></table>
 
 <h2 id="get-scenarios-of-a-folder">Get scenarios of a folder</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/scenarios"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/scenarios</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/scenarios"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
@@ -495,12 +705,19 @@ and not its elements (scenarios and subfolders)</aside></p>
           <h1 id="tags">Tags</h1>
 
 <h2 id="get-tags-of-a-given-scenario">Get tags of a given scenario</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w">
@@ -550,12 +767,19 @@ and not its elements (scenarios and subfolders)</aside></p>
           <h1 id="datasets">Datasets</h1>
 
 <h2 id="get-datasets-of-a-given-scenario">Get datasets of a given scenario</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
@@ -609,12 +833,19 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tbody></table>
 
 <h1 id="datatables">Datatables</h1>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datatable"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns the same JSON as <code class="prettyprint">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets</code></p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datatable</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datatable"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
@@ -653,12 +884,19 @@ resource.</p>
           <h1 id="test-runs">Test runs</h1>
 
 <h2 id="get-test-runs-of-a-project">Get test runs of a project</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-runs"</span><span class="p">,</span><span class="w">
@@ -720,12 +958,19 @@ resource.</p>
 </tbody></table>
 
 <h2 id="get-a-single-test-run">Get a single test run</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-runs"</span><span class="p">,</span><span class="w">
@@ -772,12 +1017,19 @@ resource.</p>
           <h1 id="tests">Tests</h1>
 
 <h2 id="get-tests-of-a-test-run">Get tests of a test run</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -862,14 +1114,19 @@ resource.</p>
 </tbody></table>
 
 <h2 id="get-a-test">Get a test</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_run_id&gt;/test_snapshots</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_snapshot_id&gt;"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -926,9 +1183,18 @@ resource.</p>
 </tbody></table>
 
 <h2 id="get-a-test-additional-data">Get a test additional data</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_run_id&gt;/test_snapshots</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_snapshot_id&gt;?include=&lt;fields&gt;"</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=&lt;fields&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=&lt;fields&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
 </code></pre>
 <blockquote>
 <p>The data you want to include in the response must be coma-separated</p>
@@ -954,16 +1220,34 @@ about your tests.</p>
 <td>The dataset that produced the test (if it comes from a scenario using a datatable)</td>
 </tr>
 </tbody></table>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_run_id&gt;/test_snapshots</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_snapshot_id&gt;?include=scenario"</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=scenario</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=scenario"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
 </code></pre>
 <blockquote>
 <p>Get a test scenario</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_run_id&gt;/test_snapshots</span><span class="se">\</span><span class="s2">
-                                      /&lt;test_snapshot_id&gt;?include=dataset"</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=dataset</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=dataset"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
 </code></pre>
 <blockquote>
 <p>Get a test dataset</p>
@@ -1008,6 +1292,7 @@ about your tests.</p>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
+                <a href="#" data-language-name="http">http</a>
                 <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
