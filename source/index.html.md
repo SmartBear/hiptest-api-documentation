@@ -20,6 +20,7 @@ includes:
   - datasets
   - test_runs
   - tests
+  - automation
 
 search: true
 
@@ -40,6 +41,33 @@ Since we don't provide integration with any programming languages (yet!), the
 examples are written in shell, using the curl command.
 
 Our API documentation was created with [Slate](https://github.com/tripit/slate).
+
+## API rate limits
+
+```http
+HTTP/1.1 429 Too Many Requests
+X-Ratelimit-Limit: 500
+X-Ratelimit-Remaining: 0
+X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
+```
+
+```shell
+HTTP/1.1 429 Too Many Requests
+# snip #
+X-Ratelimit-Limit: 500
+X-Ratelimit-Remaining: 0
+X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
+# snip #
+```
+
+Your application can make up to **500** API requests per **5** minutes. Once you exceed the limit, calls will return HTTP status **429** and a message telling you that you've been limited.
+
+Once the API endpoint is limited, you can check the headers for informations about the reset time.
+
+### Note
+
+The throttling is based on the IP address
+
 
 # Getting Started
 
