@@ -16,6 +16,7 @@ includes:
   - datasets
   - test_runs
   - tests
+  - automation
 
 search: true
 ---
@@ -51,9 +52,9 @@ X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
 
 Your application can make up to **500** API requests per **5** minutes. Once you exceed the limit, calls will return HTTP status **429** and a message telling you that you've been limited.
 
-Once the API endpoint is limited, you can check the headers for informations about the reset time. 
+Once the API endpoint is limited, you can check the headers for informations about the reset time.
 
-### Note 
+### Note
 
 The throttling is based on the IP address
 
@@ -129,7 +130,7 @@ and **a project ID**. All the API endpoints depend on a project. You can
 retrieve their ID in the address bar of your browser while you are viewing the
 dashboard of your project.
 
-In the following example we are looking for the ID of the sample project 
+In the following example we are looking for the ID of the sample project
 `Testing CASH WITHDRAWAL`: the ID is 37025.
 
 ![Retrieve project id](images/getting-started/doc-api-project-id.png)
