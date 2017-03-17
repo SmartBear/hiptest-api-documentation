@@ -254,4 +254,32 @@ test_snapshot_id | The ID of the test you want to get
 
 Parameter | Description
 ----------|------------
-fields | The data to include in the test JSON response. Fields must be coma-separated
+include | The data to include in the test JSON response. Fields must be coma-separated
+
+
+## Add a test execution result
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the tests from
+test_run_id | The ID of the test run that contains the test you want
+test_snapshot_id | The ID of the test whose you want add a test result to
+
+### Mandatory fields
+
+Field | Description
+--------- | -----------
+result | (String) The result of the test execution. Possible values are 'passed', 'failed', 'wip', 'retest', 'blocked', 'skipped', 'undefined'.
+result_author | (String) The name of the author of the test execution
+description | (String) A comment about the test execution
+
+<aside class="notice">
+If the provided 'result' value does not match any of the listed possible values, the result will be set as 'undefined'
+</aside>
+
+### Optional fields
+Field | Description
+--------- | -----------
+build | (JSONAPI Relationship) The build containing your test execution result
