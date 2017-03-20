@@ -233,7 +233,10 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>'
+    --data '{}'
 ```
+
+> A new build
 
 ```json
   {
@@ -265,3 +268,111 @@ test_run_id | The ID of the test run you are executing
 
 
 ## Assign test execution results to a build
+```http
+POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
+
+data={"type": "test-results",
+  "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+  "relationships": {
+    "test-snapshot": {
+      "data": {
+        "type: "test-snapshots",
+        "id": 1
+      }
+    }
+  }
+}
+
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+    --data '{"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+    "relationships": {
+      "test-snapshot": {
+        "data": {
+          "type: "test-snapshots",
+          "id": 1
+        }
+      }
+    }}'
+```
+
+> Newly created test result
+
+``` json
+{
+  "data": {
+    "type": "test-results",
+    "id": "1",
+    "attributes": {
+      "status": "passed",
+      "created-at": "Couple of miliseconds ago",
+      "description": "",
+      "status-author": "Harry"
+    },
+    "links": {
+      "self": "/test-results/1"
+    },
+    "relationships": {
+      "test-snapshot": {
+        "data": {
+          "type": "test-snapshots",
+          "id": "1"
+        },
+      "build": {
+        "data": {
+          "type": "builds",
+          "id": "1"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "test-snapshots",
+      "attributes": "test data"
+    },
+
+    {
+      "type": "builds",
+      "attributes": "build data"
+    }
+  ]
+}
+}
+```
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the tests from
+test_run_id | The ID of the test run that contains the test you want
+build_id | The ID of the build whose you want add a test result to
+
+### Mandatory fields
+
+Field | Description
+--------- | -----------
+result | (String) The result of the test execution. Possible values are 'passed', 'failed', 'wip', 'retest', 'blocked', 'skipped', 'undefined'.
+result_author | (String) The name of the author of the test execution
+description | (String) A comment about the test execution
+test-snapshot | (JSONAPI relationship) The executed test
+
+<aside class="notice">
+If the provided 'result' value does not match any of the listed possible values, the result will be set as 'undefined'
+</aside>
