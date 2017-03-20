@@ -276,7 +276,7 @@ data={"type": "test-results",
   "relationships": {
     "test-snapshot": {
       "data": {
-        "type: "test-snapshots",
+        "type": "test-snapshots",
         "id": 1
       }
     }
@@ -304,7 +304,7 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
     "relationships": {
       "test-snapshot": {
         "data": {
-          "type: "test-snapshots",
+          "type": "test-snapshots",
           "id": 1
         }
       }
