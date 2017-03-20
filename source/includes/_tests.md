@@ -262,7 +262,7 @@ include | The data to include in the test JSON response. Fields must be coma-sep
 ```http
 POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
 
-data={"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}
+{"data": {"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}}
 
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
@@ -436,3 +436,90 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
   ]
 }
 ```
+
+## Update a test execution result
+
+```http
+PATCH https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+{
+  "data": {
+    "type": "test-results",
+    "id": <test_result_id>,
+    "attributes": {
+      "status": "passed",
+      "status-author": "Jenkins",
+      "description": "Automated jenkins job"
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPUT "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+    --data '{"data": {"type": "test-results", "id": <test_result_id>, "attributes": {"status": "passed", "status-author": "Jenkins", "description": "Automated jenkins job"}}}'
+```
+
+> Updated test result
+
+``` json
+{
+  "data": {
+    "type": "test-results",
+    "id": "<test_result_id>",
+    "attributes": {
+      "status": "passed",
+      "created-at": "Couple of miliseconds ago",
+      "description": "Automated jenkins job",
+      "status-author": "Jenkins"
+    },
+    "links": {
+      "self": "/test-results/<test_result_id>"
+    },
+    "relationships": {
+      "test-snapshot": {},
+      "build": {}
+    }
+  }
+}
+```
+
+The API allows you to update a test result following the
+[{json:api} way to patch resources](http://jsonapi.org/format/#crud-updating).
+
+Status, author and/or description may be updated specifying the
+`status`, `status-author` and/or `description` attributes of the resource.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the tests from
+test_run_id | The ID of the test run that contains the test you want
+test_snapshot_id | The ID of the test whose you want to update a test result to
+test_result_id | The ID of the test result you want to update
+
+### Attributes that may be updated
+
+Field | Description
+--------- | -----------
+status | (String) The status of the test execution. Possible values are 'passed', 'failed', 'wip', 'retest', 'blocked', 'skipped', 'undefined'.
+status-author | (String) The name of the author of the test execution
+description | (String) A comment about the test execution
+
+<aside class="notice">
+If the provided 'status' value does not match any of the listed possible values, the result will be set as 'undefined'
+</aside>
