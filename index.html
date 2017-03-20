@@ -1352,7 +1352,7 @@ about your tests.</p>
 <h2 id="add-a-test-execution-result">Add a test execution result</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 
-data={"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}
+{"data": {"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}}
 
 Accept: application/vnd.api+json; version=1
 access-token: &lt;your access token&gt;
@@ -1465,15 +1465,15 @@ If the provided 'result&rsquo; value does not match any of the listed possible v
 </tbody></table>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 
-data=
-{
-  "type": "test-results",
-  "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
-  "relationships": {
-    "build": {
-      "data": {
-        "type": "build",
-        "id": 1
+{"data": {
+    "type": "test-results",
+    "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+    "relationships": {
+      "build": {
+        "data": {
+          "type: "build,
+          "id": 1
+        }
       }
     }
   }
@@ -1546,6 +1546,114 @@ uid: &lt;your uid&gt;
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<h2 id="update-a-test-execution-result">Update a test execution result</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "type": "test-results",
+    "id": &lt;test_result_id&gt;,
+    "attributes": {
+      "status": "passed",
+      "status-author": "Jenkins",
+      "description": "Automated jenkins job"
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    --data <span class="s1">'{"data": {"type": "test-results", "id": &lt;test_result_id&gt;, "attributes": {"status": "passed", "status-author": "Jenkins", "description": "Automated jenkins job"}}}'</span>
+</code></pre>
+<blockquote>
+<p>Updated test result</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;test_result_id&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automated jenkins job"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/&lt;test_result_id&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The API allows you to update a test result following the
+<a href="http://jsonapi.org/format/#crud-updating">{json:api} way to patch resources</a>.</p>
+
+<p>Status, author and/or description may be updated specifying the
+<code class="prettyprint">status</code>, <code class="prettyprint">status-author</code> and/or <code class="prettyprint">description</code> attributes of the resource.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the tests from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run that contains the test you want</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test whose you want to update a test result to</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test result you want to update</td>
+</tr>
+</tbody></table>
+
+<h3 id="attributes-that-may-be-updated">Attributes that may be updated</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>(String) The status of the test execution. Possible values are &#39;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
+</tr>
+<tr>
+<td>status-author</td>
+<td>(String) The name of the author of the test execution</td>
+</tr>
+<tr>
+<td>description</td>
+<td>(String) A comment about the test execution</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
+</aside>
+
           <h1 id="test-execution">Test execution</h1>
 
 <h2 id="what-39-s-a-build">What&rsquo;s a build?</h2>
@@ -1827,7 +1935,7 @@ data={"type": "test-results",
   "relationships": {
     "test-snapshot": {
       "data": {
-        "type": "test-snapshots",
+        "type: "test-snapshots",
         "id": 1
       }
     }
@@ -1849,7 +1957,7 @@ uid: &lt;your uid&gt;
     "relationships": {
       "test-snapshot": {
         "data": {
-          "type": "test-snapshots",
+          "type: "test-snapshots",
           "id": 1
         }
       }
