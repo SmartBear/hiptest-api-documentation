@@ -259,6 +259,65 @@ include | The data to include in the test JSON response. Fields must be coma-sep
 
 ## Add a test execution result
 
+```http
+POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+
+data={"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}
+
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+    --data '{"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}'
+```
+
+``` json
+{
+  "data": {
+    "type": "test-results",
+    "id": "1",
+    "attributes": {
+      "status": "passed",
+      "created-at": "Couple of miliseconds ago",
+      "description": "",
+      "status-author": "Harry"
+    },
+    "links": {
+      "self": "/test-results/1"
+    },
+    "relationships": {
+      "test-snapshot": {
+        "data": {
+          "type": "test-snapshots",
+          "id": "1"
+        }
+      },
+      "build": {
+        "data": null
+      }
+    }
+  },
+  "included": [
+    {
+      "test-snapshot": "test data"
+    }
+  ]
+}
+```
+
 ### URL Parameters
 
 Parameter | Description
@@ -283,3 +342,93 @@ If the provided 'result' value does not match any of the listed possible values,
 Field | Description
 --------- | -----------
 build | (JSONAPI Relationship) The build containing your test execution result
+
+```http
+POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+
+data=
+{
+  "type": "test-results",
+  "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+  "relationships": {
+    "build": {
+      "data": {
+        "type: "build,
+        "id": 1
+      }
+    }
+  }
+}
+
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+    --data '{
+      "type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+      "relationships": {
+        "build": {
+          "data": {
+            "type: "build,
+            "id": 1
+          }
+        }
+      }
+    }'
+```
+
+``` json
+{
+  "data": {
+    "type": "test-results",
+    "id": "1",
+    "attributes": {
+      "status": "passed",
+      "created-at": "Couple of miliseconds ago",
+      "description": "",
+      "status-author": "Harry"
+    },
+    "links": {
+      "self": "/test-results/1"
+    },
+    "relationships": {
+      "test-snapshot": {
+        "data": {
+          "type": "test-snapshots",
+          "id": "1"
+        }
+      },
+      "build": {
+        "data": {
+          "type": "builds",
+          "id": "1"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "test-snapshots",
+      "attributes": "test data"
+    },
+
+    {
+      "type": "builds",
+      "attributes": "build data"
+    }
+  ]
+}
+```
