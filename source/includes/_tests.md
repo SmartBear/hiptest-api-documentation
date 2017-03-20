@@ -284,6 +284,8 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
     --data '{"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}'
 ```
 
+> Newly created test result
+
 ``` json
 {
   "data": {
@@ -389,6 +391,8 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
       }
     }'
 ```
+
+> Newly created test result
 
 ``` json
 {
