@@ -355,7 +355,7 @@ data=
   "relationships": {
     "build": {
       "data": {
-        "type: "build,
+        "type": "build",
         "id": 1
       }
     }
