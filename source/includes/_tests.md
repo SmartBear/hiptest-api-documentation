@@ -262,7 +262,7 @@ include | The data to include in the test JSON response. Fields must be coma-sep
 ```http
 POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
 
-{"data": {"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}}
+{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}
 
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
@@ -281,7 +281,7 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>'
-    --data '{"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}'
+    --data '{"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}'
 ```
 
 > Newly created test result
@@ -351,7 +351,7 @@ POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_
 data=
 {
   "type": "test-results",
-  "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+  "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
   "relationships": {
     "build": {
       "data": {
@@ -380,7 +380,7 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
     -H 'uid: <your uid>' \
     -H 'client: <your client id>'
     --data '{
-      "type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+      "type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
       "relationships": {
         "build": {
           "data": {
