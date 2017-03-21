@@ -1352,7 +1352,7 @@ about your tests.</p>
 <h2 id="add-a-test-execution-result">Add a test execution result</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 
-{"data": {"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}}
+{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}
 
 Accept: application/vnd.api+json; version=1
 access-token: &lt;your access token&gt;
@@ -1365,7 +1365,7 @@ uid: &lt;your uid&gt;
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
-    --data <span class="s1">'{"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"}}'</span>
+    --data <span class="s1">'{"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}'</span>
 </code></pre>
 <blockquote>
 <p>Newly created test result</p>
@@ -1465,15 +1465,15 @@ If the provided 'result&rsquo; value does not match any of the listed possible v
 </tbody></table>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 
-{"data": {
-    "type": "test-results",
-    "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
-    "relationships": {
-      "build": {
-        "data": {
-          "type: "build,
-          "id": 1
-        }
+data=
+{
+  "type": "test-results",
+  "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+  "relationships": {
+    "build": {
+      "data": {
+        "type": "build",
+        "id": 1
       }
     }
   }
@@ -1491,7 +1491,7 @@ uid: &lt;your uid&gt;
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
     --data <span class="s1">'{
-      "type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+      "type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
       "relationships": {
         "build": {
           "data": {
@@ -1935,7 +1935,7 @@ data={"type": "test-results",
   "relationships": {
     "test-snapshot": {
       "data": {
-        "type: "test-snapshots",
+        "type": "test-snapshots",
         "id": 1
       }
     }
@@ -1957,7 +1957,7 @@ uid: &lt;your uid&gt;
     "relationships": {
       "test-snapshot": {
         "data": {
-          "type: "test-snapshots",
+          "type": "test-snapshots",
           "id": 1
         }
       }
