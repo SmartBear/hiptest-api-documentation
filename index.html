@@ -1931,7 +1931,7 @@ of your build.</p>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 
 data={"type": "test-results",
-  "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+  "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
   "relationships": {
     "test-snapshot": {
       "data": {
@@ -1953,7 +1953,7 @@ uid: &lt;your uid&gt;
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
-    --data <span class="s1">'{"type": "test-results", "attributes": {"status": "passed", "status_author": "Harry", "description": "All was well"},
+    --data <span class="s1">'{"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
     "relationships": {
       "test-snapshot": {
         "data": {
