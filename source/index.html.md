@@ -105,7 +105,8 @@ curl https://hiptest.net/api/projects/$PROJECT_ID/scenarios \
       "type": "scenarios",
       "id": "668555",
       "attributes": {
-        "name": "Card has been disabled (1)"
+        "name": "Card has been disabled (1)",
+        "description": "An error is displayed when the cart has been disabled"
       },
       "links": {
         "self": "/scenarios/668555"
@@ -115,7 +116,8 @@ curl https://hiptest.net/api/projects/$PROJECT_ID/scenarios \
       "type": "scenarios",
       "id": "668556",
       "attributes": {
-        "name": "Account has sufficient funds for transferring cash (1)"
+        "name": "Account has sufficient funds for transferring cash (1)",
+        "description": ""
       },
       "links": {
         "self": "/scenarios/668556"
