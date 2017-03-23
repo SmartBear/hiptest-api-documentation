@@ -493,7 +493,7 @@ the API anymore. Don&rsquo;t forget to generate a new token before the expiratio
 }
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -828,6 +828,162 @@ and not its elements (scenarios and subfolders)</aside></p>
 <tr>
 <td>scenario_id</td>
 <td>The ID of the scenario you want to retrieve the tags from</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-tag-in-a-scenario">Create tag in a scenario</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "attributes": {
+      "key": "priority",
+      "value": "high"
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -X POST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/tags/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new tag in a scenario.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario where you want to create the tag</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-a-tag-in-a-scenario">Update a tag in a scenario</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags/&lt;tag_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "type": "tags",
+    "id": 5,
+    "attributes": {
+      "key": "priority",
+      "value": "low"
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags/&lt;tag_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    --data <span class="s1">'{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"low"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/tags/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a new tag in a scenario.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario where you want to update the tag</td>
+</tr>
+<tr>
+<td>tag_id</td>
+<td>The ID of the tag you want to update</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-a-tag-in-a-scenario">Delete a tag in a scenario</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags/&lt;tag_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags&lt;tag_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a tag in a scenario.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario where you want to delete the tag</td>
+</tr>
+<tr>
+<td>tag_id</td>
+<td>The ID of the tag you want to delete</td>
 </tr>
 </tbody></table>
 
