@@ -135,7 +135,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl -XPATCH "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
