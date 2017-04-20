@@ -348,15 +348,15 @@ build | (JSONAPI Relationship) The build containing your test execution result
 ```http
 POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
 
-data=
-{
-  "type": "test-results",
-  "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
-  "relationships": {
-    "build": {
-      "data": {
-        "type": "build",
-        "id": 1
+{ "data": {
+    "type": "test-results",
+    "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+    "relationships": {
+      "build": {
+        "data": {
+          "type": "build",
+          "id": 1
+        }
       }
     }
   }
