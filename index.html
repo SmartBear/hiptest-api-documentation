@@ -1199,6 +1199,9 @@ resource.</p>
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1219,6 +1222,9 @@ resource.</p>
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/2"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1273,6 +1279,9 @@ resource.</p>
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1296,6 +1305,26 @@ resource.</p>
 <td>The ID of the test run you want to get</td>
 </tr>
 </tbody></table>
+
+<h2 id="include-tags-when-fetching-your-test-run-s">Include tags when fetching your test run(s)</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs?include=tags</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs?include=tags"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre>
+<blockquote>
+<p>Also works when retrieving a single test run</p>
+</blockquote>
+
+<p>You can use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch the tags of your test runs</p>
 
           <h1 id="tests">Tests</h1>
 
@@ -2153,7 +2182,8 @@ of your build.</p>
 <h2 id="assign-test-execution-results-to-a-build">Assign test execution results to a build</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 
-data={"type": "test-results",
+
+data={"data": {"type": "test-results",
   "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
   "relationships": {
     "test-snapshot": {
@@ -2163,7 +2193,7 @@ data={"type": "test-results",
       }
     }
   }
-}
+}}
 
 Accept: application/vnd.api+json; version=1
 access-token: &lt;your access token&gt;
@@ -2176,7 +2206,7 @@ uid: &lt;your uid&gt;
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
-    --data <span class="s1">'{"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+    --data <span class="s1">'{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
     "relationships": {
       "test-snapshot": {
         "data": {
@@ -2184,7 +2214,7 @@ uid: &lt;your uid&gt;
           "id": 1
         }
       }
-    }}'</span>
+    }}}'</span>
 </code></pre>
 <blockquote>
 <p>Newly created test result</p>
