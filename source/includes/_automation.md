@@ -271,7 +271,8 @@ test_run_id | The ID of the test run you are executing
 ```http
 POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
 
-data={"type": "test-results",
+
+data={"data": {"type": "test-results",
   "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
   "relationships": {
     "test-snapshot": {
@@ -281,7 +282,7 @@ data={"type": "test-results",
       }
     }
   }
-}
+}}
 
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
@@ -300,7 +301,7 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>'
-    --data '{"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+    --data '{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
     "relationships": {
       "test-snapshot": {
         "data": {
@@ -308,7 +309,7 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
           "id": 1
         }
       }
-    }}'
+    }}}'
 ```
 
 > Newly created test result
