@@ -29,6 +29,9 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios" \
       "type": "scenarios",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Find horcruxes",
         "description": "That will help to kill Voldemort"
       },
@@ -40,6 +43,9 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios" \
       "type": "scenarios",
       "id": "2",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Defeat Voldemort",
         "descrption": "And save the world, hurray !"
       },
@@ -90,6 +96,9 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>" \
       "type": "scenarios",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Find horcruxes",
         "description": "That will help to kill Voldemort"
       },

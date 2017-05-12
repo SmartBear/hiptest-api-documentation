@@ -28,6 +28,9 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs" \
       "type": "test-runs",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Sprint 1",
         "description": "Wandering in the countryside, doing boring stuff",
         "statuses": {
@@ -112,6 +115,9 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>" \
       "type": "test-runs",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Sprint 1",
         "description": "Wandering in the countryside, doing boring stuff",
         "statuses": {
