@@ -29,6 +29,9 @@ curl "https://hiptest.net/api/projects/<project_id>/folders" \
       "type": "folders",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "HP Saga",
         "description": "This project is designed to keep track of the evolution of the HP saga,
         in the most expressive way possible, thanks to BDD!",
@@ -42,6 +45,9 @@ curl "https://hiptest.net/api/projects/<project_id>/folders" \
       "type": "folders",
       "id": "2",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "The Philosopher's Stone",
         "description": "",
         "parent-id": 1
@@ -93,6 +99,9 @@ curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>" \
       "type": "folders",
       "id": "2",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "The Philosopher's Stone",
         "description": "",
         "parent-id": 1

@@ -30,6 +30,9 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test
       "type": "test-snapshots",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Find horcruxes",
         "definition-json": {
           "scenario_name": "Find horcruxes",
@@ -59,6 +62,9 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test
       "type": "test-snapshots",
       "id": "2",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Defeat Voldemort",
         "definition-json": {
           "scenario_name": "Defeat Voldemort",
@@ -125,6 +131,9 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test
       "type": "test-snapshots",
       "id": "1",
       "attributes": {
+        "created-at" : "2017-02-28T11:39:08.281Z",
+        "updated-at" : "2017-02-28T11:39:08.281Z",
+        "last-author" : "harry@example.org",
         "name": "Find horcruxes",
         "definition-json": {
           "scenario_name": "Find horcruxes",
@@ -292,6 +301,9 @@ curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_i
     "type": "test-results",
     "id": "1",
     "attributes": {
+      "created-at" : "2017-02-28T11:39:08.281Z",
+      "updated-at" : "2017-02-28T11:39:08.281Z",
+      "last-author" : "harry@example.org",
       "status": "passed",
       "created-at": "Couple of miliseconds ago",
       "description": "",
@@ -481,6 +493,9 @@ curl -XPUT "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id
     "type": "test-results",
     "id": "<test_result_id>",
     "attributes": {
+      "created-at" : "2017-02-28T11:39:08.281Z",
+      "updated-at" : "2017-02-28T11:39:08.281Z",
+      "last-author" : "harry@example.org",
       "status": "passed",
       "created-at": "Couple of miliseconds ago",
       "description": "Automated jenkins job",
