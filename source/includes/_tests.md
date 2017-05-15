@@ -344,12 +344,12 @@ test_snapshot_id | The ID of the test whose you want add a test result to
 
 Field | Description
 --------- | -----------
-result | (String) The result of the test execution. Possible values are 'passed', 'failed', 'wip', 'retest', 'blocked', 'skipped', 'undefined'.
-result_author | (String) The name of the author of the test execution
+status | (String) The result of the test execution. Possible values are 'passed', 'failed', 'wip', 'retest', 'blocked', 'skipped', 'undefined'.
+status-author | (String) The name of the author of the test execution
 description | (String) A comment about the test execution
 
 <aside class="notice">
-If the provided 'result' value does not match any of the listed possible values, the result will be set as 'undefined'
+If the provided 'status' value does not match any of the listed possible values, the result will be set as 'undefined'
 </aside>
 
 ### Optional fields
