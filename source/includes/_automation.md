@@ -277,7 +277,7 @@ project_id | The ID of the project you want to retrieve the folders from
 test_run_id | The ID of the test run you are executing
 
 
-## Close a build build
+## Close a build
 
 ```http
 POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" HTTP/1.1
@@ -301,7 +301,7 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
     --data '{}'
 ```
 
-> The close build
+> The closed build
 
 ```json
   {
