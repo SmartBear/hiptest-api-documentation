@@ -33,8 +33,10 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
       "type": "builds",
       "id": "1",
       "attributes": {
-        "created-at": "1980-07-01T12:00:00.350Z",
-        "test-run-id": 1
+        "created-at": "2017-06-13T08:15:38.607Z",
+        "test-run-id": 1,
+        "is-running": false,
+        "closed-at": "2017-06-16T09:13:48.737Z"
       },
       "links": {
         "self": "/builds/1"
@@ -44,8 +46,10 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
       "type": "builds",
       "id": "2",
       "attributes": {
-        "created-at": "1980-07-01T12:00:00.350Z",
-        "test-run-id": 1
+        "created-at": "2017-06-13T08:15:38.607Z",
+        "test-run-id": 215,
+        "is-running": true,
+        "closed-at": nil
       },
       "links": {
         "self": "/builds/2"
@@ -94,8 +98,10 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
     "type": "builds",
     "id": "1",
     "attributes": {
-      "created-at": "1980-07-01T12:00:00.350Z",
-      "test-run-id": 1
+      "created-at": "2017-06-13T08:15:38.607Z",
+      "test-run-id": 1,
+      "is-running": false,
+      "closed-at": "2017-06-16T09:13:48.737Z"
     },
     "links": {
       "self": "/builds/1"
@@ -149,8 +155,10 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
     "type": "builds",
     "id": "1",
     "attributes": {
-      "created-at": "1980-07-01T12:00:00.350Z",
-      "test-run-id": 1
+      "created-at": "2017-06-13T08:15:38.607Z",
+      "test-run-id": 1,
+      "is-running": false,
+      "closed-at": "2017-06-16T09:13:48.737Z"
     },
     "links": {
       "self": "/builds/1"
@@ -245,7 +253,9 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
       "id": "3",
       "attributes": {
         "created-at": "now!",
-        "test-run-id": 1
+        "test-run-id": 1,
+        "is_running": true,
+        "closed_at": nil
       },
       "links": {
         "self": "/builds/3"
@@ -267,6 +277,62 @@ project_id | The ID of the project you want to retrieve the folders from
 test_run_id | The ID of the test run you are executing
 
 
+## Close a build build
+
+```http
+POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" \
+    -XPOST
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+    --data '{}'
+```
+
+> The close build
+
+```json
+  {
+    "data": {
+      "type": "builds",
+      "id": "3",
+      "attributes": {
+        "created-at": "2017-06-13T08:15:38.607Z",
+        "test-run-id": 1,
+        "is-running": false,
+        "closed-at": "2017-06-16T09:13:48.737Z"
+      },
+      "links": {
+        "self": "/builds/3"
+      },
+      "relationships": {
+        "test-results": {}
+      }
+    }
+  }
+```
+
+<aside class="notice">Closing a build will turn the flag "is_running" to false and set the "closed_at" attribute.</aside>
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the folders from
+test_run_id | The ID of the test run you are executing
+build_id | The ID of the build you want to close
 ## Assign test execution results to a build
 ```http
 POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
