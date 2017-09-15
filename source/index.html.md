@@ -16,6 +16,7 @@ includes:
   - datasets
   - test_runs
   - tests
+  - test_folders
   - automation
 
 search: true
