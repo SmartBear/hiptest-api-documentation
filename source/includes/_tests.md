@@ -38,6 +38,7 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test
           "scenario_name": "Find horcruxes",
           "dataset_name": null,
           "dataset_id": null,
+          "folder_snapshot_id": 1,
           "steps": [
             {
               "action": "Given Harry has one horcrux"
@@ -70,6 +71,7 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test
           "scenario_name": "Defeat Voldemort",
           "dataset_name": null,
           "dataset_id": null,
+          "folder_snapshot_id": 2,
           "steps": [
             {
               "action": "Given Harry cast the Expelliarmus spell"
