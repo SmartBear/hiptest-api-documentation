@@ -35,8 +35,7 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios" \
         "name": "Find horcruxes",
         "description": "That will help to kill Voldemort",
         "folder-id": 162629,
-        "definition": "scenario 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n",
-        "errors": []
+        "definition": "scenario 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n"
       },
       "links": {
         "self": "/scenarios/1"
@@ -55,8 +54,7 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios" \
         "name": "Defeat Voldemort",
         "descrption": "And save the world, hurray !",
         "folder-id": 162629,
-        "definition": "scenario 'Defeat Voldemort' do\nend\n",
-        "errors": []
+        "definition": "scenario 'Defeat Voldemort' do\nend\n"
       },
       "links": {
         "self": "/scenarios/2"
