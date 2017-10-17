@@ -52,7 +52,7 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios" \
         "updated-at" : "2017-02-28T11:39:08.281Z",
         "last-author" : "harry@example.org",
         "name": "Defeat Voldemort",
-        "descrption": "And save the world, hurray !",
+        "description": "And save the world, hurray !",
         "folder-id": 162629,
         "definition": "scenario 'Defeat Voldemort' do\nend\n"
       },
