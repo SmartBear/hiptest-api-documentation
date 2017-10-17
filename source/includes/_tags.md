@@ -1,4 +1,65 @@
 # Tags
+## Get tags of a given action word
+
+```http
+GET https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>/tags HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>/tags" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "tags",
+      "id": "1",
+      "attributes": {
+        "key": "platform",
+        "value": "Android"
+      },
+      "links": {
+        "self": "/tags/1"
+      }
+    },
+    {
+      "type": "tags",
+      "id": "2",
+      "attributes": {
+        "key": "automated",
+        "value": "yes"
+      },
+      "links": {
+        "self": "/tags/2"
+      }
+    }
+  ]
+}
+```
+
+This endpoint retrieves all tags of a given action word.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project that contains the wanted action word
+actionword_id | The ID of the action word you want to retrieve the tags from
+
+
 ## Get tags of a given scenario
 
 ```http
@@ -57,6 +118,7 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project that contains the wanted scenario
 scenario_id | The ID of the scenario you want to retrieve the tags from
+
 
 ## Create tag in a scenario
 

@@ -63,6 +63,8 @@ curl "https://hiptest.net/api/projects/<project_id>/actionwords" \
 
 This endpoint retrieves all action words of a given project.
 
+You can retrieve tags of an action word from the [tags endpoint](#get-tags-of-a-given-action-word).
+
 ### URL Parameters
 
 Parameter | Description
