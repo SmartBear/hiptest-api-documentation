@@ -283,7 +283,7 @@ Name, description and definition are optional. Specify only the attributes you w
 Unlike the creation of an action word the definition here must be fully specified.
 </aside>
 <aside class="warning">
-Don't udpate name and definition attributes at the same time to avoid 409/conflict errors.
+Don't update name and definition attributes at the same time to avoid 409/conflict errors.
 You can rename an action word and update its definition by specifying the new name in the definition.
 </aside>
 

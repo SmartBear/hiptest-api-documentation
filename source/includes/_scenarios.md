@@ -289,7 +289,7 @@ scenario_id | The ID of the scenario you want to update
 Attributes to update are all optional. Specify only the ones you want to update.
 </aside>
 <aside class="warning">
-Don't udpate name and definition attributes at the same time to avoid 409/conflict errors.
+Don't update name and definition attributes at the same time to avoid 409/conflict errors.
 You can rename a scenario and update its definition by specifying the new name in the new definition.
 </aside>
 
