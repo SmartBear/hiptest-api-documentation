@@ -461,7 +461,7 @@ curl -XDELETE "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>
 }
 ```
 
-This endpoint destroy a folder children
+This endpoint destroys all sub-folders of the target folder
 
 ### URL Parameters
 
