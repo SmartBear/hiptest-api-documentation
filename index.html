@@ -668,7 +668,7 @@ Unlike the creation of an action word the definition here must be fully specifie
 </aside>
 
 <aside class="warning">
-Don&rsquo;t udpate name and definition attributes at the same time to avoid 409/conflict errors.
+Don&rsquo;t update name and definition attributes at the same time to avoid 409/conflict errors.
 You can rename an action word and update its definition by specifying the new name in the definition.
 </aside>
 
@@ -1012,7 +1012,7 @@ Attributes to update are all optional. Specify only the ones you want to update.
 </aside>
 
 <aside class="warning">
-Don&rsquo;t udpate name and definition attributes at the same time to avoid 409/conflict errors.
+Don&rsquo;t update name and definition attributes at the same time to avoid 409/conflict errors.
 You can rename a scenario and update its definition by specifying the new name in the new definition.
 </aside>
 
@@ -1296,6 +1296,301 @@ and not its elements (scenarios and subfolders)</aside></p>
 <td>The ID of the folder you want to get the scenarios</td>
 </tr>
 </tbody></table>
+
+<h2 id="create-a-folder">Create a folder</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "attributes": {
+      "name": "A new folder",
+      "parent-id": 1234
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{"data": {"attributes": {"name": "A new folder", "parent-id": "1234" } } }'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-17T08:00:33.978Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-18T08:28:07.791Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A new folder"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do\nend\n"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/1235"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create a new folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+</tbody></table>
+
+<h3 id="mandatory-fields">Mandatory fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>(String) The name of the folder.</td>
+</tr>
+</tbody></table>
+
+<h3 id="other-fields">Other fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>parent-id</td>
+<td>(Integer) The id of the folder that will contain the created folder.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> If no parent folder is specified, the folder will be created inside the root folder of the project</aside>
+
+<h2 id="update-a-folder">Update a folder</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "type": "folders",
+    "id": "&lt;folder_id&gt;"
+    "attributes": {
+      "name": "A new folder name",
+      "description: "A new description",
+      "definition": "folder do end"
+      "parent-id": 1233
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{"data": {"attributes": {"name": "A new folder name", "parent-id": "1233", "description: "A new description", "definition": "folder do end" } } }'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-17T08:00:33.978Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-18T08:28:07.791Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A new folder name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A new descriptio"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do\nend\n"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/1234"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+</tbody></table>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>(String) The name of the folder.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>(String) The description of the folder.</td>
+</tr>
+<tr>
+<td>definition</td>
+<td>(String) The definition of the folder.</td>
+</tr>
+<tr>
+<td>parent-id</td>
+<td>(Integer) The id of the parent folder.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Attributes to update are all optional. Specify only the ones you want to update.</aside>
+
+<h2 id="delete-a-folder">Delete a folder</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint destroy a folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+</tbody></table>
+
+<aside class="warning"><b>Warning:</b> this action will destroy all the children and scenarios within the given folder</aside>
+
+<h2 id="delete-a-folder-children">Delete a folder children</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/children</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/children"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint destroy a folder children</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+</tbody></table>
+
+<aside class="warning"><b>Warning:</b> this action will destroy all the children and their scenarios</aside>
+
+<h2 id="delete-a-folder-scenarios">Delete a folder scenarios</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/scenarios</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/scenarios"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint destroy a folder scenarios</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+</tbody></table>
+
+<aside class="warning"><b>Warning:</b> this action will destroy all the scenarios of the given folder</aside>
 
           <h1 id="tags">Tags</h1>
 
