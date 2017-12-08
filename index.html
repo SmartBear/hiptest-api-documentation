@@ -1531,7 +1531,7 @@ and not its elements (scenarios and subfolders)</aside></p>
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint destroy a folder children</p>
+<p>This endpoint destroys all sub-folders of the target folder</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -2321,6 +2321,19 @@ resource.</p>
 <td>The ID of the test run that contains the tests you want</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  The list of available statuses for a test are:
+  <ul>
+    <li>undefined</li>
+    <li>passed</li>
+    <li>failed</li>
+    <li>retest</li>
+    <li>blocked</li>
+    <li>wip</li>
+    <li>skipped</li>
+  </ul>
+</aside>
 
 <h2 id="get-a-test">Get a test</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
