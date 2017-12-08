@@ -105,6 +105,19 @@ Parameter | Description
 project_id | The ID of the project you want to retrieve the tests from
 test_run_id | The ID of the test run that contains the tests you want
 
+<aside class="notice">
+  The list of available statuses for a test are:
+  <ul>
+    <li>undefined</li>
+    <li>passed</li>
+    <li>failed</li>
+    <li>retest</li>
+    <li>blocked</li>
+    <li>wip</li>
+    <li>skipped</li>
+  </ul>
+</aside>
+
 ## Get a test
 
 ```http
