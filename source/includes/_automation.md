@@ -187,6 +187,11 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
         "created-at": "1980-07-01T12:00:00.350Z",
         "description": "",
         "status-author": "Jenkins",
+        "step-statuses": [
+          "passed",
+          "passed",
+          "passed"
+        ],
         "test-snapshot-id": 1
       },
       "links": {
@@ -201,6 +206,7 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/buil
         "created-at": "1980-07-01T12:00:00.350Z",
         "description": "Error on line 42",
         "status-author": "Jenkins",
+        "step-statuses": [],
         "test-snapshot-id": 2
       },
       "links": {
