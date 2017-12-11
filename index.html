@@ -2444,6 +2444,10 @@ about your tests.</p>
 <td>dataset</td>
 <td>The dataset that produced the test (if it comes from a scenario using a datatable)</td>
 </tr>
+<tr>
+<td>last-result</td>
+<td>The details of the last test result of the test</td>
+</tr>
 </tbody></table>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=scenario</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
@@ -3301,6 +3305,11 @@ and not their test results</aside></p>
         </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-07-01T12:00:00.350Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="nt">"test-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3315,6 +3324,7 @@ and not their test results</aside></p>
         </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-07-01T12:00:00.350Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error on line 42"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nt">"test-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
