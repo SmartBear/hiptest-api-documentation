@@ -220,6 +220,7 @@ Field name | Description
 -----------| -----------
 scenario | The original scenario that produced the test
 dataset | The dataset that produced the test (if it comes from a scenario using a datatable)
+last-result | The details of the last test result of the test
 
 ```http
 GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=scenario HTTP/1.1
