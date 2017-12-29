@@ -1998,6 +1998,225 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tr>
 </tbody></table>
 
+<h2 id="get-a-given-dataset">Get a given dataset</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 1-1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 1-2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the datasets from</td>
+</tr>
+<tr>
+<td>dataset_id</td>
+<td>The ID of the dataset you want to show</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-dataset">Create a dataset</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "attributes": {
+      "name": "dataset-3",
+      "values": {
+        "parameter-1": "value 3-1",
+        "parameter-2": "value 3-2"
+      }
+    }
+  }
+}
+
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    --data <span class="s1">'{"data": {"attributes": {"name": "dataset-3","values": {"parameter-1": "value 3-1", "parameter-2": "value 3-2"}}}}'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-3"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 3-1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 3-2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the datasets from</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-a-dataset">Update a dataset</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+      "type": "datasets",
+      "id": "3",
+      "attributes": {
+          "name": "new dataset-3 name",
+          "data": {
+              "parameter-1": "new value 3-1",
+              "parameter-2": "new value 3-2"
+          }
+      }
+  }
+}
+
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    --data <span class="s1">'{"data": { "type": "datasets", "id": "3", "attributes": {"name": "new dataset-3 name","values": {"parameter-1": "new value 3-1", "parameter-2": "new value 3-2"}}}}'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new dataset-3 name"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new value 3-1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new value 3-2"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/datasets/3"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the datasets from</td>
+</tr>
+<tr>
+<td>dataset_id</td>
+<td>The ID of the dataset you want to update</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-a-dataset">Delete a dataset</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the datasets from</td>
+</tr>
+<tr>
+<td>dataset_id</td>
+<td>The ID of the dataset you want to destroy</td>
+</tr>
+</tbody></table>
+
 <h1 id="datatables">Datatables</h1>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datatable</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
@@ -2046,6 +2265,273 @@ and not its elements (scenarios and subfolders)</aside></p>
 </span></code></pre>
 <p>A <code class="prettyprint">datatable</code> endpoint is available as an alias for the <a href="#datasets"><code class="prettyprint">datasets</code></a>
 resource.</p>
+
+          <h1 id="parameters">Parameters</h1>
+
+<h2 id="get-parameters-of-a-given-scenario">Get parameters of a given scenario</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameter-1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/parameters/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameter-2"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/parameters/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all parameters of a given scenario.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the parameters from</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-given-parameter">Get a given parameter</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameter-1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/parameters/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the parameters from</td>
+</tr>
+<tr>
+<td>parameter_id</td>
+<td>The ID of the parameter you want to show</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-parameter">Create a parameter</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "attributes": {
+      "name": "parameter-3"
+    }
+  }
+}
+
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    --data <span class="s1">'{"data": {"attributes": {"name": "parameter-3"}}}'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameter-3"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/parameters/3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the parameters from</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Please notice that parameter name will get normalized.
+</aside>
+
+<h2 id="update-a-parameter">Update a parameter</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+      "type": "parameters",
+      "id": "3",
+      "attributes": {
+          "name": "new parameter-3 name"
+      }
+  }
+}
+
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    --data <span class="s1">'{"data": { "type": "parameters", "id": "3", "attributes": {"name": "new parameter-3 name"}}}'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_parameter-3_name"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/parameters/3"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the parameters from</td>
+</tr>
+<tr>
+<td>parameter_id</td>
+<td>The ID of the parameter you want to update</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Please notice that parameter name will get normalized.
+</aside>
+
+<h2 id="delete-a-parameter">Delete a parameter</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the wanted scenario</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the scenario you want to retrieve the parameters from</td>
+</tr>
+<tr>
+<td>parameter_id</td>
+<td>The ID of the parameter you want to destroy</td>
+</tr>
+</tbody></table>
 
           <h1 id="test-runs">Test runs</h1>
 
