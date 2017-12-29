@@ -15,6 +15,7 @@ includes:
   - folders
   - tags
   - datasets
+  - parameters
   - test_runs
   - tests
   - test_folders
