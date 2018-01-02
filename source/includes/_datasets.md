@@ -127,7 +127,7 @@ uid: <your uid>
   "data": {
     "attributes": {
       "name": "dataset-3",
-      "values": {
+      "data": {
         "parameter-1": "value 3-1",
         "parameter-2": "value 3-2"
       }
