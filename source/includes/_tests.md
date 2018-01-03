@@ -275,11 +275,54 @@ project_id | The ID of the project you want to retrieve the tests from
 test_run_id | The ID of the test run that contains the test you want
 test_snapshot_id | The ID of the test you want to get
 
+
 ### Request parameters
 
 Parameter | Description
 ----------|------------
 include | The data to include in the test JSON response. Fields must be coma-separated
+
+```http
+GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?show_passrate HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?show_passrate" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+> Get a test passrate
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the tests from
+test_run_id | The ID of the test run that contains the test you want
+test_snapshot_id | The ID of the test you want to get
+
+
+### Request parameters
+
+Parameter | Description
+----------|------------
+show_passrate | Add this get parameter to get the passrate in the data
+
+<aside class="notice">
+The pass rate is only based on three types of results: passed, failed and blocked. The pass rate is only computed on the last 10 results for this test.
+Note: the passrate is expressed as a percentage (25 meaning 25% for example). If there are no usable results to compute the data, an empty string will be returned.
+</aside>
 
 
 ## Add a test execution result
