@@ -2742,14 +2742,16 @@ Please notice that parameter name will get normalized.
           </span><span class="p">],</span><span class="w">
           </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"folder-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/1"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"scenario"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"last-result"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2775,14 +2777,16 @@ Please notice that parameter name will get normalized.
           </span><span class="p">],</span><span class="w">
           </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"folder-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/2"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"scenario"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"last-result"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -2834,40 +2838,42 @@ Please notice that parameter name will get normalized.
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
-</code></pre><pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"definition-json"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"scenario_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"dataset_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"dataset_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Given Harry has one horcrux"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Then he should destroy it"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-          </span><span class="p">],</span><span class="w">
-          </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w">
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"definition-json"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"scenario_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dataset_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dataset_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Given Harry has one horcrux"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Then he should destroy it"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/1"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"scenario"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"folder-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"scenario"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"last-result"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a particular test of a test run</p>
 
@@ -2907,13 +2913,122 @@ Please notice that parameter name will get normalized.
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
 </code></pre>
-<blockquote>
-<p>The data you want to include in the response must be coma-separated</p>
-</blockquote>
-
 <p>You can use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch additional data
 about your tests.</p>
 
+<blockquote>
+<p>Following example returns a test with scenario, last result and the pass rate.</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=dataset,scenario&amp;show_passrate</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=dataset,scenario&amp;show_passrate"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"definition-json"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"scenario_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dataset_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dataset_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Given Harry has one horcrux"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Then he should destroy it"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"folder-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pass-rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"scenario"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"dataset"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"last-result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/1/relationships/last-result"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-snapshots/1/last-result"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-26T07:10:42.651Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-26T10:22:23.206Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"That will help to kill Voldemort"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"folder-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">162629</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenario 'Find horcruxes' do\n  call given 'Harry has one horcrux'\n  call then 'he should destroy it\nend\n"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/10"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-01T14:38:16.612Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-01T14:38:16.612Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/7"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"execution-environment"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>The available additional data are the following:</p>
 
 <table><thead>
@@ -2935,38 +3050,8 @@ about your tests.</p>
 <td>The details of the last test result of the test</td>
 </tr>
 </tbody></table>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=scenario</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
-<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
-<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
-<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=scenario"</span> <span class="se">\</span>
-    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
-    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
-</code></pre>
-<blockquote>
-<p>Get a test scenario</p>
-</blockquote>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=dataset</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
-<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
-<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
-<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?include=dataset"</span> <span class="se">\</span>
-    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
-    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
-</code></pre>
-<blockquote>
-<p>Get a test dataset</p>
-</blockquote>
+
+<p><code class="prettyprint">show_passrate</code> parameter can be added to include test pass rate in the response.</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -3000,65 +3085,17 @@ about your tests.</p>
 </thead><tbody>
 <tr>
 <td>include</td>
-<td>The data to include in the test JSON response. Fields must be coma-separated</td>
+<td>The data to include in the test JSON response. Fields must be comma-separated</td>
 </tr>
-</tbody></table>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?show_passrate</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
-<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
-<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
-<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;?show_passrate"</span> <span class="se">\</span>
-    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
-    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
-</code></pre>
-<blockquote>
-<p>Get a test passrate</p>
-</blockquote>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_id</td>
-<td>The ID of the project you want to retrieve the tests from</td>
-</tr>
-<tr>
-<td>test_run_id</td>
-<td>The ID of the test run that contains the test you want</td>
-</tr>
-<tr>
-<td>test_snapshot_id</td>
-<td>The ID of the test you want to get</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-parameters">Request parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>show_passrate</td>
-<td>Add this get parameter to get the passrate in the data</td>
+<td>Add this parameter to get the test pass rate in the data</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-The pass rate is only based on three types of results: passed, failed and blocked. The pass rate is only computed on the last 10 results for this test.
-Note: the passrate is expressed as a percentage (25 meaning 25% for example). If there are no usable results to compute the data, an empty string will be returned.
+The pass rate is only based on three types of results: passed, failed and blocked. The pass rate is computed on the last 10 results of the test.
+Note: the pass rate is expressed as a percentage (25 meaning 25% for example). If there are no usable results to compute the data, an empty string will be returned.
 </aside>
 
 <h2 id="add-a-test-execution-result">Add a test execution result</h2>
@@ -3555,7 +3592,7 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
 </code></pre>
 <blockquote>
-<p>The data you want to include in the response must be coma-separated</p>
+<p>The data you want to include in the response must be comma-separated</p>
 </blockquote>
 
 <p>You can use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch additional data
@@ -3663,7 +3700,7 @@ about your tests.</p>
 </thead><tbody>
 <tr>
 <td>include</td>
-<td>The data to include in the test JSON response. Fields must be coma-separated</td>
+<td>The data to include in the test JSON response. Fields must be comma-separated</td>
 </tr>
 </tbody></table>
 
