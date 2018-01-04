@@ -209,7 +209,7 @@ curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test
     -H 'client: <your client id>'
 ```
 
-> The data you want to include in the response must be coma-separated
+> The data you want to include in the response must be comma-separated
 
 You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-includes) to fetch additional data
 about your tests.
@@ -280,7 +280,7 @@ test_snapshot_id | The ID of the test you want to get
 
 Parameter | Description
 ----------|------------
-include | The data to include in the test JSON response. Fields must be coma-separated
+include | The data to include in the test JSON response. Fields must be comma-separated
 
 ```http
 GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?show_passrate HTTP/1.1
