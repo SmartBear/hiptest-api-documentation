@@ -75,7 +75,144 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project you want to retrieve the scenarios from
 
+## Find scenarios by tags
 
+> Find scenarios by tags key
+
+```http
+GET https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "scenarios",
+      "id": "1",
+      "attributes": {
+        "created-at" : "2018-01-31T16:03:45.387Z",
+        "updated-at" : "2018-02-05T14:54:50.826Z",
+        "last-author" : "harry@example.org",
+        "name": "Find horcruxes",
+        "description": "That will help to kill Voldemort",
+        "folder-id": 162629,
+        "definition": "scenario 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n"
+      },
+      "links": {
+        "self": "/scenarios/1"
+      },
+      "relationships": {
+        "folder": {}
+      }
+    },
+    {
+      "type": "scenarios",
+      "id": "2",
+      "attributes": {
+        "created-at" : "2018-02-05T13:15:13.285Z",
+        "updated-at" : "2018-02-05T13:18:19.397Z",
+        "last-author" : "harry@example.org",
+        "name": "Defeat Voldemort",
+        "description": "And save the world, hurray !",
+        "folder-id": 162629,
+        "definition": "scenario 'Defeat Voldemort' do\nend\n"
+      },
+      "links": {
+        "self": "/scenarios/2"
+      },
+      "relationships": {
+        "folder": {}
+      }
+    }
+  ],
+  "included": []
+}
+```
+
+> Find scenarios by tags key and value
+
+```http
+GET https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "scenarios",
+      "id": "1",
+      "attributes": {
+        "created-at" : "2018-01-31T16:03:45.387Z",
+        "updated-at" : "2018-02-05T14:54:50.826Z",
+        "last-author" : "harry@example.org",
+        "name": "Find horcruxes",
+        "description": "That will help to kill Voldemort",
+        "folder-id": 162629,
+        "definition": "scenario 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n"
+      },
+      "links": {
+        "self": "/scenarios/1"
+      },
+      "relationships": {
+        "folder": {}
+      }
+    }
+  ],
+  "included": []
+}
+```
+
+This endpoint retrieves all scenarios of a given project and having the given tag.
+
+Field name | Description
+--------- | -----------
+tag_key | The KEY of the tag you use to retrieve the scenarios
+tag_value | The VALUE of the tag you use to retrieve the scenarios
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the scenarios from
+
+### Request parameters
+
+Parameter | Description
+--------- | -----------
+key | The key of the tag.
+value | The value of the tag
 
 ## Get a single scenario
 
