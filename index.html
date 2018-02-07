@@ -929,6 +929,157 @@ Caution: your action word will be totaly and permanently removed from your proje
 </tr>
 </tbody></table>
 
+<h2 id="find-scenarios-by-tags">Find scenarios by tags</h2>
+
+<blockquote>
+<p>Find scenarios by tags key</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/find_by_tags?key=&lt;tag_key&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/find_by_tags?key=&lt;tag_key&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-31T16:03:45.387Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T14:54:50.826Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"That will help to kill Voldemort"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"folder-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">162629</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenario 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T13:15:13.285Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T13:18:19.397Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Defeat Voldemort"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"And save the world, hurray !"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"folder-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">162629</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenario 'Defeat Voldemort' do\nend\n"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/2"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Find scenarios by tags key and value</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/find_by_tags?key=&lt;tag_key&gt;&amp;value=&lt;tag_value&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/find_by_tags?key=&lt;tag_key&gt;&amp;value=&lt;tag_value&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-31T16:03:45.387Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T14:54:50.826Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"That will help to kill Voldemort"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"folder-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">162629</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenario 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all scenarios of a given project and having the given tag.</p>
+
+<table><thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tag_key</td>
+<td>The KEY of the tag you use to retrieve the scenarios</td>
+</tr>
+<tr>
+<td>tag_value</td>
+<td>The VALUE of the tag you use to retrieve the scenarios</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenarios from</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-parameters">Request parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>The key of the tag.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>The value of the tag</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-a-single-scenario">Get a single scenario</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
