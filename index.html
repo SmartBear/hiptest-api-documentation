@@ -651,7 +651,7 @@ the API anymore. Don&rsquo;t forget to generate a new token before the expiratio
     }
   }
 }
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/actionwords"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
@@ -1152,7 +1152,7 @@ Caution: your action word will be totaly and permanently removed from your proje
     }
   }
 }
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/actionwords"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
@@ -1608,7 +1608,7 @@ and not its elements (scenarios and subfolders)</aside></p>
     }
   }
 }
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/folders"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
@@ -2025,7 +2025,7 @@ and not its elements (scenarios and subfolders)</aside></p>
     }
   }
 }
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -X POST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
@@ -3403,7 +3403,7 @@ Accept: application/vnd.api+json; version=1
 access-token: &lt;your access token&gt;
 client: &lt;your client id&gt;
 uid: &lt;your uid&gt;
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
@@ -4237,7 +4237,7 @@ of your build.</p>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://hiptest.net/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds"</span> <span class="se">\</span>
     -XPOST
