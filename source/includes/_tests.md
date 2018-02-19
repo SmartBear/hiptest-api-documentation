@@ -387,7 +387,7 @@ uid: <your uid>
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 Created
 Content-Type: application/vnd.api+json
 ```
 
