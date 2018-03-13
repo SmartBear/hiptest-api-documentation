@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 ruby '>= 2.5'
-=======
-ruby '2.3.1'
 
->>>>>>> 86030c5 (Add a getting started paragraph)
 source 'https://rubygems.org'
 
 # Middleman
