@@ -2,7 +2,7 @@
 ## Get tags of a given action word
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>/tags HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -14,7 +14,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>/tags" \
+curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -63,7 +63,7 @@ actionword_id | The ID of the action word you want to retrieve the tags from
 ## Get tags of a given scenario
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -75,7 +75,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -123,7 +123,7 @@ scenario_id | The ID of the scenario you want to retrieve the tags from
 ## Create tag in a scenario
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -145,7 +145,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -X POST "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
+curl -X POST "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -179,7 +179,7 @@ scenario_id | The ID of the scenario where you want to create the tag
 ## Update a tag in a scenario
 
 ```http
-PATCH https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
+PATCH https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -203,7 +203,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id>" \
+curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -241,7 +241,7 @@ tag_id | The ID of the tag you want to update
 ## Delete a tag in a scenario
 
 ```http
-DELETE https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
+DELETE https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -254,7 +254,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/tags<tag_id>" \
+curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -277,7 +277,7 @@ tag_id | The ID of the tag you want to delete
 ## Get tags of a given folder
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/tags HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -289,7 +289,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/folders/<folder_id>/tags" \
+curl "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

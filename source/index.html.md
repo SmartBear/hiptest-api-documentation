@@ -6,7 +6,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://hiptest.net'>Sign Up for Hiptest!</a>
+  - <a href='https://hiptest.com'>Sign Up for Hiptest!</a>
 
 includes:
   - authentication
@@ -27,7 +27,7 @@ search: true
 
 # Introduction
 
-Welcome to the <a href="https://hiptest.net">Hiptest</a> API! You can use our
+Welcome to the <a href="https://hiptest.com">Hiptest</a> API! You can use our
 API endpoints to get information on your projects in our database. It is
 RESTFull and follows the [{json:api}](http://jsonapi.org) specification.
 
@@ -70,8 +70,8 @@ This little tutorial will guide you to request our API for the first time.
 ## Your API credentials
 
 Before accessing our API you need to generate your API credentials. Sign in to
-your account on [Hiptest.net](https://hiptest.net) then go to
-[your profile page](https://hiptest.net/app/profile). Click the
+your account on [Hiptest.com](https://hiptest.com) then go to
+[your profile page](https://app.hiptest.com/profile). Click the
 `Generate new API credentials` button.
 
 ![User profile page](images/getting-started/doc-api-cred-01.png)
@@ -84,7 +84,7 @@ your account on [Hiptest.net](https://hiptest.net) then go to
 > with yours
 
 ```http
-GET https://hiptest.net/api/projects/$PROJECT_ID/scenarios HTTP/1.1
+GET https://app.hiptest.com/api/projects/$PROJECT_ID/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: $ACCESS_TOKEN
 client: $CLIENT_ID
@@ -96,7 +96,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl https://hiptest.net/api/projects/$PROJECT_ID/scenarios \
+curl https://app.hiptest.com/api/projects/$PROJECT_ID/scenarios \
 	-H 'Accept: application/vnd.api+json; version=1' \
 	-H 'access-token: $ACCESS_TOKEN' \
 	-H 'client: $CLIENT_ID' \
@@ -145,7 +145,7 @@ Now to retrieve all the scenarios of your project use the endpoint
 `api/projects/$PROJECT_ID/scenarios`. The HTTP call looks
 like the following:
 
-`GET https://hiptest.net/api/projects/$PROJECT_ID/scenarios`
+`GET https://app.hiptest.com/api/projects/$PROJECT_ID/scenarios`
 
 Replace the $PROJECT_ID with the ID of one of your project. The following
 headers MUST be part of the query:
@@ -168,7 +168,7 @@ The header `Accept` tells the API to respond using the
 > Replace `$EMAIL_ADDRESS` and `$PASSWORD` with your Hiptest credentials
 
 ```http
-POST https://hiptest.net/api/auth/sign_in HTTP/1.1
+POST https://app.hiptest.com/api/auth/sign_in HTTP/1.1
 Content-Type: application/json
 
 {"email": "$EMAIL_ADDRESS", "password": "$PASSWORD"}
@@ -184,7 +184,7 @@ uid: ...@...
 ```
 
 ```shell
-curl -XPOST https://hiptest.net/api/auth/sign_in \
+curl -XPOST https://app.hiptest.com/api/auth/sign_in \
 	-H 'Content-Type: application/json' \
 	-d '{"email": "$EMAIL_ADDRESS", "password": "$PASSWORD"}' \
 	-D /dev/stdout
@@ -216,7 +216,7 @@ it programmaticaly, using the API.
 
 To generate or renew your API credentials use this endpoint: `api/auth/sign_in`.
 
-`POST https://hiptest.net/api/auth/sign_in`
+`POST https://app.hiptest.com/api/auth/sign_in`
 
 Post your Hiptest credentials (email and password) encoded as JSON. If you have
 been successfully authenticated your API credentials will be in the response

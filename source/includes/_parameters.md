@@ -2,7 +2,7 @@
 ## Get parameters of a given scenario
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -14,7 +14,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -59,7 +59,7 @@ scenario_id | The ID of the scenario you want to retrieve the parameters from
 ## Get a given parameter
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -71,7 +71,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -105,7 +105,7 @@ parameter_id | The ID of the parameter you want to show
 ## Create a parameter
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -127,7 +127,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters" \
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -165,7 +165,7 @@ Please notice that parameter name will get normalized.
 ## Update a parameter
 
 ```http
-PATCH https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
+PATCH https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -189,7 +189,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
+curl -XPUT "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -227,7 +227,7 @@ Please notice that parameter name will get normalized.
 ## Delete a parameter
 
 ```http
-DELETE https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
+DELETE https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -240,7 +240,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
+curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
