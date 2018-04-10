@@ -3,7 +3,7 @@
 ## Get action words of a given project
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/actionwords HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/actionwords HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/actionwords" \
+curl "https://app.hiptest.com/api/projects/<project_id>/actionwords" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -76,7 +76,7 @@ project_id | The ID of the project you want to retrieve the actionwords from
 ## Get a single action word
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -88,7 +88,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -128,7 +128,7 @@ actionword_id | The ID of the action word you want to get
 ## Create an action word
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/actionwords HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/actionwords HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -150,7 +150,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://hiptest.net/api/projects/<project_id>/actionwords" \
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/actionwords" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -213,7 +213,7 @@ errors will be in the "errors" attribute of the returned data.
 ## Update an action word
 
 ```http
-PATCH https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
+PATCH https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -238,7 +238,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>" \
+curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -290,7 +290,7 @@ You can rename an action word and update its definition by specifying the new na
 ## Delete an action word
 
 ```http
-DELETE https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
+DELETE https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -302,7 +302,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://hiptest.net/api/projects/<project_id>/actionwords/<actionword_id>" \
+curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

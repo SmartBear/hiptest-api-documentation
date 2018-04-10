@@ -3,7 +3,7 @@
 ## Get scenarios of a given project
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -80,7 +80,7 @@ project_id | The ID of the project you want to retrieve the scenarios from
 > Find scenarios by tags key
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -92,7 +92,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -148,7 +148,7 @@ curl "https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<
 > Find scenarios by tags key and value
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -160,7 +160,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -217,7 +217,7 @@ value | The value of the tag
 ## Get a single scenario
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -229,7 +229,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -273,7 +273,7 @@ scenario_id | The ID of the scenario you want to get
 ## Create a scenario
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/scenarios HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -294,7 +294,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://hiptest.net/api/projects/<project_id>/actionwords" \
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/actionwords" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -357,7 +357,7 @@ it has been created.
 ## Update a scenario
 
 ```http
-PATCH https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+PATCH https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -383,7 +383,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -434,7 +434,7 @@ You can rename a scenario and update its definition by specifying the new name i
 ## Delete a scenario
 
 ```http
-DELETE https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+DELETE https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -446,7 +446,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://hiptest.net/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

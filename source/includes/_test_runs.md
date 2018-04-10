@@ -2,7 +2,7 @@
 ## Get test runs of a project
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/test_runs HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -14,7 +14,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -89,7 +89,7 @@ project_id | The ID of the project you want to retrieve the test runs from
 ## Get a single test run
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -101,7 +101,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -152,7 +152,7 @@ test_run_id | The ID of the test run you want to get
 ## Include tags when fetching your test run(s)
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/test_runs?include=tags HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs?include=tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -164,7 +164,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs?include=tags" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs?include=tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -177,7 +177,7 @@ You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-inc
 ## Create a test run
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/test_runs HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/test_runs HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -200,7 +200,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs" \
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

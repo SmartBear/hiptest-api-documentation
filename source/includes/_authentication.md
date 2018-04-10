@@ -3,7 +3,7 @@
 > To get your credentials:
 
 ```http
-POST https://hiptest.net/api/auth/sign_in HTTP/1.1
+POST https://app.hiptest.com/api/auth/sign_in HTTP/1.1
 Content-Type: application/json
 
 {"email": "my_hiptest_account", "password": "my_hiptest_account"}
@@ -22,7 +22,7 @@ uid: my_hiptest_account
 curl -XPOST \
     -H "Content-Type: application/json" \
     -d '{"email": "my_hiptest_account", "password": "my_hiptest_account"}' \
-    -D - https://hiptest.net/api/auth/sign_in
+    -D - https://app.hiptest.com/api/auth/sign_in
 
 HTTP/1.1 200 OK
 # snip.
@@ -38,7 +38,7 @@ uid: my_hiptest_account
 > An API call example
 
 ```http
-GET https://hiptest.net/api/<endpoint> HTTP/1.1
+GET https://app.hiptest.com/api/<endpoint> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -46,7 +46,7 @@ uid: <your uid>
 ```
 
 ```shell
-curl https://hiptest.net/api/<endpoint> \
+curl https://app.hiptest.com/api/<endpoint> \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

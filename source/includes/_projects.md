@@ -2,7 +2,7 @@
 
 ## Get projects
 ```http
-GET https://hiptest.net/api/projects/ HTTP/1.1
+GET https://app.hiptest.com/api/projects/ HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -14,7 +14,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/" \
+curl "https://app.hiptest.com/api/projects/" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -78,7 +78,7 @@ This endpoint retrieves all projects of the logged-in user
 
 ## Get a particular project
 ```http
-GET https://hiptest.net/api/projects/<project_id> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -90,7 +90,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -138,7 +138,7 @@ project_id | The ID of the project you want to retrieve
 ## Getting root scenarios folder of a project
 
 ```http
-GET https://hiptest.net/api/projects?include=scenarios-folder HTTP/1.1
+GET https://app.hiptest.com/api/projects?include=scenarios-folder HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -150,7 +150,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/project?include=scenarios-folder" \
+curl "https://app.hiptest.com/api/project?include=scenarios-folder" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

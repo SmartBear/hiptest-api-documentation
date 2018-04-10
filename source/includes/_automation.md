@@ -7,7 +7,7 @@ database when you push the results of a test execution using the Hiptest publish
 
 ## List builds of a test run
 ```http
-GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -19,7 +19,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -73,7 +73,7 @@ test_run_id | The ID of the test run you want to retrieve the builds from
 ## Get a specific build of a test run
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -85,7 +85,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -130,7 +130,7 @@ test_run_id | The ID of the test run you want to retrieve the build from
 ## Get test execution results of a build
 
 ```http
-GET https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -142,7 +142,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -229,7 +229,7 @@ test_run_id | The ID of the test run you want to retrieve the build from
 ## Create a new build
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds" HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -241,7 +241,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
     -XPOST
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -286,7 +286,7 @@ test_run_id | The ID of the test run you are executing
 ## Close a build
 
 ```http
-POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -298,7 +298,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" \
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" \
     -XPOST
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -341,7 +341,7 @@ test_run_id | The ID of the test run you are executing
 build_id | The ID of the build you want to close
 ## Assign test execution results to a build
 ```http
-POST https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
+POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
 
 
 data={"data": {"type": "test-results",
@@ -368,7 +368,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://hiptest.net/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
