@@ -147,7 +147,7 @@ retrieve their ID in the address bar of your browser while you are viewing the
 dashboard of your project.
 
 In the following example we are looking for the ID of the sample project
-`Testing CASH WITHDRAWAL`: the ID is 37025.
+`Testing CASH WITHDRAWAL`: the ID is 40849.
 
 ![Retrieve project id](images/getting-started/doc-api-project-id.png)
 
