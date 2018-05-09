@@ -397,7 +397,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>'
-    --data '{"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}'
+    --data '{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}'
 ```
 
 > Newly created test result
