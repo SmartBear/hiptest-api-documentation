@@ -122,6 +122,11 @@ test_run_id | The ID of the test run that contains the tests you want
   </ul>
 </aside>
 
+### Optional parameter
+Parameter | Description
+--------- | -----------
+show_step_statuses (value: 'true') | Embed detailed test results including statuses per step with every tests
+
 
 ## Get a test
 
