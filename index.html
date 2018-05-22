@@ -3063,7 +3063,7 @@ Please notice that parameter name will get normalized.
 </thead><tbody>
 <tr>
 <td>project_id</td>
-<td>The ID of the project in wich you want to create the test run</td>
+<td>The ID of the project in which you want to create the test run</td>
 </tr>
 </tbody></table>
 
@@ -3098,6 +3098,148 @@ Please notice that parameter name will get normalized.
 <aside class="notice">
 You can create a test run from a subset of tests by specifying the list of scenario ids.
 </aside>
+
+<h2 id="synchronize-a-test-run">Synchronize a test run</h2>
+
+<p>Synchronization give you the ability to update the tests of your test run with their last version, based on the current scenarios definitions</p>
+
+<h3 id="watch-synchronization-state">Watch synchronization state</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;?show_synchronization_information=true</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;?show_synchronization_information=true"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-runs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sprint 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wandering in the countryside, doing boring stuff"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"retest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"undefined"</span><span class="p">:</span><span class="w"> </span><span class="mi">765</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"skipped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"wip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"synchronization-information"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"synchronizable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"synchronizing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"deleted_folders_snapshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"deleted_scenarios_snapshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"deleted_tests_snapshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is useful to track the state of a test run synchronization.</p>
+
+<p>The synchronization operation can be dangerous. If some of your test run tests and folders are based on scenarios and folders that no longer exist, they will be destroyed.
+It is strongly advised to use this endpoint to get the potential impacts of a synchronization before running one.</p>
+
+<h3 id="synchronize-the-test-run">Synchronize the test run</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/synchronize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/synchronize"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-runs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sprint 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wandering in the countryside, doing boring stuff"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"retest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"undefined"</span><span class="p">:</span><span class="w"> </span><span class="mi">765</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"skipped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"wip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"synchronization-information"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"synchronizable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"synchronizing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"deleted_folders_snapshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"deleted_scenarios_snapshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"deleted_tests_snapshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will start the synchronization of a given test run.</p>
+
+<aside class="notice">
+Since this is an asynchronous operation, the synchronization might not be done when the server responds back. Use the previous endpoint to watch the state of the
+synchronization before doing anything else with your test run data.
+</aside>
+
+<aside class="notice">
+Only one synchronization of a test run can be run at the same time. Calling this endpoint when the test run is synchronizing won&rsquo;t do anything.
+</aside>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project containing the test run</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to synchronize</td>
+</tr>
+</tbody></table>
 
           <h1 id="tests">Tests</h1>
 
@@ -3222,6 +3364,20 @@ You can create a test run from a subset of tests by specifying the list of scena
     <li>skipped</li>
   </ul>
 </aside>
+
+<h3 id="optional-parameter">Optional parameter</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>show_step_statuses (value: &lsquo;true&rsquo;)</td>
+<td>Embed detailed test results including statuses per step with every tests</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-a-test">Get a test</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -3584,7 +3740,7 @@ uid: &lt;your uid&gt;
 </thead><tbody>
 <tr>
 <td>status</td>
-<td>(String) The result of the test execution. Possible values are &lsquo;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
+<td>(String) The result of the test execution. Possible values are &#39;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
 </tr>
 <tr>
 <td>status-author</td>
