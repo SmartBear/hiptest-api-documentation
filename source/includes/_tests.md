@@ -38,7 +38,6 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "scenario_name": "Find horcruxes",
           "dataset_name": null,
           "dataset_id": null,
-          "folder_snapshot_id": 1,
           "steps": [
             {
               "action": "Given Harry has one horcrux"
@@ -50,6 +49,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "index": 0
         },
         "status": "failed",
+        "scenario-snapshot-id": 1,
         "folder-snapshot-id": 2
       },
       "links": {
@@ -73,7 +73,6 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "scenario_name": "Defeat Voldemort",
           "dataset_name": null,
           "dataset_id": null,
-          "folder_snapshot_id": 2,
           "steps": [
             {
               "action": "Given Harry cast the Expelliarmus spell"
@@ -85,6 +84,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "index": 0
         },
         "status": "success",
+        "scenario-snapshot-id": 1,
         "folder-snapshot-id": 5
       },
       "links": {
@@ -161,7 +161,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
       "last-author" : "harry@example.org",
       "name": "Find horcruxes",
       "definition-json": {
-        "scenario_name": "Find horcruxes",
+        "scenario-name": "Find horcruxes",
         "dataset_name": null,
         "dataset_id": null,
         "steps": [
@@ -175,6 +175,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "index": 0
       },
       "status": "failed",
+      "scenario-snapshot-id": 1,
       "folder-snapshot-id": 5
     },
     "links": {
@@ -258,7 +259,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
       "last-author" : "harry@example.org",
       "name": "Find horcruxes",
       "definition-json": {
-        "scenario_name": "Find horcruxes",
+        "scenario-name": "Find horcruxes",
         "dataset_name": null,
         "dataset_id": null,
         "steps": [
@@ -272,6 +273,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "index": 0
       },
       "status": "passed",
+      "scenario-snapshot-id": 1,
       "folder-snapshot-id": 5,
       "pass-rate": "75"
     },
