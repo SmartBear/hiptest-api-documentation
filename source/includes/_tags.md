@@ -234,7 +234,7 @@ This endpoint retrieves all tags of a given test run.
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project that contains the wanted folder
+project_id | The ID of the project that contains the wanted test run
 test_run_id | The ID of the test run you want to retrieve the tags from
 
 ## Create tag in a scenario
@@ -346,7 +346,7 @@ This endpoint creates a new tag in a test run.
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project that contains the wanted scenario
+project_id | The ID of the project that contains the wanted test run
 test_run_id | The ID of the test run where you want to create the tag
 
 ## Update a tag in a scenario
@@ -402,7 +402,7 @@ curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scena
 }
 ```
 
-This endpoint updates a new tag in a scenario.
+This endpoint updates a tag in a scenario.
 
 
 Parameter | Description
@@ -464,12 +464,12 @@ curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_
 }
 ```
 
-This endpoint updates a new tag in a test run.
+This endpoint updates a tag in a test run.
 
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project that contains the wanted scenario
+project_id | The ID of the project that contains the wanted test run
 test_run_id | The ID of the test run where you want to update the tag
 tag_id | The ID of the tag you want to update
 
@@ -541,7 +541,6 @@ This endpoint deletes a tag in a test run.
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project that contains the wanted scenario
+project_id | The ID of the project that contains the wanted test run
 test_run_id | The ID of the test run where you want to delete the tag
 tag_id | The ID of the tag you want to delete
-
