@@ -41,7 +41,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
           "blocked": 0,
           "skipped": 0,
           "wip": 0
-        }
+        },
+        "archived": false
       },
       "links": {
         "self": "/test-runs/1"
@@ -64,7 +65,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
           "blocked": 0,
           "skipped": 0,
           "wip": 0
-        }
+        },
+        "archived": true
       },
       "links": {
         "self": "/test-runs/2"
@@ -128,7 +130,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>"
           "blocked": 0,
           "skipped": 0,
           "wip": 0
-        }
+        },
+        "archived": false
       },
       "links": {
         "self": "/test-runs/1"
@@ -228,7 +231,8 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
           "blocked": 0,
           "skipped": 0,
           "wip": 0
-        }
+        },
+        "archived": false
       },
       "links": {
         "self": "/test-runs/1"
@@ -310,6 +314,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>?
           "skipped": 0,
           "wip": 0
         },
+        "archived": false,
         "synchronization-information": {
           "synchronizable": true,
           "synchronizing": false,
@@ -378,6 +383,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
           "skipped": 0,
           "wip": 0
         },
+        "archived": false,
         "synchronization-information": {
           "synchronizable": true,
           "synchronizing": true,
