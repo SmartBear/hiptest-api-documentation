@@ -137,7 +137,7 @@ project_id | The ID of the project you want to retrieve
 
 ## Create a project backup
 
-### Watch the backup creation state
+### Watch the backup state
 
 ```http
 GET https://app.hiptest.com/api/projects/<project_id>/backups/last HTTP/1.1
