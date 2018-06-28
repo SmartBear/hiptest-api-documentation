@@ -311,8 +311,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "name": "Find horcruxes",
         "description": "That will help to kill Voldemort",
         "folder-id": 162629,
-        "definition": "scenario 'Find horcruxes' do\n  call given 'Harry has one horcrux'\n  call then 'he should destroy it\nend\n",
-        "errors": []
+        "definition": "scenario 'Find horcruxes' do\n  call given 'Harry has one horcrux'\n  call then 'he should destroy it\nend\n"
       },
       "links": {
         "self": "/scenarios/10"
