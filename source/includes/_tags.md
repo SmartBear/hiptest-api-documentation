@@ -544,3 +544,75 @@ Parameter | Description
 project_id | The ID of the project that contains the wanted test run
 test_run_id | The ID of the test run where you want to delete the tag
 tag_id | The ID of the tag you want to delete
+
+## Create tags alongside elements
+
+```http
+POST https://app.hiptest.com/api/projects/<project_id>/<element_type> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+
+{
+  "data": {
+    "attributes": {
+      ...
+    },
+    "relationships": {
+      "tags": {
+        "data": [
+          { "type": "tag", "key": "automated" },
+          { "type": "tag", "key": "sprint", value: "2" },
+          { "type": "tag", "key": "priority", value: "high" }
+        ]
+      }
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/<element_type>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --data '{"data": {"attributes": {}, "relationships": { "tags": { "data": [ { "type": "tag", "key": "automated" }, { "type": "tag", "key": "sprint", "value": "2" }, { "type": "tag", "key": "priority", "value": "high" }] } }}'
+```
+
+```json
+{
+  "data":
+    {
+      "type": "test-runs",
+      "id": "1",
+      "attributes": {
+        ...
+      },
+      "links": {
+        "self": "/test-runs/1"
+      },
+      "included": [
+        { "type": "tags", "id": "1", "attributes": { "key": "automated", "value": "" }, "links": { "self": "/tags/1" } },
+        { "type": "tags", "id": "2", "attributes": { "key": "sprint", "value": "2" }, "links": { "self": "/tags/2" } },
+        { "type": "tags", "id": "3", "attributes": { "key": "priority", "value": "high" }, "links": { "self": "/tags/3" } }
+      ]
+    }
+}
+```
+
+With some elements (such as the test runs and scenarios), you can create one or multiple tags linked to the created element.
+This can be done by specifying the "relationships" element.
+
+Parameter    | Description
+---------    | -----------
+project_id   | The ID of the project in wich you want to create the actionword
+element_type | The type of element you want to create (scenarios, test_runs)
+

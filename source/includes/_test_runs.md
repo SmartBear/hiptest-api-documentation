@@ -256,6 +256,10 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project in which you want to create the test run
 
+<aside class="notice">
+You can create tags alongside the test run by specifying them in the "relationship" section, as explained in the <a href="#create-tags-alongside-elements">tags creation section</a>.
+</aside>
+
 ### Mandatory fields
 
 Field | Description
