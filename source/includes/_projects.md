@@ -261,6 +261,10 @@ This endpoint is useful to track the state of a project backup creation and get 
 If the project does not have any backups yet, or when the very first backup is in
 progress, this endpoint will respond with empty data: `{ "data": null }`.
 
+<aside class="notice">
+For security reasons, the file URL is valid for only 10 seconds. Afterwards, you will get a "Permission denied" error.
+</aside>
+
 ### URL Parameters
 
 Parameter | Description
