@@ -153,6 +153,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl "https://app.hiptest.com/api/projects/<project_id>/backups" \
+    -X POST \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
