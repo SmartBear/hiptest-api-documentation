@@ -354,6 +354,10 @@ time. To set a proper description and definition to a scenario update it after
 it has been created.
 </aside>
 
+<aside class="notice">
+You can create tags alongside the scenario by specifying them in the "relationship" section, as explained in the <a href="#create-tags-alongside-elements">tags creation section</a>.
+</aside>
+
 ## Update a scenario
 
 ```http
