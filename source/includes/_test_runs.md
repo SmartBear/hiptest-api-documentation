@@ -82,15 +82,15 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
 This endpoint retrieves all test runs of a given project.
 
 <aside class="notice">
-Note: you can add use the parameter "filter" to only fetch achived or active test runs.
+Note: you can add use the parameter "filter[status]" to only fetch achived or active test runs.
 </aside>
 
 ### URL Parameters
 
-Parameter  | Description
----------- | -----------
-project_id | The ID of the project you want to retrieve the test runs from
-filter     | "active" or "archived"
+Parameter          | Description
+------------------ | -----------
+project_id         | The ID of the project you want to retrieve the test runs from
+filter[status]     | "active" or "archived"
 
 ## Get a single test run
 
