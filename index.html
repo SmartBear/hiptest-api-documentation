@@ -1363,6 +1363,10 @@ time. To set a proper description and definition to a scenario update it after
 it has been created.
 </aside>
 
+<aside class="notice">
+You can create tags alongside the scenario by specifying them in the &ldquo;relationship&rdquo; section, as explained in the <a href="#create-tags-alongside-elements">tags creation section</a>.
+</aside>
+
 <h2 id="update-a-scenario">Update a scenario</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
@@ -2571,6 +2575,76 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tr>
 </tbody></table>
 
+<h2 id="create-tags-alongside-elements">Create tags alongside elements</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/&lt;element_type&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "attributes": {
+      ...
+    },
+    "relationships": {
+      "tags": {
+        "data": [
+          { "type": "tag", "key": "automated" },
+          { "type": "tag", "key": "sprint", value: "2" },
+          { "type": "tag", "key": "priority", value: "high" }
+        ]
+      }
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/&lt;element_type&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{"data": {"attributes": {}, "relationships": { "tags": { "data": [ { "type": "tag", "key": "automated" }, { "type": "tag", "key": "sprint", "value": "2" }, { "type": "tag", "key": "priority", "value": "high" }] } }}'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-runs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/tags/1"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sprint"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/tags/2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/tags/3"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>With some elements (such as the test runs and scenarios), you can create one or multiple tags linked to the created element.
+This can be done by specifying the &ldquo;relationships&rdquo; element.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project in wich you want to create the actionword</td>
+</tr>
+<tr>
+<td>element_type</td>
+<td>The type of element you want to create (scenarios, test_runs)</td>
+</tr>
+</tbody></table>
+
           <h1 id="datasets">Datasets</h1>
 
 <h2 id="get-datasets-of-a-given-scenario">Get datasets of a given scenario</h2>
@@ -3247,6 +3321,10 @@ Please notice that parameter name will get normalized.
 </span></code></pre>
 <p>This endpoint retrieves all test runs of a given project.</p>
 
+<aside class="notice">
+Note: you can add use the parameter &ldquo;filter[status]&rdquo; to only fetch achived or active test runs.
+</aside>
+
 <h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
@@ -3258,6 +3336,10 @@ Please notice that parameter name will get normalized.
 <tr>
 <td>project_id</td>
 <td>The ID of the project you want to retrieve the test runs from</td>
+</tr>
+<tr>
+<td>filter[status]</td>
+<td>&ldquo;active&rdquo; or &ldquo;archived&rdquo;</td>
 </tr>
 </tbody></table>
 
@@ -3415,6 +3497,10 @@ Please notice that parameter name will get normalized.
 <td>The ID of the project in which you want to create the test run</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+You can create tags alongside the test run by specifying them in the &ldquo;relationship&rdquo; section, as explained in the <a href="#create-tags-alongside-elements">tags creation section</a>.
+</aside>
 
 <h3 id="mandatory-fields">Mandatory fields</h3>
 
