@@ -321,3 +321,85 @@ actionword_id | The ID of the action word you want to delete
 <aside class="warning">
 Caution: your action word will be totaly and permanently removed from your project.
 </aside>
+
+
+## Get an action word callers
+
+```http
+GET https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>/callers HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>/callers" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+    "data": [
+        {
+            "type": "scenarios",
+            "id": "1",
+            "attributes": {
+                "created-at": "2018-08-31T09:12:18.338Z",
+                "updated-at": "2018-08-31T09:12:18.338Z",
+                "last-author": "harry@example.org",
+                "name": "It is possible to take 40 coffees before there is really no more beans",
+                "description": "...",
+                "folder-id": 1,
+                "definition": "..."
+            },
+            "links": {
+                "self": "/scenarios/503"
+            },
+            "relationships": {
+                "folder": {},
+                "tags": {}
+            }
+        },
+        {
+            "type": "folders",
+            "id": "1",
+            "attributes": {
+                "created-at": "2018-08-31T09:12:17.797Z",
+                "updated-at": "2018-09-03T14:19:57.066Z",
+                "last-author": "harry@example.org",
+                "name": "Serve coffee",
+                "description": "...",
+                "definition": "...",
+                "parent-id": 0
+            },
+            "links": {
+                "self": "/folders/263"
+            },
+            "relationships": {
+                "tags": {}
+            }
+        }
+    ]
+}
+```
+This endpoint retrieves the list of action word callers (scenarios, folders, actionwords).
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the actionword from
+actionword_id | The ID of the action word you want to get
+
+<aside class="info">
+  NB: You can include tags by providing a query parameter "include=tags"
+</aside>
+
