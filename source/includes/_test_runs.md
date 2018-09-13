@@ -435,3 +435,92 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project containing the test run
 test_run_id | The ID of the test run you want to synchronize
+
+
+## Get builds history of a test run
+
+```http
+GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/build_history HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/build_history" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+    "data": [
+        {
+            "id": 3,
+            "date": "2018-09-12T08:19:28.446Z",
+            "values": {
+                "passed": 1,
+                "failed": 1,
+                "wip": 0,
+                "retest": 1,
+                "blocked": 0,
+                "skipped": 0,
+                "undefined": 0
+            },
+            "platform": "Default"
+        },
+        {
+            "id": 2,
+            "date": "2018-09-12T08:19:09.615Z",
+            "values": {
+                "passed": 2,
+                "failed": 0,
+                "wip": 1,
+                "retest": 0,
+                "blocked": 0,
+                "skipped": 0,
+                "undefined": 0
+            },
+            "platform": "Default"
+        },
+        {
+            "id": 1,
+            "date": "2018-09-12T07:21:21.606Z",
+            "values": {
+                "passed": 2,
+                "failed": 1,
+                "wip": 0,
+                "retest": 0,
+                "blocked": 0,
+                "skipped": 0,
+                "undefined": 0
+            },
+            "platform": "Default"
+        }
+    ]
+}
+```
+
+This endpoint retrieves build history of a given test run.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the test run from
+test_run_id | The ID of the test run you want to get
+
+
+<aside class="notice">
+By default, this endpoint will return the last 25 builds.
+You can override this limit by including a query parameter ex: ?limit=10. 
+</aside>
+
+
