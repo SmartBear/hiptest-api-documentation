@@ -3,7 +3,7 @@
 ## Get scenarios of a given project
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios[?include=<fields>] HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios[?include=<fields>]" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -68,6 +68,17 @@ curl "https://app.hiptest.com/api/projects/<project_id>/scenarios" \
 ```
 
 This endpoint retrieves all scenarios of a given project.
+
+You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-includes) to fetch additional data
+about your tests.
+
+The available additional data are the following:
+
+Field name | Description
+-----------| -----------
+folder | The folder scenarios belongs to
+tags | The tags of the scenarios
+actionwords | Actionwords used by the scenarios
 
 ### URL Parameters
 
@@ -217,7 +228,7 @@ value | The value of the tag
 ## Get a single scenario
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>[?include=<fields>] HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -229,7 +240,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>[?include=<fields>]" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -262,6 +273,17 @@ curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>"
 }
 ```
 This endpoint retrieves a single scenario of a given project.
+
+You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-includes) to fetch additional data
+about your tests.
+
+The available additional data are the following:
+
+Field name | Description
+-----------| -----------
+folder | The folder the scenario belongs to
+tags | The tags of the scenario
+actionwords | Actionwords used by the scenario
 
 ### URL Parameters
 
