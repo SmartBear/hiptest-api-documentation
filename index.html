@@ -1068,14 +1068,14 @@ Caution: your action word will be totaly and permanently removed from your proje
           <h1 id="scenarios">Scenarios</h1>
 
 <h2 id="get-scenarios-of-a-given-project">Get scenarios of a given project</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios[?include=&lt;fields&gt;]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios[?include=&lt;fields&gt;]"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -1124,6 +1124,31 @@ Caution: your action word will be totaly and permanently removed from your proje
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all scenarios of a given project.</p>
+
+<p>You can use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch additional data
+about your tests.</p>
+
+<p>The available additional data are the following:</p>
+
+<table><thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>folder</td>
+<td>The folder scenarios belongs to</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>The tags of the scenarios</td>
+</tr>
+<tr>
+<td>actionwords</td>
+<td>Actionwords used by the scenarios</td>
+</tr>
+</tbody></table>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1291,14 +1316,14 @@ Caution: your action word will be totaly and permanently removed from your proje
 </tbody></table>
 
 <h2 id="get-a-single-scenario">Get a single scenario</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;[?include=&lt;fields&gt;]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;[?include=&lt;fields&gt;]"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -1328,6 +1353,31 @@ Caution: your action word will be totaly and permanently removed from your proje
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a single scenario of a given project.</p>
+
+<p>You can use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch additional data
+about your tests.</p>
+
+<p>The available additional data are the following:</p>
+
+<table><thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>folder</td>
+<td>The folder the scenario belongs to</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>The tags of the scenario</td>
+</tr>
+<tr>
+<td>actionwords</td>
+<td>Actionwords used by the scenario</td>
+</tr>
+</tbody></table>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
