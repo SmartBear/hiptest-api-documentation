@@ -17,6 +17,7 @@ includes:
   - projects
   - actionwords
   - scenarios
+  - features
   - folders
   - tags
   - datasets
