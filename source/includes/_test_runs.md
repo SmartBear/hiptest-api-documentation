@@ -79,7 +79,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
 }
 ```
 
-This endpoint retrieves all test runs of a given project.
+This endpoint retrieves all test runs of a given project. The order is undefined.
 
 <aside class="notice">
 <p>Note: you can add use the parameter "filter[status]" to only fetch achived or active test runs
@@ -520,7 +520,5 @@ test_run_id | The ID of the test run you want to get
 
 <aside class="notice">
 By default, this endpoint will return the last 25 builds.
-You can override this limit by including a query parameter ex: ?limit=10. 
+You can override this limit by including a query parameter ex: ?limit=10.
 </aside>
-
-
