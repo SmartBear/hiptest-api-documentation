@@ -1614,6 +1614,149 @@ You can rename a scenario and update its definition by specifying the new name i
 Caution: your scenario will be totaly and permanently removed from your project.
 </aside>
 
+          <h1 id="features">Features</h1>
+
+<h2 id="get-feature-from-a-given-folder">Get feature from a given folder</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/feature</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/folders&lt;/folder_id&gt;/feature"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-22T09:15:01.430Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-08T14:42:00.688Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HP Saga"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This project is designed to keep track of the evolution of the HP saga,
+            in the most expressive way possible, thanks to BDD!"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature: The Philosopher's Stone</span><span class="se">\n\n</span><span class="s2">Scenario: Read a Hogwarts letter"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves Gherkin formatted feature from a specific folder.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the folder you want to get</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-from-feature">Create from feature</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/create_from_feature</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{ 
+    "data": { 
+        "attributes": { 
+            "feature": "Feature: The Chamber of Secrets\n\nScenario: Shopping on Diagon Alley"
+        }
+    }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/folders&lt;/folder_id&gt;/create_from_feature"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{ "data": { "attributes": { "feature": "Feature: The Chamber of Secrets\n\nScenario: Shopping on Diagon Alley" } } }'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-22T09:15:01.430Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-08T14:42:00.688Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HP Saga"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This project is designed to keep track of the evolution of the HP saga,
+            in the most expressive way possible, thanks to BDD!"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"running-feature-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"the_chamber_of_secrets"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/2"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates every resources from the feature into a specific folder.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the folder you want to get</td>
+</tr>
+</tbody></table>
+
+<h3 id="mandatory-fields">Mandatory fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>feature</td>
+<td>(String) The gherkin formatted feature text.</td>
+</tr>
+</tbody></table>
+
           <h1 id="folders">Folders</h1>
 
 <h2 id="get-folders-of-a-given-project">Get folders of a given project</h2>
