@@ -3883,7 +3883,7 @@ Please notice that parameter name will get normalized.
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all test runs of a given project.</p>
+<p>This endpoint retrieves all test runs of a given project. The order is undefined.</p>
 
 <aside class="notice">
 <p>Note: you can add use the parameter &ldquo;filter[status]&rdquo; to only fetch achived or active test runs
@@ -4330,7 +4330,7 @@ Only one synchronization of a test run can be run at the same time. Calling this
 
 <aside class="notice">
 By default, this endpoint will return the last 25 builds.
-You can override this limit by including a query parameter ex: ?limit=10. 
+You can override this limit by including a query parameter ex: ?limit=10.
 </aside>
 
           <h1 id="tests">Tests</h1>
