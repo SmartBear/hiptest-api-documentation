@@ -604,7 +604,8 @@ progress will reply with a 409 Conflict HTTP code.
 progress, this endpoint will respond with empty data: <code class="prettyprint">{ &quot;data&quot;: null }</code>.</p>
 
 <aside class="notice">
-For security reasons, the file URL is valid for only 10 seconds. Afterwards, you will get a &ldquo;Permission denied&rdquo; error.
+For security reasons, the file URL is valid for only 10 minutes. Afterwards, you
+will get a HTTP 403 response with &ldquo;Request has expired&rdquo; error.
 </aside>
 
 <h3 id="url-parameters">URL Parameters</h3>
