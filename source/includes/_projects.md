@@ -262,7 +262,8 @@ If the project does not have any backups yet, or when the very first backup is i
 progress, this endpoint will respond with empty data: `{ "data": null }`.
 
 <aside class="notice">
-For security reasons, the file URL is valid for only 10 seconds. Afterwards, you will get a "Permission denied" error.
+For security reasons, the file URL is valid for only 10 minutes. Afterwards, you
+will get a HTTP 403 response with "Request has expired" error.
 </aside>
 
 ### URL Parameters
