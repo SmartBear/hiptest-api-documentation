@@ -42,7 +42,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
           "skipped": 0,
           "wip": 0
         },
-        "archived": false
+        "archived": false,
+        "external": false
       },
       "links": {
         "self": "/test-runs/1"
@@ -66,7 +67,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
           "skipped": 0,
           "wip": 0
         },
-        "archived": true
+        "archived": true,
+        "external": false
       },
       "links": {
         "self": "/test-runs/2"
@@ -141,7 +143,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>"
           "skipped": 0,
           "wip": 0
         },
-        "archived": false
+        "archived": false,
+        "external": false
       },
       "links": {
         "self": "/test-runs/1"
@@ -242,7 +245,8 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
           "skipped": 0,
           "wip": 0
         },
-        "archived": false
+        "archived": false,
+        "external": false
       },
       "links": {
         "self": "/test-runs/1"
@@ -277,11 +281,16 @@ name | (String) The name of the test run.
 Field | Description
 --------- | -----------
 scenario_ids | (List of Integer) The ids of scenarios you want in the test run.
+external | 1 or true to create an external test run.
 
 <aside class="notice">
 You can create a test run from a subset of tests by specifying the list of scenario ids.
 </aside>
 
+<aside class="notice">
+If you specify scenario ids, `external` will be ignored. External test runs will
+be created empty.
+</aside>
 
 ## Synchronize a test run
 Synchronization give you the ability to update the tests of your test run with their last version, based on the current scenarios definitions
@@ -329,6 +338,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>?
           "wip": 0
         },
         "archived": false,
+        "external": false,
         "synchronization-information": {
           "synchronizable": true,
           "synchronizing": false,
@@ -398,6 +408,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
           "wip": 0
         },
         "archived": false,
+        "external": false,
         "synchronization-information": {
           "synchronizable": true,
           "synchronizing": true,
