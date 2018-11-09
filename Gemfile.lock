@@ -137,7 +137,7 @@ DEPENDENCIES
   webrick
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.5.3p105
 
 BUNDLED WITH
-   2.2.32
+   1.17.1
