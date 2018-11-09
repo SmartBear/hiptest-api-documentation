@@ -372,7 +372,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
-    -H 'client: <your client id>'
+    -H 'client: <your client id>' \
     --data '{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
     "relationships": {
       "test-snapshot": {
