@@ -121,7 +121,7 @@
 
 <p>Welcome to the <a href="https://hiptest.com">Hiptest</a> API! You can use our
 API endpoints to get information on your projects in our database. It is
-RESTFull and follows the <a href="http://jsonapi.org">{json:api}</a> specification.</p>
+RESTful and follows the <a href="http://jsonapi.org">{json:api}</a> specification.</p>
 
 <p>Since we don&rsquo;t provide integration with any programming languages (yet!), the
 examples are written in shell, using the curl command.</p>
@@ -130,23 +130,22 @@ examples are written in shell, using the curl command.</p>
 
 <h2 id="api-rate-limits">API rate limits</h2>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">429</span> <span class="ne">Too Many Requests</span>
-<span class="na">X-Ratelimit-Limit</span><span class="p">:</span> <span class="s">500</span>
-<span class="na">X-Ratelimit-Remaining</span><span class="p">:</span> <span class="s">0</span>
-<span class="na">X-Ratelimit-Reset</span><span class="p">:</span> <span class="s">2017-01-01 12:00:00 +0100</span>
+<span class="na">Retry-After</span><span class="p">:</span> <span class="s">42</span>
 </code></pre><pre class="highlight shell"><code>HTTP/1.1 429 Too Many Requests
 <span class="c"># snip #</span>
-X-Ratelimit-Limit: 500
-X-Ratelimit-Remaining: 0
-X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
+Retry-After: 42
 <span class="c"># snip #</span>
 </code></pre>
-<p>Your application can make up to <strong>500</strong> API requests per <strong>5</strong> minutes. Once you exceed the limit, calls will return HTTP status <strong>429</strong> and a message telling you that you&rsquo;ve been limited.</p>
+<p>Your application can make up to <strong>200</strong> API requests <strong>per minute</strong>.</p>
 
-<p>Once the API endpoint is limited, you can check the headers for informations about the reset time.</p>
+<p>Once the limit is exceeded, clients receive an HTTP 429 with a <code class="prettyprint">Retry-After: X</code>
+header to indicate how long their timeout period is before they will be able to
+send requests again. The timeout period is set to 60 seconds once the limit is
+exceeded.</p>
 
 <h3 id="note">Note</h3>
 
-<p>The throttling is based on the IP address</p>
+<p>The rate limit is based on the IP address.</p>
 
 <h1 id="getting-started">Getting Started</h1>
 
