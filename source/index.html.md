@@ -30,7 +30,7 @@ search: true
 
 Welcome to the <a href="https://hiptest.com">Hiptest</a> API! You can use our
 API endpoints to get information on your projects in our database. It is
-RESTFull and follows the [{json:api}](http://jsonapi.org) specification.
+RESTful and follows the [{json:api}](http://jsonapi.org) specification.
 
 Since we don't provide integration with any programming languages (yet!), the
 examples are written in shell, using the curl command.
@@ -41,27 +41,26 @@ Our API documentation was created with [Slate](https://github.com/tripit/slate).
 
 ```http
 HTTP/1.1 429 Too Many Requests
-X-Ratelimit-Limit: 500
-X-Ratelimit-Remaining: 0
-X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
+Retry-After: 42
 ```
 
 ```shell
 HTTP/1.1 429 Too Many Requests
 # snip #
-X-Ratelimit-Limit: 500
-X-Ratelimit-Remaining: 0
-X-Ratelimit-Reset: 2017-01-01 12:00:00 +0100
+Retry-After: 42
 # snip #
 ```
 
-Your application can make up to **500** API requests per **5** minutes. Once you exceed the limit, calls will return HTTP status **429** and a message telling you that you've been limited.
+Your application can make up to **200** API requests **per minute**.
 
-Once the API endpoint is limited, you can check the headers for informations about the reset time.
+Once the limit is exceeded, clients receive an HTTP 429 with a `Retry-After: X`
+header to indicate how long their timeout period is before they will be able to
+send requests again. The timeout period is set to 60 seconds once the limit is
+exceeded.
 
 ### Note
 
-The throttling is based on the IP address
+The rate limit is based on the IP address.
 
 
 # Getting Started
