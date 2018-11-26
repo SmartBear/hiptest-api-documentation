@@ -75,6 +75,11 @@ in your Hiptest profile page.
 
 ## Useful information about the access-token
 
-* The token lifespan is set to a year. After that, you won't be able to access to
-the API anymore. Don't forget to generate a new token before the expiration date and to update your scripts
-* You can use up to ten authentication tokens at the same time, with different clients
+* The token lifespan is set to a year. After that, you won't be able to access
+  to the API anymore. Don't forget to generate a new token before the expiration
+  date and to update your scripts
+* The expiration date is returned on every HTTP response in the `expiry` HTTP
+  header. The expiry date is in POSIX timestamp format (number of seconds
+  elapsed since 1 January 1970 00:00:00 UTC). Example: `expiry: 1486047985`.
+* You can use up to ten authentication tokens at the same time, with different
+  clients
