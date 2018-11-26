@@ -361,9 +361,14 @@ in your Hiptest profile page.</p>
 <h2 id="useful-information-about-the-access-token">Useful information about the access-token</h2>
 
 <ul>
-<li>The token lifespan is set to a year. After that, you won&rsquo;t be able to access to
-the API anymore. Don&rsquo;t forget to generate a new token before the expiration date and to update your scripts</li>
-<li>You can use up to ten authentication tokens at the same time, with different clients</li>
+<li>The token lifespan is set to a year. After that, you won&rsquo;t be able to access
+to the API anymore. Don&rsquo;t forget to generate a new token before the expiration
+date and to update your scripts</li>
+<li>The expiration date is returned on every HTTP response in the <code class="prettyprint">expiry</code> HTTP
+header. The expiry date is in POSIX timestamp format (number of seconds
+elapsed since 1 January 1970 00:00:00 UTC). Example: <code class="prettyprint">expiry: 1486047985</code>.</li>
+<li>You can use up to ten authentication tokens at the same time, with different
+clients</li>
 </ul>
 
           <h1 id="projects">Projects</h1>
