@@ -134,12 +134,12 @@ Field | Description
 build | (JSONAPI Relationship) The build containing your test execution result
 execution_environment | (JSONAPI Relationship) The execution environment containing your test execution result
 
-<aside class="notice">
-If the optional execution environment field is provided, the test result will be created in the current build of that execution environment
-</aside>
+If a build is provided, the test result will be created into that build.
+
+If an execution environment is provided, the test result will be created into the current build of that execution environment
+
 <aside class="warning">
-If both build and execution environment are provided, the build must belong to the execution environment.
-Specifying an execution environment is not needed if a build is already specified
+Providing an execution environment is not needed if a build is already specified, and will return an error if it does not belong to that environment.
 </aside>
 
 ```http
