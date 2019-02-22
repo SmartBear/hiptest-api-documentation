@@ -25,7 +25,9 @@ includes:
   - test_runs
   - tests
   - test_folders
-  - automation
+  - test_execution
+  - builds
+  - execution_environments
 
 search: true
 

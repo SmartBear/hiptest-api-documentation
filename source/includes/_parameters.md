@@ -131,7 +131,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenar
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
-    -H 'client: <your client id>'
+    -H 'client: <your client id>' \
     --data '{"data": {"attributes": {"name": "parameter-3"}}}'
 ```
 
@@ -193,7 +193,7 @@ curl -XPUT "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenari
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
-    -H 'client: <your client id>'
+    -H 'client: <your client id>' \
     --data '{"data": { "type": "parameters", "id": "3", "attributes": {"name": "new parameter-3 name"}}}'
 ```
 
