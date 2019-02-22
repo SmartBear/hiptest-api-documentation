@@ -569,7 +569,7 @@ curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scena
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
-    -H 'client: <your client id>'
+    -H 'client: <your client id>' \
     --data '{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'
 ```
 
@@ -631,7 +631,7 @@ curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
-    -H 'client: <your client id>'
+    -H 'client: <your client id>' \
     --data '{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'
 ```
 
@@ -693,7 +693,7 @@ curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
-    -H 'client: <your client id>'
+    -H 'client: <your client id>' \
     --data '{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'
 ```
 
