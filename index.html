@@ -1529,7 +1529,7 @@ You can create tags alongside the scenario by specifying them in the &ldquo;rela
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": {"type": "scenarios", "id": &lt;scenario_id&gt;, "attributes": {"name": "The new name of the scenario", "description": "The new description of the scenario", "definition": "scenario \'</span>The new definition of the scenario<span class="se">\'</span> <span class="k">do</span><span class="se">\\</span>nend<span class="se">\\</span>n<span class="s2">", "</span>folder-id<span class="s2">": "</span>162630<span class="s2">" }}}'
 </span></code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
@@ -2860,7 +2860,7 @@ This is working when requesting for a list of elements, and for a single element
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2923,7 +2923,7 @@ This is working when requesting for a list of elements, and for a single element
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2986,7 +2986,7 @@ This is working when requesting for a list of elements, and for a single element
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": {"type": "tags","id": 5,"attributes": {"key": "priority","value": "low"}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3359,7 +3359,7 @@ This can be done by specifying the &ldquo;relationships&rdquo; element.</p>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": {"attributes": {"name": "dataset-3","data": {"parameter-1": "value 3-1", "parameter-2": "value 3-2"}}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3423,7 +3423,7 @@ This can be done by specifying the &ldquo;relationships&rdquo; element.</p>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": { "type": "datasets", "id": "3", "attributes": {"name": "new dataset-3 name","data": {"parameter-1": "new value 3-1", "parameter-2": "new value 3-2"}}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3679,7 +3679,7 @@ resource.</p>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": {"attributes": {"name": "parameter-3"}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3739,7 +3739,7 @@ Please notice that parameter name will get normalized.
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{"data": { "type": "parameters", "id": "3", "attributes": {"name": "new parameter-3 name"}}}'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4765,317 +4765,6 @@ The pass rate is only based on three types of results: passed, failed and blocke
 Note: the pass rate is expressed as a percentage (25 meaning 25% for example). If there are no usable results to compute the data, an empty string will be returned.
 </aside>
 
-<h2 id="add-a-test-execution-result">Add a test execution result</h2>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-
-{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}
-
-Accept: application/vnd.api+json; version=1
-access-token: &lt;your access token&gt;
-client: &lt;your client id&gt;
-uid: &lt;your uid&gt;
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
-    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
-    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">'{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}'</span>
-</code></pre>
-<blockquote>
-<p>Newly created test result</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test data"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_id</td>
-<td>The ID of the project you want to retrieve the tests from</td>
-</tr>
-<tr>
-<td>test_run_id</td>
-<td>The ID of the test run that contains the test you want</td>
-</tr>
-<tr>
-<td>test_snapshot_id</td>
-<td>The ID of the test whose you want add a test result to</td>
-</tr>
-</tbody></table>
-
-<h3 id="mandatory-fields">Mandatory fields</h3>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>status</td>
-<td>(String) The result of the test execution. Possible values are &#39;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
-</tr>
-<tr>
-<td>status-author</td>
-<td>(String) The name of the author of the test execution</td>
-</tr>
-<tr>
-<td>description</td>
-<td>(String) A comment about the test execution</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
-</aside>
-
-<h3 id="optional-fields">Optional fields</h3>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>build</td>
-<td>(JSONAPI Relationship) The build containing your test execution result</td>
-</tr>
-</tbody></table>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-
-{ "data": {
-    "type": "test-results",
-    "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
-    "relationships": {
-      "build": {
-        "data": {
-          "type": "build",
-          "id": 1
-        }
-      }
-    }
-  }
-}
-
-Accept: application/vnd.api+json; version=1
-access-token: &lt;your access token&gt;
-client: &lt;your client id&gt;
-uid: &lt;your uid&gt;
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
-    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
-    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">'{
-      "type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
-      "relationships": {
-        "build": {
-          "data": {
-            "type: "build,
-            "id": 1
-          }
-        }
-      }
-    }'</span>
-</code></pre>
-<blockquote>
-<p>Newly created test result</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test data"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build data"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="update-a-test-execution-result">Update a test execution result</h2>
-<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
-<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
-<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
-<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
-
-{
-  "data": {
-    "type": "test-results",
-    "id": &lt;test_result_id&gt;,
-    "attributes": {
-      "status": "passed",
-      "status-author": "Jenkins",
-      "description": "Automated jenkins job"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;"</span> <span class="se">\</span>
-    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
-    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
-    --data <span class="s1">'{"data": {"type": "test-results", "id": &lt;test_result_id&gt;, "attributes": {"status": "passed", "status-author": "Jenkins", "description": "Automated jenkins job"}}}'</span>
-</code></pre>
-<blockquote>
-<p>Updated test result</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;test_result_id&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automated jenkins job"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/&lt;test_result_id&gt;"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The API allows you to update a test result following the
-<a href="http://jsonapi.org/format/#crud-updating">{json:api} way to patch resources</a>.</p>
-
-<p>Status, author and/or description may be updated specifying the
-<code class="prettyprint">status</code>, <code class="prettyprint">status-author</code> and/or <code class="prettyprint">description</code> attributes of the resource.</p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_id</td>
-<td>The ID of the project you want to retrieve the tests from</td>
-</tr>
-<tr>
-<td>test_run_id</td>
-<td>The ID of the test run that contains the test you want</td>
-</tr>
-<tr>
-<td>test_snapshot_id</td>
-<td>The ID of the test whose you want to update a test result to</td>
-</tr>
-<tr>
-<td>test_result_id</td>
-<td>The ID of the test result you want to update</td>
-</tr>
-</tbody></table>
-
-<h3 id="attributes-that-may-be-updated">Attributes that may be updated</h3>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>status</td>
-<td>(String) The status of the test execution. Possible values are &#39;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
-</tr>
-<tr>
-<td>status-author</td>
-<td>(String) The name of the author of the test execution</td>
-</tr>
-<tr>
-<td>description</td>
-<td>(String) A comment about the test execution</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
-</aside>
-
           <h1 id="test-folders">Test folders</h1>
 
 <h2 id="get-test-folders-of-a-test-run">Get test folders of a test run</h2>
@@ -5373,11 +5062,468 @@ about your tests.</p>
 
           <h1 id="test-execution">Test execution</h1>
 
+<h2 id="getting-started-with-test-executions">Getting started with test executions</h2>
+
+<p>Test execution results in HipTest are organized in the following way:</p>
+
+<ul>
+<li>Test execution results are grouped into builds</li>
+<li>Each build belongs to an execution environment</li>
+<li>A test run can contain multiple execution environments, each containing their own builds of test execution results.</li>
+</ul>
+
+<p><strong>The notion of execution environments is entirely optional.</strong>
+You can use them if you have several environments on which you want to execute your tests.
+If you do not wish to have specific environments, you can ignore them and work directly with builds at test run level.</p>
+
+<aside class="notice">
+If no environment is specified, test runs will always have a default environment in which all builds are created.
+At any moment it is possible to start working with multiple environments
+by <a href="#create-a-new-execution-environment">creating new ones</a>.
+All existing builds will still exist in the first, default execution environment.
+</aside>
+
+<p>The <a href="#builds">Builds section</a> specifies all operations that can be performed without execution environments.</p>
+
+<p>The <a href="#execution-environments">Execution environments section</a> specifies how to work with multiple environments.</p>
+
+<p>It also updates the documentation for the following endpoints from the Builds section, for which specifying an environment becomes mandatory:</p>
+
+<ul>
+<li><a href="#list-builds-of-an-execution-environment">Listing builds</a></li>
+<li><a href="#create-a-new-build-in-a-specific-execution-environment">Creating a new builds</a></li>
+<li><a href="#get-the-current-build-of-an-execution-environment">Getting the current build</a></li>
+<li><a href="#get-test-execution-results-of-the-current-build-of-an-execution-environment">Getting the execution results of the current build</a></li>
+</ul>
+
+<p>Each entry in the Builds section has a warning if an execution environment ID is mandatory
+when working with multiple environments.</p>
+
+<p>All other build operations can still be perfomed with multiple environments.</p>
+
+<h2 id="add-a-test-execution-result">Add a test execution result</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "type": "test-results",
+    "attributes": {
+      "status": "passed",
+      "status-author": "Harry",
+      "description": "All was well"
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}'</span>
+</code></pre>
+<blockquote>
+<p>Newly created test result</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the tests from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run that contains the test you want</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test whose you want add a test result to</td>
+</tr>
+</tbody></table>
+
+<h3 id="mandatory-fields">Mandatory fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>(String) The result of the test execution. Possible values are &lsquo;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
+</tr>
+<tr>
+<td>status-author</td>
+<td>(String) The name of the author of the test execution</td>
+</tr>
+<tr>
+<td>description</td>
+<td>(String) A comment about the test execution</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
+</aside>
+
+<h3 id="optional-fields">Optional fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>build</td>
+<td>(JSONAPI Relationship) The build containing your test execution result</td>
+</tr>
+<tr>
+<td>execution_environment</td>
+<td>(JSONAPI Relationship) The execution environment containing your test execution result</td>
+</tr>
+</tbody></table>
+
+<p>If a build is provided, the test result will be created into that build.</p>
+
+<p>If an execution environment is provided, the test result will be created into the current build of that execution environment</p>
+
+<aside class="warning">
+Providing an execution environment is not needed if a build is already specified, and will return an error if it does not belong to that environment.
+</aside>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "type": "test-results",
+    "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+    "relationships": {
+      "build": {
+        "data": {
+          "type": "build",
+          "id": 1
+        }
+      }
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{
+      "type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+      "relationships": {
+        "build": {
+          "data": {
+            "type: "build",
+            "id": 1
+          }
+        }
+      }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Newly created test result</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test data"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "type": "test-results",
+    "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+    "relationships": {
+      "execution-environment": {
+        "data": {
+          "type": "execution-environment",
+          "id": 1
+        }
+      }
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{
+      "type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+      "relationships": {
+        "execution-environment": {
+          "data": {
+            "type: "execution-environment",
+            "id": 1
+          }
+        }
+      }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Newly created test result</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test data"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="update-a-test-execution-result">Update a test execution result</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "type": "test-results",
+    "id": &lt;test_result_id&gt;,
+    "attributes": {
+      "status": "passed",
+      "status-author": "Jenkins",
+      "description": "Automated jenkins job"
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{"data": {"type": "test-results", "id": &lt;test_result_id&gt;, "attributes": {"status": "passed", "status-author": "Jenkins", "description": "Automated jenkins job"}}}'</span>
+</code></pre>
+<blockquote>
+<p>Updated test result</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;test_result_id&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automated jenkins job"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/&lt;test_result_id&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The API allows you to update a test result following the
+<a href="http://jsonapi.org/format/#crud-updating">{json:api} way to patch resources</a>.</p>
+
+<p>Status, author and/or description may be updated specifying the
+<code class="prettyprint">status</code>, <code class="prettyprint">status-author</code> and/or <code class="prettyprint">description</code> attributes of the resource.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the tests from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run that contains the test you want</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test whose you want to update a test result to</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test result you want to update</td>
+</tr>
+</tbody></table>
+
+<h3 id="attributes-that-may-be-updated">Attributes that may be updated</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>(String) The status of the test execution. Possible values are &#39;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
+</tr>
+<tr>
+<td>status-author</td>
+<td>(String) The name of the author of the test execution</td>
+</tr>
+<tr>
+<td>description</td>
+<td>(String) A comment about the test execution</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
+</aside>
+
+          <h1 id="builds">Builds</h1>
+
 <h2 id="what-39-s-a-build">What&rsquo;s a build?</h2>
 
-<p>A build is a way to group the execution results of the tests contained in a Hiptest test run.
-Even if the notion of build does not appear (for now!) in the Hiptest interface, they are used in our
-database when you push the results of a test execution using the Hiptest publisher.</p>
+<p>A build is a way to group the execution results of the tests contained in a HipTest test run.</p>
+
+<p>You can find more details on test executions and builds in the <a href="#getting-started-with-test-executions">Test execution introduction section</a>.</p>
 
 <h2 id="list-builds-of-a-test-run">List builds of a test run</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -5412,7 +5558,7 @@ database when you push the results of a test execution using the Hiptest publish
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">215</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="err">nil</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -5424,8 +5570,10 @@ database when you push the results of a test execution using the Hiptest publish
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all builds of a given test run.
-<aside class="warning"> Note that this endpoint will only return the attributes of builds
-and not their test results</aside></p>
+<aside class="warning">Note that this endpoint will only return the attributes of builds
+and not their test results</aside>
+<aside class="warning">Note that if your test run contains more than one execution environment this endpoint
+will return an error. You will need to <a href="#list-builds-of-an-execution-environment">specify an execution environment</a></aside></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -5442,6 +5590,66 @@ and not their test results</aside></p>
 <tr>
 <td>test_run_id</td>
 <td>The ID of the test run you want to retrieve the builds from</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-new-build-in-a-test-run">Create a new build in a test run</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds"</span> <span class="se">\</span>
+    -XPOST <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{}'</span>
+</code></pre>
+<blockquote>
+<p>A new build</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"now!"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_running"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="err">nil</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<aside class="notice">You MUST create a new build when you need to push the execution results of a new run of your tests</aside>
+
+<aside class="warning">
+  Note that if your test run contains more than one execution environment this endpoint will return an error.
+  You will need to <a href="#create-a-new-build-in-a-specific-execution-environment">specify an execution environment</a>
+</aside>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you are executing</td>
 </tr>
 </tbody></table>
 
@@ -5470,18 +5678,13 @@ and not their test results</aside></p>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"test-results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific build of a given test run.
-<aside class="warning"> Note that this endpoint will only return the attributes of the build
+<aside class="warning">Note that this endpoint will only return the attributes of the build
 and not their test results</aside></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
@@ -5594,7 +5797,7 @@ of your build.</p>
 </thead><tbody>
 <tr>
 <td>project_id</td>
-<td>The ID of the project you want to retrieve the folders from</td>
+<td>The ID of the project you want to retrieve the build from</td>
 </tr>
 <tr>
 <td>test_run_id</td>
@@ -5602,45 +5805,42 @@ of your build.</p>
 </tr>
 </tbody></table>
 
-<h2 id="create-a-new-build">Create a new build</h2>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="get-the-current-build-of-a-test-run">Get the current build of a test run</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/current"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds"</span> <span class="se">\</span>
-    -XPOST
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/current"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span>
-    --data <span class="s1">'{}'</span>
-</code></pre>
-<blockquote>
-<p>A new build</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"now!"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"is_running"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="err">nil</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/3"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"test-results"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-16T09:13:48.737Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<aside class="notice">You MUST create a new build when you need to push the execution results of a new run of your tests</aside>
+<p>This endpoint retrieves the current build of a given test run.
+<aside class="warning">Note that this endpoint will only return the attributes of the build
+and not their test results</aside>
+<aside class="warning">Note that if your test run contains more than one execution environment this endpoint
+will return an error. You will need to <a href="#get-the-current-build-of-an-execution-environment">specify an execution environment</a></aside></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -5652,13 +5852,263 @@ of your build.</p>
 </thead><tbody>
 <tr>
 <td>project_id</td>
-<td>The ID of the project you want to retrieve the folders from</td>
+<td>The ID of the project you want to retrieve the build from</td>
 </tr>
 <tr>
 <td>test_run_id</td>
-<td>The ID of the test run you are executing</td>
+<td>The ID of the test run you want to retrieve the build from</td>
 </tr>
 </tbody></table>
+
+<h2 id="get-test-execution-results-of-the-current-build-of-a-test-run">Get test execution results of the current build of a test run</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/current?include=test-results"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/current?include=test-results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-16T09:13:48.737Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-07-01T12:00:00.350Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"test-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-07-01T12:00:00.350Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error on line 42"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"test-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch the test execution results
+of the current build of a given test run.
+<aside class="warning">Note that if your test run contains more than one execution environment this endpoint
+will return an error. You will need to <a href="#get-test-execution-results-of-the-current-build-of-an-execution-environment">specify an execution environment</a></aside></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the build from</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-a-test-execution-result-to-a-build">Add a test execution result to a build</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "type": "test-results",
+    "attributes": {
+      "status": "passed",
+      "status-author": "Harry",
+      "description": "All was well"
+    },
+    "relationships": {
+      "test-snapshot": {
+        "data": {
+          "type": "test-snapshots",
+          "id": 1
+        }
+      }
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{
+      "data": {
+        "type": "test-results",
+        "attributes": {
+          "status": "passed",
+          "status-author": "Harry",
+          "description": "All was well"
+        },
+        "relationships": {
+          "test-snapshot": {
+            "data": {
+              "type": "test-snapshots",
+              "id": 1
+            }
+          }
+        }
+      }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Newly created test result</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test data"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build data"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the tests from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run that contains the test you want</td>
+</tr>
+<tr>
+<td>build_id</td>
+<td>The ID of the build you want add a test result to</td>
+</tr>
+</tbody></table>
+
+<h3 id="mandatory-fields">Mandatory fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>(String) The status of the test execution. Possible values are &lsquo;passed&rsquo;, &#39;failed&rsquo;, &#39;wip&rsquo;, &#39;retest&rsquo;, &#39;blocked&rsquo;, &#39;skipped&rsquo;, &#39;undefined&rsquo;.</td>
+</tr>
+<tr>
+<td>status-author</td>
+<td>(String) The name of the author of the test execution</td>
+</tr>
+<tr>
+<td>description</td>
+<td>(String) A comment about the test execution</td>
+</tr>
+<tr>
+<td>test-snapshot</td>
+<td>(JSONAPI relationship) The executed test</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
+</aside>
 
 <h2 id="close-a-build">Close a build</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/close"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -5669,11 +6119,11 @@ of your build.</p>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/close"</span> <span class="se">\</span>
-    -XPOST
+    -XPOST <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
-    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
     --data <span class="s1">'{}'</span>
 </code></pre>
 <blockquote>
@@ -5710,7 +6160,7 @@ of your build.</p>
 </thead><tbody>
 <tr>
 <td>project_id</td>
-<td>The ID of the project you want to retrieve the folders from</td>
+<td>The ID of the project you want to retrieve the build from</td>
 </tr>
 <tr>
 <td>test_run_id</td>
@@ -5722,34 +6172,452 @@ of your build.</p>
 </tr>
 </tbody></table>
 
-<h2 id="assign-test-execution-results-to-a-build">Assign test execution results to a build</h2>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+          <h1 id="execution-environments">Execution environments</h1>
 
+<h2 id="what-39-s-an-execution-environment">What&rsquo;s an execution environment?</h2>
 
-data={"data": {"type": "test-results",
-  "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
-  "relationships": {
-    "test-snapshot": {
-      "data": {
-        "type": "test-snapshots",
-        "id": 1
-      }
-    }
-  }
-}}
+<p>An execution environment is a way to group several builds by in a HipTest test run.</p>
 
-Accept: application/vnd.api+json; version=1
-access-token: &lt;your access token&gt;
-client: &lt;your client id&gt;
-uid: &lt;your uid&gt;
+<p>You can find more details on test executions and execution environments in the <a href="#getting-started-with-test-executions">Test execution introduction section</a>.</p>
+
+<h2 id="list-execution-environments-of-a-test-run">List execution environments of a test run</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-09T10:48:48.685Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/execution-environments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-09T10:48:48.685Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/execution-environments/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all execution environments of a given test run.
+<aside class="warning">Note that this endpoint will only return the attributes of execution environments
+and not their builds</aside></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the requested test run</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the builds from</td>
+</tr>
+</tbody></table>
+
+<h2 id="list-builds-of-an-execution-environment">List builds of an execution environment</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-16T09:13:48.737Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all builds of a given execution environment.
+<aside class="warning">Note that this endpoint will only return the attributes of builds
+and not their test results</aside></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project that contains the requested test run</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run that contains the requested execution environment</td>
+</tr>
+<tr>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment you want to retreive the builds from</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-new-execution-environment">Create a new execution environment</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "attributes": {
+      "name": "Execution environment 1"
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments"</span> <span class="se">\</span>
+    -XPOST <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">'{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
+    --data <span class="s1">'{"data": {"attributes": { "name": "Execution environment 1"} } }'</span>
+</code></pre>
+<blockquote>
+<p>A new execution environment</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Execution environment 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T08:59:38.603Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T08:59:38.603Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/execution-environments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you are executing</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-new-build-in-a-specific-execution-environment">Create a new build in a specific execution environment</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds"</span> <span class="se">\</span>
+    -XPOST <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{}'</span>
+</code></pre>
+<blockquote>
+<p>A new build</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"now!"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_running"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="err">nil</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<aside class="notice">You MUST create a new build when you need to push the execution results of a new run of your tests</aside>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you are executing</td>
+</tr>
+<tr>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment for your new build</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-the-current-build-of-an-execution-environment">Get the current build of an execution environment</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds/current"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds/current"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-16T09:13:48.737Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the current build of a given test run.
+<aside class="warning">Note that this endpoint will only return the attributes of the build
+and not their test results</aside></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment you want to retrieve the build from</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-test-execution-results-of-the-current-build-of-an-execution-environment">Get test execution results of the current build of an execution environment</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds/current?include=test-results"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds/current?include=test-results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execution-environment-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is-running"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"closed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-16T09:13:48.737Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/builds/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-07-01T12:00:00.350Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"passed"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"test-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-07-01T12:00:00.350Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error on line 42"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"test-snapshot-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use the JSONAPI <a href="http://jsonapi.org/format/#fetching-includes">include syntax</a> to fetch the test execution results
+of the current build of a given execution environment.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the build from</td>
+</tr>
+<tr>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment you want to retrieve the build from</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-a-test-execution-result-to-the-current-build-of-an-execution-environment">Add a test execution result to the current build of an execution environment</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "type": "test-results",
+    "attributes": {
+      "status": "passed",
+      "status-author": "Harry",
+      "description": "All was well"
+    },
     "relationships": {
       "test-snapshot": {
         "data": {
@@ -5757,7 +6625,34 @@ uid: &lt;your uid&gt;
           "id": 1
         }
       }
-    }}}'</span>
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">'{
+      "data": {
+        "type": "test-results",
+        "attributes": {
+          "status": "passed",
+          "status-author": "Harry",
+          "description": "All was well"
+        },
+        "relationships": {
+          "test-snapshot": {
+            "data": {
+              "type": "test-snapshots",
+              "id": 1
+            }
+          }
+        }
+      }
+    }'</span>
 </code></pre>
 <blockquote>
 <p>Newly created test result</p>
@@ -5781,6 +6676,7 @@ uid: &lt;your uid&gt;
           </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
         </span><span class="p">},</span><span class="w">
+      </span><span class="p">}</span><span class="w">
       </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"builds"</span><span class="p">,</span><span class="w">
@@ -5801,8 +6697,9 @@ uid: &lt;your uid&gt;
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>This endpoint will create a test result in the current build of the specified execution environment.</p>
+
 <h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
@@ -5820,8 +6717,8 @@ uid: &lt;your uid&gt;
 <td>The ID of the test run that contains the test you want</td>
 </tr>
 <tr>
-<td>build_id</td>
-<td>The ID of the build whose you want add a test result to</td>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment you want add a test result to</td>
 </tr>
 </tbody></table>
 
