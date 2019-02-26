@@ -22,17 +22,8 @@ The [Builds section](#builds) specifies all operations that can be performed wit
 
 The [Execution environments section](#execution-environments) specifies how to work with multiple environments.
 
-It also updates the documentation for the following endpoints from the Builds section, for which specifying an environment becomes mandatory:
-
-* [Listing builds](#list-builds-of-an-execution-environment)
-* [Creating a new builds](#create-a-new-build-in-a-specific-execution-environment)
-* [Getting the current build](#get-the-current-build-of-an-execution-environment)
-* [Getting the execution results of the current build](#get-test-execution-results-of-the-current-build-of-an-execution-environment)
-
 Each entry in the Builds section has a warning if an execution environment ID is mandatory
 when working with multiple environments.
-
-All other build operations can still be perfomed with multiple environments.
 
 ## Add a test execution result
 
