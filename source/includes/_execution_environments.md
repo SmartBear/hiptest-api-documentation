@@ -46,7 +46,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
       "type": "execution-environments",
       "id": "2",
       "attributes": {
-        "name": "Default",
+        "name": "Environment 1",
         "test-run-id": 1,
         "created-at": "2017-06-13T08:15:38.607Z",
         "updated-at": "2018-09-09T10:48:48.685Z"
