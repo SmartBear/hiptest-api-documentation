@@ -5087,19 +5087,8 @@ All existing builds will still exist in the first, default execution environment
 
 <p>The <a href="#execution-environments">Execution environments section</a> specifies how to work with multiple environments.</p>
 
-<p>It also updates the documentation for the following endpoints from the Builds section, for which specifying an environment becomes mandatory:</p>
-
-<ul>
-<li><a href="#list-builds-of-an-execution-environment">Listing builds</a></li>
-<li><a href="#create-a-new-build-in-a-specific-execution-environment">Creating a new builds</a></li>
-<li><a href="#get-the-current-build-of-an-execution-environment">Getting the current build</a></li>
-<li><a href="#get-test-execution-results-of-the-current-build-of-an-execution-environment">Getting the execution results of the current build</a></li>
-</ul>
-
 <p>Each entry in the Builds section has a warning if an execution environment ID is mandatory
 when working with multiple environments.</p>
-
-<p>All other build operations can still be perfomed with multiple environments.</p>
 
 <h2 id="add-a-test-execution-result">Add a test execution result</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -6212,7 +6201,7 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environments"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Environment 1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"test-run-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-13T08:15:38.607Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-09T10:48:48.685Z"</span><span class="w">
