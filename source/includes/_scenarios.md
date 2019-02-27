@@ -356,13 +356,13 @@ This endpoint create a new scenario.
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project in wich you want to create the actionword
+project_id | The ID of the project in which you want to create the scenario.
 
 ### Mandatory fields
 
 Field | Description
 --------- | -----------
-name | (String) The name of the action word.
+name | (String) The name of the scenario.
 
 ### Other fields
 
