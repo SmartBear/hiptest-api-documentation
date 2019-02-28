@@ -316,7 +316,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/actionwords" \
+curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/scenarios" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -341,7 +341,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/actionwords" \
         "errors": []
       },
       "links": {
-        "self": "/actionwords/1"
+        "self": "/scenarios/1"
       },
       "relationships": {
         "folder": {}
