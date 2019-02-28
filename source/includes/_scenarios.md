@@ -222,7 +222,7 @@ project_id | The ID of the project you want to retrieve the scenarios from
 
 Parameter | Description
 --------- | -----------
-key | The key of the tag.
+key | The key of the tag
 value | The value of the tag
 
 ## Get a single scenario
@@ -356,19 +356,19 @@ This endpoint create a new scenario.
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project in which you want to create the scenario.
+project_id | The ID of the project in which you want to create the scenario
 
 ### Mandatory fields
 
 Field | Description
 --------- | -----------
-name | (String) The name of the scenario.
+name | (String) The name of the scenario
 
 ### Other fields
 
 Field | Description
 --------- | -----------
-folder-id | (Integer) The id of the folder containing the scenario.
+folder-id | (Integer) The id of the folder containing the scenario
 
 <aside class="notice">
 The description and the definition of a scenario cannot yet be set at creation
