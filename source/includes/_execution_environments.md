@@ -234,7 +234,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "test-run-id": 1,
         "execution-environment-id": 29,
         "is_running": true,
-        "closed_at": nil
+        "closed_at": null
       },
       "links": {
         "self": "/builds/3"
