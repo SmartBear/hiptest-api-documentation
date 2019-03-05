@@ -49,7 +49,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "created-at": "2017-06-13T08:15:38.607Z",
         "test-run-id": 1,
         "is-running": true,
-        "closed-at": nil
+        "closed-at": null
       },
       "links": {
         "self": "/builds/2"
@@ -107,7 +107,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "created-at": "now!",
         "test-run-id": 1,
         "is_running": true,
-        "closed_at": nil
+        "closed_at": null
       },
       "links": {
         "self": "/builds/3"
