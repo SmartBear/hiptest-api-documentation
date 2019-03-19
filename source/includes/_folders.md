@@ -330,10 +330,10 @@ uid: <your uid>
 {
   "data": {
     "type": "folders",
-    "id": "<folder_id>"
+    "id": "<folder_id>",
     "attributes": {
       "name": "A new folder name",
-      "description: "A new description",
+      "description": "A new description",
       "definition": "folder do end"
       "parent-id": 1233
     }
