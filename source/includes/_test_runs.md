@@ -204,6 +204,7 @@ uid: <your uid>
   "data": {
     "attributes": {
       "name": "Sprint 1",
+      "description": "My TR description",
       "scenario_ids": [1, 2, 3]
     }
   }
@@ -221,7 +222,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>' \
-    --data '{"data": {"attributes": {"name": "Sprint 1", "scenario_ids": [1, 2, 3]} } }'
+    --data '{"data": {"attributes": {"name": "Sprint 1", "description": "My TR description", "scenario_ids": [1, 2, 3]} } }'
 ```
 
 ```json
@@ -235,7 +236,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
         "updated-at" : "2017-02-28T11:39:08.281Z",
         "last-author" : "harry@example.org",
         "name": "Sprint 1",
-        "description": "",
+        "description": "My TR description",
         "statuses": {
           "passed": 0,
           "failed": 0,
@@ -260,11 +261,15 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
 
 This endpoint create a new test run.
 
+<aside class="notice">
+If you don't specify scenario ids, you'll create a test run with all your available scenarios in the project.
+</aside>
+
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-project_id | The ID of the project in which you want to create the test run
+project_id | The ID of the project in which you want to create the test run.
 
 <aside class="notice">
 You can create tags alongside the test run by specifying them in the "relationship" section, as explained in the <a href="#create-tags-alongside-elements">tags creation section</a>.
