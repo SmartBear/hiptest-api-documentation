@@ -4017,6 +4017,7 @@ https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]
   "data": {
     "attributes": {
       "name": "Sprint 1",
+      "description": "My TR description",
       "scenario_ids": [1, 2, 3]
     }
   }
@@ -4028,7 +4029,7 @@ https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">'{"data": {"attributes": {"name": "Sprint 1", "scenario_ids": [1, 2, 3]} } }'</span>
+    --data <span class="s1">'{"data": {"attributes": {"name": "Sprint 1", "description": "My TR description", "scenario_ids": [1, 2, 3]} } }'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -4039,7 +4040,7 @@ https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]
         </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sprint 1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My TR description"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"passed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4063,6 +4064,10 @@ https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]
 </span></code></pre>
 <p>This endpoint create a new test run.</p>
 
+<aside class="notice">
+If you don&rsquo;t specify scenario ids, you&rsquo;ll create a test run with all your available scenarios in the project.
+</aside>
+
 <h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
@@ -4073,7 +4078,7 @@ https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]
 </thead><tbody>
 <tr>
 <td>project_id</td>
-<td>The ID of the project in which you want to create the test run</td>
+<td>The ID of the project in which you want to create the test run.</td>
 </tr>
 </tbody></table>
 
