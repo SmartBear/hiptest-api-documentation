@@ -287,6 +287,7 @@ Field | Description
 --------- | -----------
 scenario_ids | (List of Integer) The ids of scenarios you want in the test run.
 external | 1 or true to create an external test run.
+description | (String) The description of the test run.
 
 <aside class="notice">
 You can create a test run from a subset of tests by specifying the list of scenario ids.
