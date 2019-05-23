@@ -298,6 +298,81 @@ If you specify scenario ids, `external` will be ignored. External test runs will
 be created empty.
 </aside>
 
+## Clone a test run
+
+```http
+POST https://app.hiptest.com/api/projects/<project_id>/test_runs HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+
+{
+  "data": {
+    "attributes": {
+      "name": "My new test run",
+      "test_run_id": 1
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -X POST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --data '{"data": {"attributes": {"name": "My new test run", "test_run_id": 1} } }'
+```
+
+```json
+{
+  "data":
+    {
+      "type": "test-runs",
+      "id": "2",
+      "attributes": {
+        "created-at": "2019-05-23T08:30:17.398Z",
+        "updated-at": "2019-05-23T08:30:17.398Z",
+        "last-author" : "harry@example.org",
+        "name": "My new test run",
+        "description": "first test run description",
+        "statuses": {},
+        "archived": false,
+        "external": false
+      },
+      "links": {
+        "self": "/test-runs/2"
+      },
+      "relationships": {
+        "tags": {}
+      }
+    }
+}
+```
+
+This endpoint clone a test run.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project in which you want to create the test run.
+
+### Mandatory fields
+
+Field | Description
+--------- | -----------
+name | (String) The name of the test run.
+test_run_id | (Integer) The id of the source test run.
+
 ## Synchronize a test run
 Synchronization give you the ability to update the tests of your test run with their last version, based on the current scenarios definitions
 
