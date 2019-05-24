@@ -259,7 +259,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
 }
 ```
 
-This endpoint create a new test run.
+This endpoint creates a new test run.
 
 <aside class="notice">
 If you don't specify scenario ids, you'll create a test run with all your available scenarios in the project.
@@ -358,7 +358,7 @@ curl -X POST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
 }
 ```
 
-This endpoint clone a test run.
+This endpoint clones a test run.
 
 ### URL Parameters
 
