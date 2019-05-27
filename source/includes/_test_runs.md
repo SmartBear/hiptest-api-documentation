@@ -614,3 +614,81 @@ test_run_id | The ID of the test run you want to get
 By default, this endpoint will return the last 25 builds.
 You can override this limit by including a query parameter ex: ?limit=10.
 </aside>
+
+## Add a scenario to an existing test run
+
+PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+{
+  "data": {
+    "type": "test_runs",
+    "id": <test_run_id>,
+    "attributes": {
+      "scenario_id": <scenario_id>
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --data '{"data": {"type": "test_runs", "id": 1, "attributes": {"scenario_id": 1}}}'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "test-runs",
+      "id": "1",
+      "attributes": {
+        "created-at" : "2019-05-27T11:39:08.281Z",
+        "updated-at" : "2019-05-27T11:39:08.281Z",
+        "last-author" : "harry@example.org",
+        "name": "Sprint 1",
+        "description": "Wandering in the countryside, doing boring stuff",
+        "statuses": {
+          "passed": 0,
+          "failed": 0,
+          "retest": 0,
+          "undefined": 765,
+          "blocked": 0,
+          "skipped": 0,
+          "wip": 0
+        },
+        "archived": false,
+        "external": false
+      },
+      "links": {
+        "self": "/test-runs/1"
+      },
+      "relationships": {
+        "tags": {}
+      }
+    }
+  ]
+}
+```
+
+This endpoint adds a scenarios to a specified test run.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the test run from
+test_run_id | The ID of the test run you want to get
+
