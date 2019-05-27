@@ -617,18 +617,20 @@ You can override this limit by including a query parameter ex: ?limit=10.
 
 ## Add a scenario to an existing test run
 
+```http
 PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
 uid: <your uid>
 
+
 {
   "data": {
     "type": "test_runs",
-    "id": <test_run_id>,
+    "id": 1,
     "attributes": {
-      "scenario_id": <scenario_id>
+      "scenario_id": 1
     }
   }
 }
@@ -683,7 +685,7 @@ curl -XPATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
 }
 ```
 
-This endpoint adds a scenarios to a specified test run.
+This endpoint adds a scenario to a given test run.
 
 ### URL Parameters
 
@@ -691,4 +693,3 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project you want to retrieve the test run from
 test_run_id | The ID of the test run you want to get
-
