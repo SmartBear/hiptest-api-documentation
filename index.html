@@ -4445,24 +4445,23 @@ You can override this limit by including a query parameter ex: ?limit=10.
 </aside>
 
 <h2 id="add-a-scenario-to-an-existing-test-run">Add a scenario to an existing test run</h2>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-<p>PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
-Accept: application/vnd.api+json; version=1
-access-token: <your access token>
-client: <your client id>
-uid: <your uid></p>
 
-<p>{
-  &ldquo;data&rdquo;: {
-    &ldquo;type&rdquo;: &ldquo;test_runs&rdquo;,
-    &ldquo;id&rdquo;: <test_run_id>,
-    &ldquo;attributes&rdquo;: {
-      &ldquo;scenario_id&rdquo;: <scenario_id>
+{
+  "data": {
+    "type": "test_runs",
+    "id": 1,
+    "attributes": {
+      "scenario_id": 1
     }
   }
 }
-&ldquo;`</p>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt; <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
@@ -4503,7 +4502,7 @@ uid: <your uid></p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint adds a scenarios to a specified test run.</p>
+<p>This endpoint adds a scenario to a given test run.</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
