@@ -373,7 +373,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "passed",
           "passed"
         ],
-        "test-snapshot-id": 1
+        "test-snapshot-id": 1,
+        "execution-environment-id": 29
       },
       "links": {
         "self": "/test-results/1"
@@ -388,7 +389,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "description": "Error on line 42",
         "status-author": "Jenkins",
         "step-statuses": [],
-        "test-snapshot-id": 2
+        "test-snapshot-id": 2,
+        "execution-environment-id": 29
       },
       "links": {
         "self": "/test-results/2"

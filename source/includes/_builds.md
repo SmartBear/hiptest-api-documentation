@@ -212,6 +212,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
     "attributes": {
       "created-at": "2017-06-13T08:15:38.607Z",
       "test-run-id": 1,
+      "execution-environment-id": 1,
       "is-running": false,
       "closed-at": "2017-06-16T09:13:48.737Z"
     },
@@ -247,7 +248,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "passed",
           "passed"
         ],
-        "test-snapshot-id": 1
+        "test-snapshot-id": 1,
+        "execution-environment-id": 1
       },
       "links": {
         "self": "/test-results/1"
@@ -262,7 +264,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "description": "Error on line 42",
         "status-author": "Jenkins",
         "step-statuses": [],
-        "test-snapshot-id": 2
+        "test-snapshot-id": 2,
+        "execution-environment-id": 1
       },
       "links": {
         "self": "/test-results/2"
@@ -402,7 +405,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
           "passed",
           "passed"
         ],
-        "test-snapshot-id": 1
+        "test-snapshot-id": 1,
+        "execution-environment-id": 29,
       },
       "links": {
         "self": "/test-results/1"
@@ -417,7 +421,8 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
         "description": "Error on line 42",
         "status-author": "Jenkins",
         "step-statuses": [],
-        "test-snapshot-id": 2
+        "test-snapshot-id": 2,
+        "execution-environment-id": 29,
       },
       "links": {
         "self": "/test-results/2"
