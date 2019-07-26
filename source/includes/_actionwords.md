@@ -9,6 +9,7 @@ access-token: <your access token>
 client: <your client id>
 uid: <your uid>
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -71,8 +72,6 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project you want to retrieve the actionwords from
 
-
-
 ## Get a single action word
 
 ```http
@@ -82,6 +81,7 @@ access-token: <your access token>
 client: <your client id>
 uid: <your uid>
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -116,6 +116,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_
     }
 }
 ```
+
 This endpoint retrieves a single action word of a given project.
 
 ### URL Parameters
@@ -144,6 +145,7 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/vnd.api+json
@@ -232,6 +234,7 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -267,6 +270,7 @@ curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/actionwords/<act
     }
 }
 ```
+
 This endpoint updates the name, descrpition and/or definition of a single action word of a given project.
 
 ### URL Parameters
@@ -296,6 +300,7 @@ access-token: <your access token>
 client: <your client id>
 uid: <your uid>
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -322,7 +327,6 @@ actionword_id | The ID of the action word you want to delete
 Caution: your action word will be totaly and permanently removed from your project.
 </aside>
 
-
 ## Get an action word callers
 
 ```http
@@ -332,6 +336,7 @@ access-token: <your access token>
 client: <your client id>
 uid: <your uid>
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -390,6 +395,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_
     ]
 }
 ```
+
 This endpoint retrieves the list of action word callers (scenarios, folders, actionwords).
 
 ### URL Parameters
@@ -402,4 +408,3 @@ actionword_id | The ID of the action word you want to get
 <aside class="info">
   NB: You can include tags by providing a query parameter "include=tags"
 </aside>
-
