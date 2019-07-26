@@ -1,4 +1,4 @@
-# Hiptest API documentation (https://hiptest.github.io/slate/)
+# Hiptest API documentation (https://smartbear.github.io/hiptest-api-documentation/)
 
 
 The API documentation is written using Slate [https://github.com/lord/slate]
@@ -14,7 +14,7 @@ $ bundle exec middleman server
 == Inspect your site configuration at "http://localhost:4567/__middleman", "http://127.0.0.1:4567/__middleman"
 ```
 
-Edit the pages in the source directory using the markdown syntax. To deploy, 
+Edit the pages in the source directory using the markdown syntax. To deploy,
 simply use the `deploy.sh` script:
 
 ```
@@ -42,6 +42,3 @@ Depuis github.com:hiptest/slate
 [gh-pages f539285] publish: :memo: Add some doc about features endpoints
  1 file changed, 143 insertions(+)
 ```
-
-
-
