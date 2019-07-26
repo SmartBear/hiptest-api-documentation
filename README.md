@@ -1,4 +1,4 @@
-# Hiptest API documentation (https://hiptest.github.io/slate/)
+# Hiptest API documentation (https://smartbear.github.io/hiptest-api-documentation/)
 
 
 The API documentation is written using Slate [https://github.com/lord/slate]
