@@ -198,6 +198,12 @@ Parameter | Description
 project_id | The ID of the project you want to retrieve the folders from
 test_run_id | The ID of the test run you are executing
 
+### Mandatory fields
+
+Parameter | Description
+--------- | -----------
+name | The name of the execution environment. It should not be empty and uniq
+
 ## Update an execution environment name
 ```http
 PUT https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environements/<execution_environmnent_id> HTTP/1.1
