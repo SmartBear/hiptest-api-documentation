@@ -6543,6 +6543,133 @@ and not their test results</aside></p>
 </tr>
 </tbody></table>
 
+<h3 id="mandatory-fields">Mandatory fields</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The name of the execution environment. It should not be empty and uniq</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-execution-environment-name">Update an execution environment name</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environements/&lt;execution_environmnent_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "type": "execution-environments",
+    "id": &lt;execution_environment_id&gt;,
+    "attributes": {
+      "name": "Android",
+    }
+  }
+}
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environements/&lt;execution_environmnent_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --data <span class="s1">$'{ "data": { "type": "execution-environments", "id": &lt;execution_environment_id&gt;, "attributes": { "name": "Androit" } } }'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:39:08.281Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test_run_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/execution-environments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates the name of an execution environment for a test run and a given project.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the action word from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test_run that the execution environment belongs to</td>
+</tr>
+<tr>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment you want to update the name</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Specify the name you want to update.
+The name is mandatory.
+</aside>
+
+<h2 id="delete-an-execution-environment">Delete an execution environment</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_run/&lt;test_run_id&gt;/execution_environments/&lt;execution_environments_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_run/&lt;test_run_id&gt;/execution_environments/&lt;execution_environments_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre>
+<p>This endpoint delete an execution environment.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenario from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test_run that the execution environment belongs to</td>
+</tr>
+<tr>
+<td>execution_environment_id</td>
+<td>The ID of the execution environment to delete</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Caution: your execution environment will be totaly and permanently removed from your project.
+</aside>
+
 <h2 id="create-a-new-build-in-a-specific-execution-environment">Create a new build in a specific execution environment</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/builds"</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
