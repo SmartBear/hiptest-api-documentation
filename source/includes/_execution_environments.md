@@ -206,7 +206,7 @@ name | The name of the execution environment. It should not be empty and uniq
 
 ## Update an execution environment name
 ```http
-PUT https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environements/<execution_environmnent_id> HTTP/1.1
+PUT https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -218,7 +218,7 @@ uid: <your uid>
     "type": "execution-environments",
     "id": <execution_environment_id>,
     "attributes": {
-      "name": "Android",
+      "name": "Android"
     }
   }
 }
@@ -230,12 +230,12 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environements/<execution_environmnent_id>" \
+curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>' \
-    --data $'{ "data": { "type": "execution-environments", "id": <execution_environment_id>, "attributes": { "name": "Androit" } } }'
+    --data $'{ "data": { "type": "execution-environments", "id": <execution_environment_id>, "attributes": { "name": "Android" } } }'
 ```
 
 ```json
