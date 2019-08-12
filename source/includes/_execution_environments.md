@@ -275,7 +275,7 @@ The name is mandatory.
 ## Delete an execution environment
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/test_run/<test_run_id>/execution_environments/<execution_environments_id> HTTP/1.1
+DELETE https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environments_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
