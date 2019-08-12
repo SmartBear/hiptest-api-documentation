@@ -6558,7 +6558,7 @@ and not their test results</aside></p>
 </tbody></table>
 
 <h2 id="update-an-execution-environment-name">Update an execution environment name</h2>
-<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environements/&lt;execution_environmnent_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environmnent_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
@@ -6570,18 +6570,18 @@ and not their test results</aside></p>
     "type": "execution-environments",
     "id": &lt;execution_environment_id&gt;,
     "attributes": {
-      "name": "Android",
+      "name": "Android"
     }
   }
 }
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environements/&lt;execution_environmnent_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environmnent_id&gt;"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">$'{ "data": { "type": "execution-environments", "id": &lt;execution_environment_id&gt;, "attributes": { "name": "Androit" } } }'</span>
+    --data <span class="s1">$'{ "data": { "type": "execution-environments", "id": &lt;execution_environment_id&gt;, "attributes": { "name": "Android" } } }'</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
