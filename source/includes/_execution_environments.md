@@ -206,7 +206,7 @@ name | The name of the execution environment. It should not be empty and uniq
 
 ## Update an execution environment name
 ```http
-PUT https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id> HTTP/1.1
+PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -287,7 +287,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/test_run/<test_run_id>/execution_environments/<execution_environments_id>" \
+curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environments_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
