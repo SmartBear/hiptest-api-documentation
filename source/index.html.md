@@ -28,6 +28,7 @@ includes:
   - test_execution
   - builds
   - execution_environments
+  - deprecations
 
 search: true
 
