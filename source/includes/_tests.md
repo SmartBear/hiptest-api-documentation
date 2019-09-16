@@ -103,7 +103,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
 This endpoint retrieves all test snapshots of a test run
 
 <aside class="warning"><b>Deprecations</b>
-  <br>Test status attribute is deprecated. <a href="#test-status">More information here</a>
+  <br>Test status attribute is deprecated. More information <a href="#test-status">here</a>.
 </aside>
 
 ### URL Parameters
@@ -197,7 +197,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
 This endpoint retrieves a particular test of a test run
 
 <aside class="warning"><b>Deprecations</b>
-  <br>Test status attribute is deprecated. <a href="#test-status">More information here</a>
+  <br>Test status attribute is deprecated. More information <a href="#test-status">here</a>.
 </aside>
 
 ### URL Parameters
@@ -357,7 +357,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/
 ```
 
 <aside class="warning"><b>Deprecations</b>
-  <br>Test status attribute is deprecated. <a href="#test-status">More information here</a>
+  <br>Test status attribute is deprecated. More information <a href="#test-status">here</a>.
 </aside>
 
 The available additional data are the following:
