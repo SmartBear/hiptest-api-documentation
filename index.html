@@ -4615,6 +4615,10 @@ You can override this limit by including a query parameter ex: ?limit=10.
 </span></code></pre>
 <p>This endpoint retrieves all test snapshots of a test run</p>
 
+<aside class="warning"><b>Deprecations</b>
+  <br>Test status attribute is deprecated. More information <a href="#test-status">here</a>.
+</aside>
+
 <h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
@@ -4712,6 +4716,10 @@ You can override this limit by including a query parameter ex: ?limit=10.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a particular test of a test run</p>
+
+<aside class="warning"><b>Deprecations</b>
+  <br>Test status attribute is deprecated. More information <a href="#test-status">here</a>.
+</aside>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -4865,6 +4873,10 @@ about your tests.</p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<aside class="warning"><b>Deprecations</b>
+  <br>Test status attribute is deprecated. More information <a href="#test-status">here</a>.
+</aside>
+
 <p>The available additional data are the following:</p>
 
 <table><thead>
@@ -7043,6 +7055,17 @@ of the current build of a given execution environment.</p>
 <aside class="notice">
 If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
 </aside>
+
+          <h1 id="deprecations">Deprecations</h1>
+
+<h2 id="test-status">Test status</h2>
+
+<p>Thanks to the new execution environment feature, a test is now executed on an execution environment.
+Consequently the status attribute of a test does not mean anything without an execution environment.</p>
+
+<p>To get a test execution status, please refer <a href="#get-test-execution-results-of-the-current-build-of-an-execution-environment">Get test execution results of the current build of an execution environment</a></p>
+
+<p>Note that the <strong>status</strong> attribute will be removed on <strong>28 february 2020</strong>.</p>
 
       </div>
       <div class="dark-box">
