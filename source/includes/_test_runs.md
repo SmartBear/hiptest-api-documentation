@@ -521,6 +521,10 @@ synchronization before doing anything else with your test run data.
 Only one synchronization of a test run can be run at the same time. Calling this endpoint when the test run is synchronizing won't do anything.
 </aside>
 
+<aside class="notice">
+Only 10 synchronizations of test runs per project can be run at the same time.
+</aside>
+
 ### URL Parameters
 
 Parameter | Description
