@@ -691,6 +691,78 @@ curl -XPATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
 
 This endpoint adds a scenario to a given test run.
 
+## Add multiple scenarios to an existing test run
+
+```http
+PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+
+{
+  "data": {
+    "type": "test_runs",
+    "id": 1,
+    "attributes": {
+      "scenario_ids": [2233,76547]
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --data '{"data": {"type": "test_runs", "id": 1, "attributes": {"scenario_ids":  [2233,76547] }}}'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "test-runs",
+      "id": "1",
+      "attributes": {
+        "created-at" : "2019-05-27T11:39:08.281Z",
+        "updated-at" : "2019-05-27T11:39:08.281Z",
+        "last-author" : "harry@example.org",
+        "name": "Sprint 1",
+        "description": "Wandering in the countryside, doing boring stuff",
+        "statuses": {
+          "passed": 0,
+          "failed": 0,
+          "retest": 0,
+          "undefined": 767,
+          "blocked": 0,
+          "skipped": 0,
+          "wip": 0
+        },
+        "archived": false,
+        "external": false
+      },
+      "links": {
+        "self": "/test-runs/1"
+      },
+      "relationships": {
+        "tags": {}
+      }
+    }
+  ]
+}
+```
+
+This endpoint adds several scenarios to a given test run.
+
 ### URL Parameters
 
 Parameter | Description

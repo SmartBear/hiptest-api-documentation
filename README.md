@@ -6,7 +6,7 @@ The API documentation is written using Slate [https://github.com/lord/slate]
 To edit it, clone this repository.
 
 ```
-$ cd slate
+$ cd hiptest-api-documentation
 $ bundle install
 $ bundle exec middleman server
 == The Middleman is loading
