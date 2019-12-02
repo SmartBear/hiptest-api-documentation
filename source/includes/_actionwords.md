@@ -72,6 +72,154 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project you want to retrieve the actionwords from
 
+## Find actionwords by tags
+
+> Find actionwords by tags key
+
+```http
+GET https://app.hiptest.com/api/projects/<project_id>/actionwords/find_by_tags?key=<tag_key> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/find_by_tags?key=<tag_key>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+    "data": [
+        {
+            "type": "actionwords",
+            "id": "2585231",
+            "attributes": {
+                "created-at": "2019-05-02T19:21:58.344Z",
+                "updated-at": "2019-12-02T14:07:01.018Z",
+                "last-author": "harry@example.org",
+                "name": "I handle coffee grounds",
+                "description": "",
+                "definition": "actionword 'I handle coffee grounds' do\nend\n",
+                "is-shared": false,
+                "is-outdated": false,
+                "errors": []
+            },
+            "links": {
+                "self": "/actionwords/2585231"
+            },
+            "relationships": {
+                "tags": {},
+                "callers": {}
+            }
+        },
+        {
+            "type": "actionwords",
+            "id": "2585234",
+            "attributes": {
+                "created-at": "2019-05-02T19:21:58.587Z",
+                "updated-at": "2019-12-02T14:06:29.856Z",
+                "last-author": "harry@example.org",
+                "name": "displayed message is:",
+                "description": "",
+                "definition": "actionword 'displayed message is:' (__free_text = \"\") do\n  call 'message \"message\" should be displayed' (message = __free_text)\nend\n",
+                "is-shared": false,
+                "is-outdated": false,
+                "errors": []
+            },
+            "links": {
+                "self": "/actionwords/2585234"
+            },
+            "relationships": {
+                "tags": {},
+                "callers": {}
+            }
+        }
+    ],
+    "included": []
+}
+```
+
+> Find actionwords by tags key and value
+
+```http
+GET https://app.hiptest.com/api/projects/<project_id>/actionwords/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/find_by_tags?key=<tag_key>&value=<tag_value>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+    "data": [
+        {
+            "type": "actionwords",
+            "id": "2585234",
+            "attributes": {
+                "created-at": "2019-05-02T19:21:58.587Z",
+                "updated-at": "2019-12-02T14:06:29.856Z",
+                "last-author": "harry@example.org",
+                "name": "displayed message is:",
+                "description": "",
+                "definition": "actionword 'displayed message is:' (__free_text = \"\") do\n  call 'message \"message\" should be displayed' (message = __free_text)\nend\n",
+                "is-shared": false,
+                "is-outdated": false,
+                "errors": []
+            },
+            "links": {
+                "self": "/actionwords/2585234"
+            },
+            "relationships": {
+                "tags": {},
+                "callers": {}
+            }
+        }
+    ],
+    "included": []
+}
+```
+
+This endpoint retrieves all actionwords of a given project and having the given tag.
+
+Field name | Description
+--------- | -----------
+tag_key | The KEY of the tag you use to retrieve the actionwords
+tag_value | The VALUE of the tag you use to retrieve the actionwords
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the actionwords from
+
+### Request parameters
+
+Parameter | Description
+--------- | -----------
+key | The key of the tag
+value | The value of the tag
+
 ## Get a single action word
 
 ```http
