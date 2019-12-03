@@ -3,7 +3,7 @@
 ## Include tags when requesting elements
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>?include=tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>?include=tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>?include=tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>?include=tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -74,7 +74,7 @@ This is working when requesting for a list of elements, and for a single element
 ## Get tags of a given action word
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>/tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/actionwords/<actionword_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -86,7 +86,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/actionwords/<actionword_id>/tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/actionwords/<actionword_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -135,7 +135,7 @@ actionword_id | The ID of the action word you want to retrieve the tags from
 ## Get tags of a given scenario
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -147,7 +147,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -194,7 +194,7 @@ scenario_id | The ID of the scenario you want to retrieve the tags from
 ## Get tags of a given folder
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -206,7 +206,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -253,7 +253,7 @@ folder_id | The ID of the folder you want to retrieve the tags from
 ## Get tags of a given test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -265,7 +265,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -312,7 +312,7 @@ test_run_id | The ID of the test run you want to retrieve the tags from
 ## Get tags of a given test
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -324,7 +324,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -372,7 +372,7 @@ test_snapshot_id | The ID of the test in the test-run you want to retrieve the t
 ## Create tag in a scenario
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -394,7 +394,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -X POST "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -428,7 +428,7 @@ scenario_id | The ID of the scenario where you want to create the tag
 ## Create tag in a test run
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -450,7 +450,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -X POST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -484,7 +484,7 @@ test_run_id | The ID of the test run where you want to create the tag
 ## Create tag in a test
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -506,7 +506,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -X POST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -541,7 +541,7 @@ test_snapshot_id | The ID of the test in the test-run where you want to create t
 ## Update a tag in a scenario
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -565,7 +565,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -603,7 +603,7 @@ tag_id | The ID of the tag you want to update
 ## Update a tag in a test run
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -627,7 +627,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -665,7 +665,7 @@ tag_id | The ID of the tag you want to update
 ## Update a tag in a test
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -689,7 +689,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -728,7 +728,7 @@ tag_id | The ID of the tag you want to update
 ## Delete a tag in a scenario
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -741,7 +741,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/tags<tag_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -764,7 +764,7 @@ tag_id | The ID of the tag you want to delete
 ## Delete a tag in a test run
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -777,7 +777,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/tags<tag_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -800,7 +800,7 @@ tag_id | The ID of the tag you want to delete
 ## Delete a tag in a test
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -813,7 +813,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags<tag_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags<tag_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -837,7 +837,7 @@ tag_id | The ID of the tag you want to delete
 ## Create tags alongside elements
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/<element_type> HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/<element_type> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -867,7 +867,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/<element_type>" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/<element_type>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

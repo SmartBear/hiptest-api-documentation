@@ -2,7 +2,7 @@
 ## Get test runs of a project
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -14,7 +14,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -87,9 +87,9 @@ This endpoint retrieves all test runs of a given project. The order is undefined
 <p>Note: you can add use the parameter "filter[status]" to only fetch achived or active test runs
 as a query string of the request:</p>
 <code>
-https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]=active
+https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[status]=active
 </code><br /><code>
-https://app.hiptest.com/api/projects/&lt;project_id&gt;/test_runs?filter[status]=archived
+https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[status]=archived
 </code>
 </aside>
 
@@ -103,7 +103,7 @@ filter[status]     | "active" or "archived"
 ## Get a single test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -115,7 +115,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -168,7 +168,7 @@ test_run_id | The ID of the test run you want to get
 ## Include tags when fetching your test run(s)
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs?include=tags HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs?include=tags HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -180,7 +180,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs?include=tags" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs?include=tags" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -193,7 +193,7 @@ You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-inc
 ## Create a test run
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -217,7 +217,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -301,7 +301,7 @@ be created empty.
 ## Clone a test run
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -324,7 +324,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -X POST "https://app.hiptest.com/api/projects/<project_id>/test_runs" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -378,7 +378,7 @@ Synchronization give you the ability to update the tests of your test run with t
 
 ### Watch synchronization state
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>?show_synchronization_information=true HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>?show_synchronization_information=true HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -390,7 +390,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>?show_synchronization_information=true" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>?show_synchronization_information=true" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -446,7 +446,7 @@ It is strongly advised to use this endpoint to get the potential impacts of a sy
 
 ### Synchronize the test run
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/synchronize HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/synchronize HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -459,7 +459,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/synchronize" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/synchronize" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -536,7 +536,7 @@ test_run_id | The ID of the test run you want to synchronize
 ## Get builds history of a test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/build_history HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/build_history HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -548,7 +548,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/build_history" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/build_history" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -622,7 +622,7 @@ You can override this limit by including a query parameter ex: ?limit=10.
 ## Add a scenario to an existing test run
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -646,7 +646,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> \
+curl -XPATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -694,7 +694,7 @@ This endpoint adds a scenario to a given test run.
 ## Add multiple scenarios to an existing test run
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -718,7 +718,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id> \
+curl -XPATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

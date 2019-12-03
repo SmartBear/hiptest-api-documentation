@@ -1,13 +1,14 @@
 # Execution environments
 
 ## What's an execution environment?
-An execution environment is a way to group several builds by in a HipTest test run.
+An execution environment is a way to group several builds by in a CucumberStudio
+test run.
 
 You can find more details on test executions and execution environments in the [Test execution introduction section](#getting-started-with-test-executions).
 
 ## List execution environments of a test run
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -19,7 +20,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -72,7 +73,7 @@ test_run_id | The ID of the test run you want to retrieve the builds from
 
 ## List builds of an execution environment
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -84,7 +85,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -141,7 +142,7 @@ execution_environment_id | The ID of the execution environment you want to retre
 ## Create a new execution environment
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments" HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -162,7 +163,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments" \
     -XPOST \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -206,7 +207,7 @@ name | The name of the execution environment. It should not be empty and uniq
 
 ## Update an execution environment name
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -230,7 +231,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -275,7 +276,7 @@ The name is mandatory.
 ## Delete an execution environment
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environments_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environments_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -287,7 +288,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environments_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environments_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -311,7 +312,7 @@ Caution: your execution environment will be totaly and permanently removed from 
 ## Create a new build in a specific execution environment
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds" HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -323,7 +324,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds" \
     -XPOST \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -366,7 +367,7 @@ execution_environment_id | The ID of the execution environment for your new buil
 ## Get the current build of an execution environment
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current" HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -378,7 +379,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -420,7 +421,7 @@ execution_environment_id | The ID of the execution environment you want to retri
 ## Get test execution results of the current build of an execution environment
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current?include=test-results" HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current?include=test-results" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -432,7 +433,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current?include=test-results" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/builds/current?include=test-results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -523,7 +524,7 @@ execution_environment_id | The ID of the execution environment you want to retri
 
 ## Add a test execution result to the current build of an execution environment
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/test_results HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/test_results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -556,7 +557,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/test_results" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/test_results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

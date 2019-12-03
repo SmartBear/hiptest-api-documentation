@@ -3,7 +3,7 @@
 ## Get folders of a given project
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/folders HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/folders HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/folders" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -73,7 +73,7 @@ project_id | The ID of the project you want to retrieve the folders from
 ## Get a single folder
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -85,7 +85,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -127,7 +127,7 @@ folder_id | The ID of the folder you want to get
 ## Get children of a folder
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/children HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/children HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -139,7 +139,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/children" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/children" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -188,7 +188,7 @@ folder_id | The ID of the folder you want to get the children
 ## Get scenarios of a folder
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/scenarios HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -200,7 +200,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/scenarios" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/scenarios" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -246,7 +246,7 @@ folder_id | The ID of the folder you want to get the scenarios
 ## Create a folder
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/folders HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/folders HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -267,7 +267,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/folders" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/folders" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -321,7 +321,7 @@ parent-id | (Integer) The id of the folder that will contain the created folder.
 ## Update a folder
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -346,7 +346,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -397,7 +397,7 @@ parent-id  | (Integer) The id of the parent folder.
 ## Delete a folder
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -409,7 +409,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -436,7 +436,7 @@ folder_id  | The ID of the target folder
 ## Delete a folder children
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/children HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/children HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -448,7 +448,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/children" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/children" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -475,7 +475,7 @@ folder_id  | The ID of the target folder
 ## Delete a folder scenarios
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/scenarios HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -487,7 +487,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/folders/<folder_id>/scenarios" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/scenarios" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -510,4 +510,3 @@ project_id | The ID of the project you want to retrieve the folders from
 folder_id  | The ID of the target folder
 
 <aside class="warning"><b>Warning:</b> this action will destroy all the scenarios of the given folder</aside>
-

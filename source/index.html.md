@@ -1,5 +1,5 @@
 ---
-title: Hiptest API Reference
+title: CucumberStudio API Reference
 
 <<<<<<< HEAD
 language_tabs: # must be one of https://git.io/vQNgJ
@@ -10,7 +10,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://hiptest.com'>Sign Up for Hiptest!</a>
+  - <a href='https://studio.cucumber.io'>Sign Up for CucumberStudio!</a>
 
 includes:
   - authentication
@@ -41,9 +41,10 @@ meta:
 
 # Introduction
 
-Welcome to the <a href="https://hiptest.com">Hiptest</a> API! You can use our
-API endpoints to get information on your projects in our database. It is
-RESTful and follows the [{json:api}](http://jsonapi.org) specification.
+Welcome to the <a href="https://studio.cucumber.io">CucumberStudio</a> API!
+You can use our API endpoints to get information on your projects in our
+database. It is RESTful and follows the [{json:api}](http://jsonapi.org)
+specification.
 
 Since we don't provide integration with any programming languages (yet!), the
 examples are written in shell, using the curl command.
@@ -75,7 +76,6 @@ exceeded.
 
 The rate limit is based on the IP address.
 
-
 # Getting Started
 
 This little tutorial will guide you to request our API for the first time.
@@ -83,8 +83,8 @@ This little tutorial will guide you to request our API for the first time.
 ## Your API credentials
 
 Before accessing our API you need to generate your API credentials. Sign in to
-your account on [Hiptest.com](https://hiptest.com) then go to
-[your profile page](https://app.hiptest.com/profile). Click the
+your account on [CucumberStudio](https://studio.cucumber.io) then go to
+[your profile page](https://studio.cucumber.io/profile). Click the
 `Generate new API credentials` button.
 
 ![User profile page](images/getting-started/doc-api-cred-01.png)
@@ -97,19 +97,20 @@ your account on [Hiptest.com](https://hiptest.com) then go to
 > with yours
 
 ```http
-GET https://app.hiptest.com/api/projects/$PROJECT_ID/scenarios HTTP/1.1
+GET https://studio.cucumber.io/api/projects/$PROJECT_ID/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: $ACCESS_TOKEN
 client: $CLIENT_ID
 uid: $UID
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl https://app.hiptest.com/api/projects/$PROJECT_ID/scenarios \
+curl https://studio.cucumber.io/api/projects/$PROJECT_ID/scenarios \
 	-H 'Accept: application/vnd.api+json; version=1' \
 	-H 'access-token: $ACCESS_TOKEN' \
 	-H 'client: $CLIENT_ID' \
@@ -150,7 +151,7 @@ retrieve their ID in the address bar of your browser while you are viewing the
 dashboard of your project.
 
 In the following example we are looking for the ID of the sample project
-`Testing CASH WITHDRAWAL`: the ID is 40849.
+`Testing CASH WITHDRAWAL`: the ID is 116088.
 
 ![Retrieve project id](images/getting-started/doc-api-project-id.png)
 
@@ -158,7 +159,7 @@ Now to retrieve all the scenarios of your project use the endpoint
 `api/projects/$PROJECT_ID/scenarios`. The HTTP call looks
 like the following:
 
-`GET https://app.hiptest.com/api/projects/$PROJECT_ID/scenarios`
+`GET https://studio.cucumber.io/api/projects/$PROJECT_ID/scenarios`
 
 Replace the $PROJECT_ID with the ID of one of your project. The following
 headers MUST be part of the query:
@@ -178,14 +179,15 @@ The header `Accept` tells the API to respond using the
 
 ## Renewing your API Credentials
 
-> Replace `$EMAIL_ADDRESS` and `$PASSWORD` with your Hiptest credentials
+> Replace `$EMAIL_ADDRESS` and `$PASSWORD` with your CucumberStudio credentials
 
 ```http
-POST https://app.hiptest.com/api/auth/sign_in HTTP/1.1
+POST https://studio.cucumber.io/api/auth/sign_in HTTP/1.1
 Content-Type: application/json
 
 {"email": "$EMAIL_ADDRESS", "password": "$PASSWORD"}
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
@@ -197,7 +199,7 @@ uid: ...@...
 ```
 
 ```shell
-curl -XPOST https://app.hiptest.com/api/auth/sign_in \
+curl -XPOST https://studio.cucumber.io/api/auth/sign_in \
 	-H 'Content-Type: application/json' \
 	-d '{"email": "$EMAIL_ADDRESS", "password": "$PASSWORD"}' \
 	-D /dev/stdout
@@ -229,9 +231,9 @@ it programmaticaly, using the API.
 
 To generate or renew your API credentials use this endpoint: `api/auth/sign_in`.
 
-`POST https://app.hiptest.com/api/auth/sign_in`
+`POST https://studio.cucumber.io/api/auth/sign_in`
 
-Post your Hiptest credentials (email and password) encoded as JSON. If you have
-been successfully authenticated your API credentials will be in the response
-headers within the keys `access-token`, `client` and `uid`. The `expiry` header
-is the expiration timestamp of your new token.
+Post your CucumberStudio credentials (email and password) encoded as JSON. If
+you have been successfully authenticated your API credentials will be in the
+response headers within the keys `access-token`, `client` and `uid`. The
+`expiry` header is the expiration timestamp of your new token.
