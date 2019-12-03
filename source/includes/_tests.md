@@ -3,7 +3,7 @@
 ## Get tests of a test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -135,7 +135,7 @@ show_step_statuses (value: 'true') | Embed detailed test results including statu
 ## Get a test
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -147,7 +147,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -212,7 +212,7 @@ test_snapshot_id | The ID of the test you want to get
 ## Get a test additional data
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=<fields> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=<fields> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -224,7 +224,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=<fields>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=<fields>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -237,7 +237,7 @@ about your tests.
 > Following example returns a test with scenario, last result and the pass rate.
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=dataset,scenario&show_passrate HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=dataset,scenario&show_passrate HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -249,7 +249,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=dataset,scenario&show_passrate" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>?include=dataset,scenario&show_passrate" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

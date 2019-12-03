@@ -2,7 +2,7 @@
 ## Get datasets of a given scenario
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -14,7 +14,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -67,7 +67,7 @@ scenario_id | The ID of the scenario you want to retrieve the datasets from
 ## Get a given dataset
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -79,7 +79,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -117,7 +117,7 @@ dataset_id | The ID of the dataset you want to show
 ## Create a dataset
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -143,7 +143,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -181,7 +181,7 @@ scenario_id | The ID of the scenario you want to retrieve the datasets from
 ## Update a dataset
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -209,7 +209,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
+curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -247,7 +247,7 @@ dataset_id | The ID of the dataset you want to update
 ## Delete a dataset
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -260,7 +260,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -282,7 +282,7 @@ dataset_id | The ID of the dataset you want to destroy
 # Datatables
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datatable HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datatable HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -294,7 +294,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>/datatable" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datatable" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

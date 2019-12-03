@@ -1,14 +1,13 @@
-# Hiptest API documentation (https://smartbear.github.io/hiptest-api-documentation/)
-
+# CucumberStudio API documentation (https://smartbear.github.io/cucumberstudio-api-documentation/)
 
 The API documentation is written using Slate [https://github.com/lord/slate]
 
 To edit it, clone this repository.
 
-```
-$ cd hiptest-api-documentation
-$ bundle install
-$ bundle exec middleman server
+```bash
+cd cucumberstudio-api-documentation
+bundle install
+bundle exec middleman server
 == The Middleman is loading
 == View your site at "http://localhost:4567", "http://127.0.0.1:4567"
 == Inspect your site configuration at "http://localhost:4567/__middleman", "http://127.0.0.1:4567/__middleman"
@@ -17,12 +16,12 @@ $ bundle exec middleman server
 Edit the pages in the source directory using the markdown syntax. To deploy,
 simply use the `deploy.sh` script:
 
-```
-$ ./deploy.sh
+```bash
+./deploy.sh
    identical  build/stylesheets/print.css
    identical  build/stylesheets/screen.css
    identical  build/images/navbar.png
-   identical  build/images/hiptest-logo.png
+   identical  build/images/cucumberstudio-logo.png
    identical  build/images/getting-started/doc-api-cred-02.png
    identical  build/images/getting-started/doc-api-cred-01.png
    identical  build/images/getting-started/doc-api-project-id.png
@@ -37,7 +36,7 @@ $ ./deploy.sh
    identical  build/javascripts/all.js
 Project built successfully.
 cd8e7906a9b6e51931a13fc13b8158b8fcae45d3	refs/heads/gh-pages
-Depuis github.com:hiptest/slate
+Depuis github.com:Smartbear/cucumberstudio-api-doc
    0f6ce0e..cd8e790  gh-pages   -> gh-pages
 [gh-pages f539285] publish: :memo: Add some doc about features endpoints
  1 file changed, 143 insertions(+)

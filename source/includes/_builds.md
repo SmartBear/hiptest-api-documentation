@@ -1,13 +1,14 @@
 # Builds
 
 ## What's a build?
-A build is a way to group the execution results of the tests contained in a HipTest test run.
+A build is a way to group the execution results of the tests contained in a
+CucumberStudio test run.
 
 You can find more details on test executions and builds in the [Test execution introduction section](#getting-started-with-test-executions).
 
 ## List builds of a test run
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -19,7 +20,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -75,7 +76,7 @@ test_run_id | The ID of the test run you want to retrieve the builds from
 ## Create a new build in a test run
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds" HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -87,7 +88,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds" \
     -XPOST \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -133,7 +134,7 @@ test_run_id | The ID of the test run you are executing
 ## Get a specific build of a test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -145,7 +146,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -185,7 +186,7 @@ test_run_id | The ID of the test run you want to retrieve the build from
 ## Get test execution results of a build
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -197,7 +198,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>?include=test-results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -287,7 +288,7 @@ test_run_id | The ID of the test run you want to retrieve the build from
 ## Get the current build of a test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/current" HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/current" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -299,7 +300,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/current" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/current" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -342,7 +343,7 @@ test_run_id | The ID of the test run you want to retrieve the build from
 ## Get test execution results of the current build of a test run
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/current?include=test-results" HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/current?include=test-results" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -354,7 +355,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/current?include=test-results" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/current?include=test-results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -446,7 +447,7 @@ test_run_id | The ID of the test run you want to retrieve the build from
 
 ## Add a test execution result to a build
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -478,7 +479,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -572,7 +573,7 @@ If the provided 'status' value does not match any of the listed possible values,
 ## Close a build
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -584,7 +585,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/close" \
     -XPOST \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \

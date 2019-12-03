@@ -3,7 +3,7 @@
 ## Get scenarios of a given project
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios[?include=<fields>] HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios[?include=<fields>] HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -15,7 +15,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios[?include=<fields>]" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios[?include=<fields>]" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -91,7 +91,7 @@ project_id | The ID of the project you want to retrieve the scenarios from
 > Find scenarios by tags key
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -103,7 +103,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -159,7 +159,7 @@ curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?k
 > Find scenarios by tags key and value
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -171,7 +171,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value>" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/find_by_tags?key=<tag_key>&value=<tag_value>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -228,7 +228,7 @@ value | The value of the tag
 ## Get a single scenario
 
 ```http
-GET https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>[?include=<fields>] HTTP/1.1
+GET https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>[?include=<fields>] HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -240,7 +240,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>[?include=<fields>]" \
+curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>[?include=<fields>]" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -295,7 +295,7 @@ scenario_id | The ID of the scenario you want to get
 ## Create a scenario
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/scenarios HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/scenarios HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -316,7 +316,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/scenarios" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/scenarios" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -383,7 +383,7 @@ You can create tags alongside the scenario by specifying them in the "relationsh
 ## Update a scenario
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -409,7 +409,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPATCH "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -460,7 +460,7 @@ You can rename a scenario and update its definition by specifying the new name i
 ## Delete a scenario
 
 ```http
-DELETE https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+DELETE https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -472,7 +472,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XDELETE "https://app.hiptest.com/api/projects/<project_id>/scenarios/<scenario_id>" \
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

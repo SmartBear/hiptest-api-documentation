@@ -1,7 +1,8 @@
 # Test execution
 
 ## Getting started with test executions
-Test execution results in HipTest are organized in the following way:
+
+Test execution results in CucumberStudio are organized in the following way:
 
 * Test execution results are grouped into builds
 * Each build belongs to an execution environment
@@ -28,12 +29,11 @@ when working with multiple environments.
 ## Add a test execution result
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
 uid: <your uid>
-
 
 {
   "data": {
@@ -46,13 +46,14 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -120,6 +121,7 @@ If the provided 'status' value does not match any of the listed possible values,
 </aside>
 
 ### Optional fields
+
 Field | Description
 --------- | -----------
 build | (JSONAPI Relationship) The build containing your test execution result
@@ -134,7 +136,7 @@ Providing an execution environment is not needed if a build is already specified
 </aside>
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -163,7 +165,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -227,7 +229,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
 ```
 
 ```http
-POST https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -249,13 +251,14 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -321,7 +324,7 @@ curl -XPOST "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_r
 ## Update a test execution result
 
 ```http
-PATCH https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -346,7 +349,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://app.hiptest.com/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>" \
+curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
