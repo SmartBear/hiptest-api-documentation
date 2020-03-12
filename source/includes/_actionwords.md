@@ -278,6 +278,7 @@ actionword_id | The ID of the action word you want to get
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/actionwords HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -301,6 +302,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/actionwords" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -364,6 +366,7 @@ errors will be in the "errors" attribute of the returned data.
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/actionwords/<actionword_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -390,6 +393,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/actionwords/<actionword_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

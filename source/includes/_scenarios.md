@@ -296,6 +296,7 @@ scenario_id | The ID of the scenario you want to get
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/scenarios HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -310,6 +311,7 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/vnd.api+json
@@ -317,6 +319,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/scenarios" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -384,11 +387,11 @@ You can create tags alongside the scenario by specifying them in the "relationsh
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
 uid: <your uid>
-
 
 {
   "data": {
@@ -403,6 +406,7 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -410,6 +414,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

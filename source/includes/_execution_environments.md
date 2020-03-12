@@ -206,8 +206,10 @@ Parameter | Description
 name | The name of the execution environment. It should not be empty and uniq
 
 ## Update an execution environment name
+
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -232,6 +234,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environmnent_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -523,8 +526,10 @@ test_run_id | The ID of the test run you want to retrieve the build from
 execution_environment_id | The ID of the execution environment you want to retrieve the build from
 
 ## Add a test execution result to the current build of an execution environment
+
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/test_results HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -558,6 +563,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/execution_environments/<execution_environment_id>/test_results" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

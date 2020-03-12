@@ -530,6 +530,7 @@ curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<te
   ]
 }
 ```
+
 This endpoint creates a new tag in a test.
 
 Parameter | Description
@@ -542,6 +543,7 @@ test_snapshot_id | The ID of the test in the test-run where you want to create t
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -566,6 +568,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/tags/<tag_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -593,7 +596,6 @@ curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<sc
 
 This endpoint updates a tag in a scenario.
 
-
 Parameter | Description
 --------- | -----------
 project_id | The ID of the project that contains the wanted scenario
@@ -604,6 +606,7 @@ tag_id | The ID of the tag you want to update
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -628,6 +631,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/tags/<tag_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -655,7 +659,6 @@ curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<te
 
 This endpoint updates a tag in a test run.
 
-
 Parameter | Description
 --------- | -----------
 project_id | The ID of the project that contains the wanted test run
@@ -666,6 +669,7 @@ tag_id | The ID of the tag you want to update
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -690,6 +694,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/tags/<tag_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -838,6 +843,7 @@ tag_id | The ID of the tag you want to delete
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/<element_type> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -868,6 +874,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/<element_type>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
