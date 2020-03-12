@@ -247,6 +247,7 @@ folder_id | The ID of the folder you want to get the scenarios
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/folders HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -261,6 +262,7 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/vnd.api+json
@@ -268,6 +270,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/folders" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -322,6 +325,7 @@ parent-id | (Integer) The id of the folder that will contain the created folder.
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -340,6 +344,7 @@ uid: <your uid>
   }
 }
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
@@ -347,6 +352,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

@@ -446,8 +446,10 @@ project_id | The ID of the project you want to retrieve the build from
 test_run_id | The ID of the test run you want to retrieve the build from
 
 ## Add a test execution result to a build
+
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>/test_results HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -480,6 +482,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

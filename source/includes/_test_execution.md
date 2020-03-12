@@ -30,6 +30,7 @@ when working with multiple environments.
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -54,6 +55,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -137,11 +139,11 @@ Providing an execution environment is not needed if a build is already specified
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
 uid: <your uid>
-
 
 {
   "data": {
@@ -166,6 +168,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -230,6 +233,7 @@ curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<tes
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -259,6 +263,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -325,6 +330,7 @@ curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<tes
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -349,7 +355,8 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

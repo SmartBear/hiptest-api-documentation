@@ -60,13 +60,11 @@ Parameter | Description
 project_id | The ID of the project you want to retrieve the folders from
 folder_id | The ID of the folder you want to get
 
-
-
-
 ## Create from feature
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/create_from_feature HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -88,6 +86,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/folders</folder_id>/create_from_feature" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

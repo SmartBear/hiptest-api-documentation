@@ -113,11 +113,11 @@ project_id | The ID of the project that contains the wanted scenario
 scenario_id | The ID of the scenario you want to retrieve the datasets from
 dataset_id | The ID of the dataset you want to show
 
-
 ## Create a dataset
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -144,6 +144,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -177,11 +178,11 @@ Parameter | Description
 project_id | The ID of the project that contains the wanted scenario
 scenario_id | The ID of the scenario you want to retrieve the datasets from
 
-
 ## Update a dataset
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -209,7 +210,8 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/datasets/<dataset_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

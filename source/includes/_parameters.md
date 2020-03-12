@@ -101,11 +101,11 @@ project_id | The ID of the project that contains the wanted scenario
 scenario_id | The ID of the scenario you want to retrieve the parameters from
 parameter_id | The ID of the parameter you want to show
 
-
 ## Create a parameter
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/parameters HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -128,6 +128,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/parameters" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -161,11 +162,11 @@ scenario_id | The ID of the scenario you want to retrieve the parameters from
 Please notice that parameter name will get normalized.
 </aside>
 
-
 ## Update a parameter
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -189,7 +190,8 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/parameters/<parameter_id>" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \

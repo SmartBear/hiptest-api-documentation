@@ -194,6 +194,7 @@ You can use the JSONAPI [include syntax](http://jsonapi.org/format/#fetching-inc
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -218,6 +219,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -445,8 +447,10 @@ The synchronization operation can be dangerous. If some of your test run tests a
 It is strongly advised to use this endpoint to get the potential impacts of a synchronization before running one.
 
 ### Synchronize the test run
+
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/synchronize HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -460,6 +464,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/synchronize" \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -613,7 +618,6 @@ Parameter | Description
 project_id | The ID of the project you want to retrieve the test run from
 test_run_id | The ID of the test run you want to get
 
-
 <aside class="notice">
 By default, this endpoint will return the last 25 builds.
 You can override this limit by including a query parameter ex: ?limit=10.
@@ -623,6 +627,7 @@ You can override this limit by including a query parameter ex: ?limit=10.
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -647,6 +652,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -695,6 +701,7 @@ This endpoint adds a scenario to a given test run.
 
 ```http
 PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+Content-Type: application/json; charset=utf-8
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -719,6 +726,7 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> \
+    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
