@@ -932,23 +932,25 @@ will get a HTTP 403 response with &ldquo;Request has expired&rdquo; error.
 
 <h2 id="create-an-action-word">Create an action word</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/actionwords</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "attributes": {
-      "name": "Find horcruxes",
-      "description": "That will help to kill Voldemort",
-      "definition": "step {action: \"Find the last one\"}\n step {result: \"Found it!\"}"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"That will help to kill Voldemort"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step {action: </span><span class="se">\"</span><span class="s2">Find the last one</span><span class="se">\"</span><span class="s2">}</span><span class="se">\n</span><span class="s2"> step {result: </span><span class="se">\"</span><span class="s2">Found it!</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/actionwords"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -1034,26 +1036,28 @@ errors will be in the &ldquo;errors&rdquo; attribute of the returned data.
 
 <h2 id="update-an-action-word">Update an action word</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/actionwords/&lt;actionword_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "actionwords",
-    "id": &lt;actionword_id&gt;,
-    "attributes": {
-      "name": "Find horcruxes",
-      "description": "That will help to kill Voldemort",
-      "definition": "actionword 'Find horcruxes' do\n  step {action: \"Find the last one\"}\n  step {result: \"Found it!\"}\nend\n"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actionwords"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;actionword_id&gt;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"That will help to kill Voldemort"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actionword 'Find horcruxes' do</span><span class="se">\n</span><span class="s2">  step {action: </span><span class="se">\"</span><span class="s2">Find the last one</span><span class="se">\"</span><span class="s2">}</span><span class="se">\n</span><span class="s2">  step {result: </span><span class="se">\"</span><span class="s2">Found it!</span><span class="se">\"</span><span class="s2">}</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/actionwords/&lt;actionword_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -1565,22 +1569,24 @@ about your tests.</p>
 
 <h2 id="create-a-scenario">Create a scenario</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "attributes": {
-      "name": "Find horcruxes",
-      "folder-id": 1234
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find horcruxes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"folder-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -1666,27 +1672,28 @@ You can create tags alongside the scenario by specifying them in the &ldquo;rela
 
 <h2 id="update-a-scenario">Update a scenario</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "scenarios",
-    "id": &lt;scenario_id&gt;,
-    "attributes": {
-      "name": "The new name of the scenario",
-      "description": "The new description of the scenario",
-      "definition": "scenario 'The new definition of the scenario' do\nend\n",
-      "folder-id": "162630"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenarios"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;scenario_id&gt;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The new name of the scenario"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The new description of the scenario"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenario 'The new definition of the scenario' do</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"folder-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"162630"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -1842,21 +1849,23 @@ Caution: your scenario will be totaly and permanently removed from your project.
 
 <h2 id="create-from-feature">Create from feature</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/create_from_feature</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-    "data": {
-        "attributes": {
-            "feature": "Feature: The Chamber of Secrets\n\nScenario: Shopping on Diagon Alley"
-        }
-    }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"feature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature: The Chamber of Secrets</span><span class="se">\n\n</span><span class="s2">Scenario: Shopping on Diagon Alley"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders&lt;/folder_id&gt;/create_from_feature"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -2168,22 +2177,24 @@ and not its elements (scenarios and subfolders)</aside></p>
 
 <h2 id="create-a-folder">Create a folder</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "attributes": {
-      "name": "A new folder",
-      "parent-id": 1234
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A new folder"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -2256,26 +2267,28 @@ and not its elements (scenarios and subfolders)</aside></p>
 
 <h2 id="update-a-folder">Update a folder</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "folders",
-    "id": "&lt;folder_id&gt;",
-    "attributes": {
-      "name": "A new folder name",
-      "description": "A new description",
-      "definition": "folder do end"
-      "parent-id": 1233
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;folder_id&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A new folder name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A new description"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do end"</span><span class="w">
+      </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3000,24 +3013,26 @@ This is working when requesting for a list of elements, and for a single element
 
 <h2 id="update-a-tag-in-a-scenario">Update a tag in a scenario</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags/&lt;tag_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "tags",
-    "id": 5,
-    "attributes": {
-      "key": "priority",
-      "value": "low"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"low"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/tags/&lt;tag_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3063,24 +3078,26 @@ This is working when requesting for a list of elements, and for a single element
 
 <h2 id="update-a-tag-in-a-test-run">Update a tag in a test run</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/tags/&lt;tag_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "tags",
-    "id": 5,
-    "attributes": {
-      "key": "priority",
-      "value": "low"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"low"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/tags/&lt;tag_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3126,24 +3143,26 @@ This is working when requesting for a list of elements, and for a single element
 
 <h2 id="update-a-tag-in-a-test">Update a tag in a test</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/tags/&lt;tag_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "tags",
-    "id": 5,
-    "attributes": {
-      "key": "priority",
-      "value": "low"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"low"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/tags/&lt;tag_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3308,30 +3327,32 @@ This is working when requesting for a list of elements, and for a single element
 
 <h2 id="create-tags-alongside-elements">Create tags alongside elements</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/&lt;element_type&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "attributes": {
-      ...
-    },
-    "relationships": {
-      "tags": {
-        "data": [
-          { "type": "tag", "key": "automated" },
-          { "type": "tag", "key": "sprint", value: "2" },
-          { "type": "tag", "key": "priority", value: "high" }
-        ]
-      }
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automated"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sprint"</span><span class="p">,</span><span class="w"> </span><span class="err">value</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w"> </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority"</span><span class="p">,</span><span class="w"> </span><span class="err">value</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/&lt;element_type&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3497,26 +3518,28 @@ This can be done by specifying the &ldquo;relationships&rdquo; element.</p>
 
 <h2 id="create-a-dataset">Create a dataset</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "attributes": {
-      "name": "dataset-3",
-      "data": {
-        "parameter-1": "value 3-1",
-        "parameter-2": "value 3-2"
-      }
-    }
-  }
-}
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dataset-3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 3-1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value 3-2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3559,28 +3582,30 @@ This can be done by specifying the &ldquo;relationships&rdquo; element.</p>
 
 <h2 id="update-a-dataset">Update a dataset</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-      "type": "datasets",
-      "id": "3",
-      "attributes": {
-          "name": "new dataset-3 name",
-          "data": {
-              "parameter-1": "new value 3-1",
-              "parameter-2": "new value 3-2"
-          }
-      }
-  }
-}
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datasets"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new dataset-3 name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"parameter-1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new value 3-1"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"parameter-2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new value 3-2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/datasets/&lt;dataset_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3821,22 +3846,24 @@ resource.</p>
 
 <h2 id="create-a-parameter">Create a parameter</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "attributes": {
-      "name": "parameter-3"
-    }
-  }
-}
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameter-3"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -3879,24 +3906,26 @@ Please notice that parameter name will get normalized.
 
 <h2 id="update-a-parameter">Update a parameter</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-      "type": "parameters",
-      "id": "3",
-      "attributes": {
-          "name": "new parameter-3 name"
-      }
-  }
-}
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new parameter-3 name"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/parameters/&lt;parameter_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -4168,24 +4197,26 @@ https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[stat
 
 <h2 id="create-a-test-run">Create a test run</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "attributes": {
-      "name": "Sprint 1",
-      "description": "My TR description",
-      "scenario_ids": [1, 2, 3]
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sprint 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My TR description"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scenario_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -4439,6 +4470,7 @@ It is strongly advised to use this endpoint to get the potential impacts of a sy
 
 <h3 id="synchronize-the-test-run">Synchronize the test run</h3>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/synchronize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
@@ -4446,6 +4478,7 @@ It is strongly advised to use this endpoint to get the potential impacts of a sy
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/synchronize"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -4611,24 +4644,26 @@ You can override this limit by including a query parameter ex: ?limit=10.
 
 <h2 id="add-a-scenario-to-an-existing-test-run">Add a scenario to an existing test run</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "test_runs",
-    "id": 1,
-    "attributes": {
-      "scenario_id": 1
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_runs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"scenario_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt; <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -4671,24 +4706,26 @@ You can override this limit by including a query parameter ex: ?limit=10.
 
 <h2 id="add-multiple-scenarios-to-an-existing-test-run">Add multiple scenarios to an existing test run</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "test_runs",
-    "id": 1,
-    "attributes": {
-      "scenario_ids": [2233,76547]
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_runs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"scenario_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2233</span><span class="p">,</span><span class="mi">76547</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt; <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -5498,24 +5535,26 @@ when working with multiple environments.</p>
 
 <h2 id="add-a-test-execution-result">Add a test execution result</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "test-results",
-    "attributes": {
-      "status": "passed",
-      "status-author": "Harry",
-      "description": "All was well"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -5634,29 +5673,30 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
 Providing an execution environment is not needed if a build is already specified, and will return an error if it does not belong to that environment.
 </aside>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "test-results",
-    "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
-    "relationships": {
-      "build": {
-        "data": {
-          "type": "build",
-          "id": 1
-        }
-      }
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w"> </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -5717,29 +5757,31 @@ Providing an execution environment is not needed if a build is already specified
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "test-results",
-    "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"},
-    "relationships": {
-      "execution-environment": {
-        "data": {
-          "type": "execution-environment",
-          "id": 1
-        }
-      }
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w"> </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"execution-environment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -5802,25 +5844,27 @@ Providing an execution environment is not needed if a build is already specified
 </span></code></pre>
 <h2 id="update-a-test-execution-result">Update a test execution result</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "test-results",
-    "id": &lt;test_result_id&gt;,
-    "attributes": {
-      "status": "passed",
-      "status-author": "Jenkins",
-      "description": "Automated jenkins job"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;test_result_id&gt;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automated jenkins job"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -6365,32 +6409,34 @@ will return an error. You will need to <a href="#get-test-execution-results-of-t
 
 <h2 id="add-a-test-execution-result-to-a-build">Add a test execution result to a build</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds/&lt;build_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-{
-  "data": {
-    "type": "test-results",
-    "attributes": {
-      "status": "passed",
-      "status-author": "Harry",
-      "description": "All was well"
-    },
-    "relationships": {
-      "test-snapshot": {
-        "data": {
-          "type": "test-snapshots",
-          "id": 1
-        }
-      }
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -6797,24 +6843,26 @@ and not their test results</aside></p>
 
 <h2 id="update-an-execution-environment-name">Update an execution environment name</h2>
 <pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environmnent_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "execution-environments",
-    "id": &lt;execution_environment_id&gt;,
-    "attributes": {
-      "name": "Android"
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"execution-environments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;execution_environment_id&gt;</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environmnent_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
@@ -7134,33 +7182,35 @@ of the current build of a given execution environment.</p>
 
 <h2 id="add-a-test-execution-result-to-the-current-build-of-an-execution-environment">Add a test execution result to the current build of an execution environment</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 
-
-{
-  "data": {
-    "type": "test-results",
-    "attributes": {
-      "status": "passed",
-      "status-author": "Harry",
-      "description": "All was well"
-    },
-    "relationships": {
-      "test-snapshot": {
-        "data": {
-          "type": "test-snapshots",
-          "id": 1
-        }
-      }
-    }
-  }
-}
-</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"test-snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-snapshots"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/execution_environments/&lt;execution_environment_id&gt;/test_results"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
