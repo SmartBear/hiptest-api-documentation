@@ -516,3 +516,202 @@ project_id | The ID of the project you want to retrieve the folders from
 folder_id  | The ID of the target folder
 
 <aside class="warning"><b>Warning:</b> this action will destroy all the scenarios of the given folder</aside>
+
+## List attachments of a given folder
+
+```http
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XGET "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "attachments",
+      "id": "1",
+      "attributes": {
+        "id": 1,
+        "file-name": "my-attachment.jpg",
+        "file-url": "/api/projects/1/folders/1/attachments/1",
+        "file-size": 100
+      },
+      "links": {
+        "self": "/attachments/1"
+      }
+    }
+  ]
+}
+```
+
+This endpoint list all the attachments of a given folder
+
+### URL Parameters
+
+Parameter  | Description
+---------  | -----------
+project_id | The ID of the project you want to retrieve the folders from
+folder_id  | The ID of the target folder
+
+## Get a given attachment of a given folder
+
+```http
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XGET "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id>" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --output my-attachment.jpg
+```
+
+This endpoint return the requested attachment of a given folder
+
+### URL Parameters
+
+Parameter  | Description
+---------  | -----------
+project_id | The ID of the project you want to retrieve the folders from
+folder_id  | The ID of the target folder
+attachment_id  | The ID of the target attachment
+
+## Create an attachment to a given folder
+
+```http
+POST https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+Content-Disposition: form-data; name="file"; filename="my-attachment.jpg"
+
+(data)
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --form 'file=@./my-attachment.jpg'
+```
+
+This endpoint create an attachment to a given folder
+
+### URL Parameters
+
+Parameter  | Description
+---------  | -----------
+project_id | The ID of the project you want to retrieve the folders from
+folder_id  | The ID of the target folder
+
+## Update an attachment to a given folder
+
+```http
+PUT https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+Content-Disposition: form-data; name="file"; filename="my-attachment.jpg"
+
+(data)
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id>" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --form 'file=@./my-attachment.jpg'
+```
+
+This endpoint update the attachment to a given folder
+
+### URL Parameters
+
+Parameter  | Description
+---------  | -----------
+project_id | The ID of the project you want to retrieve the folders from
+folder_id  | The ID of the target folder
+attachment_id  | The ID of the target attachment
+
+## Delete an attachment to a given folder
+
+```http
+DELETE https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```json
+{}
+```
+
+```shell
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id>" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+```
+
+This endpoint delete a given attachment of a given folder
+
+### URL Parameters
+
+Parameter  | Description
+---------  | -----------
+project_id | The ID of the project you want to retrieve the folders from
+folder_id  | The ID of the target folder
+attachment_id  | The ID of the target attachment
