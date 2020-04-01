@@ -417,3 +417,249 @@ description | (String) A comment about the test execution
 <aside class="notice">
 If the provided 'status' value does not match any of the listed possible values, the result will be set as 'undefined'
 </aside>
+
+## List attachments of a given test execution result
+
+```http
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XGET "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+  "data": [
+    {
+      "type": "attachments",
+      "id": "1",
+      "attributes": {
+        "id": 1,
+        "file-name": "my-attachment.jpg",
+        "file-url": "/api/projects/1/test_runs/1/test_snapshots/1/test_results/1/attachments/1",
+        "file-size": 100
+      },
+      "links": {
+        "self": "/attachments/1"
+      }
+    }
+  ]
+}
+```
+
+This endpoint list all the attachments of a given test execution result
+
+### URL Parameters
+
+Parameter        | Description
+---------        | -----------
+project_id       | The ID of the project you want to retrieve the test execution result from
+test_run_id      | The ID of the test run you want to retrieve the test execution result from
+test_snapshot_id | The ID of the test that you want to retrieve the test execution result from
+test_result_id   | The ID of the test execution result you want
+
+## Get a given attachment of a given test execution result
+
+```http
+GET https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments/<attachment_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XGET "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments/<attachment_id>" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --output my-attachment.jpg
+```
+
+This endpoint return the requested attachment of a given test execution result
+
+### URL Parameters
+
+Parameter        | Description
+---------        | -----------
+project_id       | The ID of the project you want to retrieve the test execution result from
+test_run_id      | The ID of the test run you want to retrieve the test execution result from
+test_snapshot_id | The ID of the test that you want to retrieve the test execution result from
+test_result_id   | The ID of the test execution result you want
+
+## Create an attachment to a given test execution result
+
+```http
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+Content-Disposition: form-data; name="file"; filename="my-attachment.jpg"
+
+(data)
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --form 'file=@./my-attachment.jpg'
+```
+
+```json
+{
+  "data": {
+    "type": "attachments",
+    "id": "1",
+    "attributes": {
+      "id": 1,
+      "file-name": "my-attachment.jpg",
+      "file-url": "/api/projects/1/test_runs/1/test_snapshots/1/test_results/1/attachments/1",
+      "file-size": 100
+    },
+    "links": {
+      "self": "/attachments/1"
+    }
+  }
+}
+```
+
+This endpoint create an attachment to a given test execution result
+
+### URL Parameters
+
+Parameter        | Description
+---------        | -----------
+project_id       | The ID of the project you want to retrieve the test execution result from
+test_run_id      | The ID of the test run you want to retrieve the test execution result from
+test_snapshot_id | The ID of the test that you want to retrieve the test execution result from
+test_result_id   | The ID of the test execution result you want
+
+## Update an attachment to a given test run
+
+```http
+PUT https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments/<attachment_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+Content-Disposition: form-data; name="file"; filename="my-attachment.jpg"
+
+(data)
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments/<attachment_id>" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --form 'file=@./my-attachment.jpg'
+```
+
+```json
+{
+  "data": {
+    "type": "attachments",
+    "id": "1",
+    "attributes": {
+      "id": 1,
+      "file-name": "my-attachment.jpg",
+      "file-url": "/api/projects/1/test_runs/1/test_snapshots/1/test_results/1/attachments/1",
+      "file-size": 100
+    },
+    "links": {
+      "self": "/attachments/1"
+    }
+  }
+}
+```
+
+This endpoint update the attachment to a given test execution result
+
+### URL Parameters
+
+Parameter        | Description
+---------        | -----------
+project_id       | The ID of the project you want to retrieve the test execution result from
+test_run_id      | The ID of the test run you want to retrieve the test execution result from
+test_snapshot_id | The ID of the test that you want to retrieve the test execution result from
+test_result_id   | The ID of the test execution result you want
+attachment_id    | The ID of the target attachment
+
+## Delete an attachment to a given test execution result
+
+```http
+DELETE https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments/<attachment_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results/<test_result_id>/attachments/<attachment_id>" \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+```
+
+```json
+{}
+```
+
+This endpoint delete a given attachment of a test execution result
+
+### URL Parameters
+
+Parameter        | Description
+---------        | -----------
+project_id       | The ID of the project you want to retrieve the test execution result from
+test_run_id      | The ID of the test run you want to retrieve the test execution result from
+test_snapshot_id | The ID of the test that you want to retrieve the test execution result from
+test_result_id   | The ID of the test execution result you want
+attachment_id    | The ID of the target attachment

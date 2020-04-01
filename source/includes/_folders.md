@@ -631,6 +631,24 @@ curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/folders/<folde
     --form 'file=@./my-attachment.jpg'
 ```
 
+```json
+{
+  "data": {
+    "type": "attachments",
+    "id": "1",
+    "attributes": {
+      "id": 1,
+      "file-name": "my-attachment.jpg",
+      "file-url": "/api/projects/1/folders/1/attachments/1",
+      "file-size": 100
+    },
+    "links": {
+      "self": "/attachments/1"
+    }
+  }
+}
+```
+
 This endpoint create an attachment to a given folder
 
 ### URL Parameters
@@ -668,6 +686,24 @@ curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder
     --form 'file=@./my-attachment.jpg'
 ```
 
+```json
+{
+  "data": {
+    "type": "attachments",
+    "id": "1",
+    "attributes": {
+      "id": 1,
+      "file-name": "my-attachment.jpg",
+      "file-url": "/api/projects/1/folders/1/attachments/1",
+      "file-size": 100
+    },
+    "links": {
+      "self": "/attachments/1"
+    }
+  }
+}
+```
+
 This endpoint update the attachment to a given folder
 
 ### URL Parameters
@@ -693,10 +729,6 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 ```
 
-```json
-{}
-```
-
 ```shell
 curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id>" \
     -H 'Content-Type: application/json' \
@@ -704,6 +736,10 @@ curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/folders/<fol
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>' \
+```
+
+```json
+{}
 ```
 
 This endpoint delete a given attachment of a given folder
