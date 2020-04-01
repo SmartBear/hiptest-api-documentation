@@ -1787,6 +1787,250 @@ You can rename a scenario and update its definition by specifying the new name i
 Caution: your scenario will be totaly and permanently removed from your project.
 </aside>
 
+<h2 id="list-attachments-of-a-given-scenario">List attachments of a given scenario</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/scenarios/1/attachments/1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint list all the attachments of a given scenario</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenarios from</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the target scenario</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-given-attachment-of-a-given-scenario">Get a given attachment of a given scenario</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --output my-attachment.jpg
+</code></pre>
+<p>This endpoint return the requested attachment of a given scenario</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenarios from</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the target scenario</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-attachment-to-a-given-scenario">Create an attachment to a given scenario</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/scenarios/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create an attachment to a given scenario</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenarios from</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the target scenario</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-attachment-to-a-given-scenario">Update an attachment to a given scenario</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/scenarios/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint update the attachment to a given scenario</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenarios from</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the target scenario</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-an-attachment-to-a-given-scenario">Delete an attachment to a given scenario</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delete a given attachment of a given scenario</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the scenarios from</td>
+</tr>
+<tr>
+<td>scenario_id</td>
+<td>The ID of the target scenario</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
           <h1 id="features">Features</h1>
 
 <h2 id="get-feature-from-a-given-folder">Get feature from a given folder</h2>
@@ -2473,6 +2717,250 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tbody></table>
 
 <aside class="warning"><b>Warning:</b> this action will destroy all the scenarios of the given folder</aside>
+
+<h2 id="list-attachments-of-a-given-folder">List attachments of a given folder</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/folders/1/attachments/1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint list all the attachments of a given folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-given-attachment-of-a-given-folder">Get a given attachment of a given folder</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --output my-attachment.jpg
+</code></pre>
+<p>This endpoint return the requested attachment of a given folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-attachment-to-a-given-folder">Create an attachment to a given folder</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/folders/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create an attachment to a given folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-attachment-to-a-given-folder">Update an attachment to a given folder</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/folders/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint update the attachment to a given folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-an-attachment-to-a-given-folder">Delete an attachment to a given folder</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delete a given attachment of a given folder</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>The ID of the target folder</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
 
           <h1 id="tags">Tags</h1>
 
@@ -4784,6 +5272,250 @@ You can override this limit by including a query parameter ex: ?limit=10.
 </tr>
 </tbody></table>
 
+<h2 id="list-attachments-of-a-given-test-run">List attachments of a given test run</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/test_runs/1/attachments/1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint list all the attachments of a given test run</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test run from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the target test run</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-given-attachment-of-a-given-test-run">Get a given attachment of a given test run</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --output my-attachment.jpg
+</code></pre>
+<p>This endpoint return the requested attachment of a given test run</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test run from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the target test run</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-attachment-to-a-given-test-run">Create an attachment to a given test run</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/test_runs/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create an attachment to a given test run</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test run from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the target test run</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-attachment-to-a-given-test-run">Update an attachment to a given test run</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/test_runs/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint update the attachment to a given test run</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test run from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the target test run</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-an-attachment-to-a-given-test-run">Delete an attachment to a given test run</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delete a given attachment of a test run</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test run from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the target test run</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
           <h1 id="tests">Tests</h1>
 
 <h2 id="get-tests-of-a-test-run">Get tests of a test run</h2>
@@ -5954,6 +6686,286 @@ Providing an execution environment is not needed if a build is already specified
 <aside class="notice">
 If the provided 'status&rsquo; value does not match any of the listed possible values, the result will be set as 'undefined&rsquo;
 </aside>
+
+<h2 id="list-attachments-of-a-given-test-execution-result">List attachments of a given test execution result</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/test_runs/1/test_snapshots/1/test_results/1/attachments/1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint list all the attachments of a given test execution result</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test that you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test execution result you want</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-given-attachment-of-a-given-test-execution-result">Get a given attachment of a given test execution result</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XGET <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --output my-attachment.jpg
+</code></pre>
+<p>This endpoint return the requested attachment of a given test execution result</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test that you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test execution result you want</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-attachment-to-a-given-test-execution-result">Create an attachment to a given test execution result</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/test_runs/1/test_snapshots/1/test_results/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create an attachment to a given test execution result</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test that you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test execution result you want</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-attachment-to-a-given-test-run">Update an attachment to a given test run</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+<span class="na">Content-Disposition</span><span class="p">:</span> <span class="s">form-data; name="file"; filename="my-attachment.jpg"</span>
+
+(data)
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    --form <span class="s1">'file=@./my-attachment.jpg'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-attachment.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/projects/1/test_runs/1/test_snapshots/1/test_results/1/attachments/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/attachments/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint update the attachment to a given test execution result</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test that you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test execution result you want</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-an-attachment-to-a-given-test-execution-result">Delete an attachment to a given test execution result</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+</code></pre><pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delete a given attachment of a test execution result</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test that you want to retrieve the test execution result from</td>
+</tr>
+<tr>
+<td>test_result_id</td>
+<td>The ID of the test execution result you want</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>The ID of the target attachment</td>
+</tr>
+</tbody></table>
 
           <h1 id="builds">Builds</h1>
 
