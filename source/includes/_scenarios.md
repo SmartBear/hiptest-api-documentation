@@ -443,6 +443,7 @@ curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<sc
     }
 }
 ```
+
 This endpoint updates the name, descrpition, folder and definition of a single scenario of a given project.
 Note that the attributes are all optional, you can update only one of them if wanted, just don't set the key in the "attributes" hash.
 
@@ -460,7 +461,6 @@ Attributes to update are all optional. Specify only the ones you want to update.
 Don't update name and definition attributes at the same time to avoid 409/conflict errors.
 You can rename a scenario and update its definition by specifying the new name in the new definition.
 </aside>
-
 
 ## Delete a scenario
 
@@ -611,6 +611,24 @@ curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<sce
     --form 'file=@./my-attachment.jpg'
 ```
 
+```json
+{
+  "data": {
+    "type": "attachments",
+    "id": "1",
+    "attributes": {
+      "id": 1,
+      "file-name": "my-attachment.jpg",
+      "file-url": "/api/projects/1/scenarios/1/attachments/1",
+      "file-size": 100
+    },
+    "links": {
+      "self": "/attachments/1"
+    }
+  }
+}
+```
+
 This endpoint create an attachment to a given scenario
 
 ### URL Parameters
@@ -648,6 +666,24 @@ curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scen
     --form 'file=@./my-attachment.jpg'
 ```
 
+```json
+{
+  "data": {
+    "type": "attachments",
+    "id": "1",
+    "attributes": {
+      "id": 1,
+      "file-name": "my-attachment.jpg",
+      "file-url": "/api/projects/1/scenarios/1/attachments/1",
+      "file-size": 100
+    },
+    "links": {
+      "self": "/attachments/1"
+    }
+  }
+}
+```
+
 This endpoint update the attachment to a given scenario
 
 ### URL Parameters
@@ -673,10 +709,6 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 ```
 
-```json
-{}
-```
-
 ```shell
 curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/attachments/<attachment_id>" \
     -H 'Content-Type: application/json' \
@@ -684,6 +716,10 @@ curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<s
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>' \
+```
+
+```json
+{}
 ```
 
 This endpoint delete a given attachment of a given scenario
