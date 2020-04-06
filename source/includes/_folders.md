@@ -584,7 +584,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XGET "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id>" \
+curl -XGET -L "https://studio.cucumber.io/api/projects/<project_id>/folders/<folder_id>/attachments/<attachment_id>" \
     -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
