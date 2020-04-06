@@ -558,13 +558,14 @@ access-token: <your access token>
 client: <your client id>
 uid: <your uid>
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XGET "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/attachments/<attachment_id>" \
+curl -XGET -L "https://studio.cucumber.io/api/projects/<project_id>/scenarios/<scenario_id>/attachments/<attachment_id>" \
     -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
