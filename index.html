@@ -7050,6 +7050,14 @@ will return an error. You will need to <a href="#list-builds-of-an-execution-env
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+{
+  "data": {
+    "attributes": {
+      "name": "Build 1"
+    }
+  }
+}
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
 </code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/builds"</span> <span class="se">\</span>
@@ -7058,7 +7066,7 @@ will return an error. You will need to <a href="#list-builds-of-an-execution-env
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">'{}'</span>
+    --data <span class="s1">'{"data": {"attributes": { "name": "Build 1"} } }'</span>
 </code></pre>
 <blockquote>
 <p>A new build</p>
@@ -7101,6 +7109,18 @@ will return an error. You will need to <a href="#list-builds-of-an-execution-env
 <tr>
 <td>test_run_id</td>
 <td>The ID of the test run you are executing</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The name of the execution environment. It should not be empty and uniq</td>
 </tr>
 </tbody></table>
 
