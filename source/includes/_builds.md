@@ -81,6 +81,14 @@ Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
 uid: <your uid>
+
+{
+  "data": {
+    "attributes": {
+      "name": "Build 1"
+    }
+  }
+}
 ```
 ```http
 HTTP/1.1 201 Created
@@ -94,7 +102,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>' \
-    --data '{}'
+    --data '{"data": {"attributes": { "name": "Build 1"} } }'
 ```
 
 > A new build
@@ -130,6 +138,9 @@ Parameter | Description
 project_id | The ID of the project you want to retrieve the build from
 test_run_id | The ID of the test run you are executing
 
+Parameter | Description
+--------- | -----------
+name | The name of the execution environment. It should not be empty and uniq
 
 ## Get a specific build of a test run
 
