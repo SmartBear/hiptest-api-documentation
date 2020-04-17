@@ -107,8 +107,6 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
     --data '{"data": {"attributes": { "name": "Build 1"} } }'
 ```
 
-> A new build
-
 ```json
   {
     "data": {
@@ -144,6 +142,71 @@ test_run_id | The ID of the test run you are executing
 Parameter | Description
 --------- | -----------
 name | The name of the build. It should not be empty and uniq
+
+## Update a build
+
+```http
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+{
+  "data": {
+    "type": "builds",
+    "id": <build_id>,
+    "attributes": {
+      "name": "Build 1"
+    }
+  }
+}
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/builds/<build_id>" \
+    -XPOST \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --data '{"data": {"type": "builds", "id": <build_id>, "attributes": { "name": "Build 1"} } }'
+```
+
+```json
+  {
+    "data": {
+      "type": "builds",
+      "id": "3",
+      "attributes": {
+        "name": "Build 1",
+        "created-at": "...",
+        "test-run-id": 1,
+        "is_running": true,
+        "closed_at": null
+      },
+      "links": {
+        "self": "/builds/3"
+      }
+    }
+  }
+```
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the build from
+test_run_id | The ID of the test run you are executing
+build_id | The ID of the build you want to update
+
+Parameter | Description
+--------- | -----------
+name | The new name of the build.
 
 ## Get a specific build of a test run
 
