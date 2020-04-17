@@ -115,7 +115,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
       "type": "builds",
       "id": "3",
       "attributes": {
-        "name": "Build 1",
+        "name": "Build 3",
         "created-at": "now!",
         "test-run-id": 1,
         "is_running": true,
