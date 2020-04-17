@@ -34,6 +34,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
       "type": "builds",
       "id": "1",
       "attributes": {
+        "name": "Build 1",
         "created-at": "2017-06-13T08:15:38.607Z",
         "test-run-id": 1,
         "is-running": false,
@@ -47,6 +48,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
       "type": "builds",
       "id": "2",
       "attributes": {
+        "name": "Build 2",
         "created-at": "2017-06-13T08:15:38.607Z",
         "test-run-id": 1,
         "is-running": true,
@@ -113,6 +115,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
       "type": "builds",
       "id": "3",
       "attributes": {
+        "name": "Build 1",
         "created-at": "now!",
         "test-run-id": 1,
         "is_running": true,
@@ -170,6 +173,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
     "type": "builds",
     "id": "1",
     "attributes": {
+      "name": "Build 1",
       "created-at": "2017-06-13T08:15:38.607Z",
       "test-run-id": 1,
       "is-running": false,
@@ -222,6 +226,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
     "type": "builds",
     "id": "1",
     "attributes": {
+      "name": "Build 1",
       "created-at": "2017-06-13T08:15:38.607Z",
       "test-run-id": 1,
       "execution-environment-id": 1,
@@ -324,6 +329,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
     "type": "builds",
     "id": "1",
     "attributes": {
+      "name": "Build 1",
       "created-at": "2017-06-13T08:15:38.607Z",
       "test-run-id": 1,
       "execution-environment-id": 29,
@@ -379,6 +385,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
     "type": "builds",
     "id": "1",
     "attributes": {
+      "name": "Build 1",
       "created-at": "2017-06-13T08:15:38.607Z",
       "test-run-id": 1,
       "execution-environment-id": 29,
@@ -616,6 +623,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_i
       "type": "builds",
       "id": "3",
       "attributes": {
+        "name": "Build 3",
         "created-at": "2017-06-13T08:15:38.607Z",
         "test-run-id": 1,
         "is-running": false,
