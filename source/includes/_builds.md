@@ -140,7 +140,7 @@ test_run_id | The ID of the test run you are executing
 
 Parameter | Description
 --------- | -----------
-name | The name of the execution environment. It should not be empty and uniq
+name | The name of the build. It should not be empty and uniq
 
 ## Get a specific build of a test run
 
