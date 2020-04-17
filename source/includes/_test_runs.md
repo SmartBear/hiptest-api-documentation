@@ -924,7 +924,7 @@ test_run_id | The ID of the target test run
 ## Update an attachment to a given test run
 
 ```http
-PUT https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments/<attachment_id> HTTP/1.1
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments/<attachment_id> HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
@@ -939,7 +939,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPUT "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments/<attachment_id>" \
+curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments/<attachment_id>" \
     -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
