@@ -1934,7 +1934,7 @@ Caution: your scenario will be totaly and permanently removed from your project.
 </tbody></table>
 
 <h2 id="update-an-attachment-to-a-given-scenario">Update an attachment to a given scenario</h2>
-<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
@@ -1944,7 +1944,7 @@ Caution: your scenario will be totaly and permanently removed from your project.
 (data)
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/scenarios/&lt;scenario_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
@@ -2865,7 +2865,7 @@ and not its elements (scenarios and subfolders)</aside></p>
 </tbody></table>
 
 <h2 id="update-an-attachment-to-a-given-folder">Update an attachment to a given folder</h2>
-<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
@@ -2875,7 +2875,7 @@ and not its elements (scenarios and subfolders)</aside></p>
 (data)
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
@@ -5419,7 +5419,7 @@ You can override this limit by including a query parameter ex: ?limit=10.
 </tbody></table>
 
 <h2 id="update-an-attachment-to-a-given-test-run">Update an attachment to a given test run</h2>
-<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
@@ -5429,7 +5429,7 @@ You can override this limit by including a query parameter ex: ?limit=10.
 (data)
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
@@ -6854,7 +6854,7 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
 </tbody></table>
 
 <h2 id="update-an-attachment-to-a-given-test-run">Update an attachment to a given test run</h2>
-<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
 <span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
@@ -6864,7 +6864,7 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
 (data)
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPUT <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -XPATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results/&lt;test_result_id&gt;/attachments/&lt;attachment_id&gt;"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
