@@ -886,7 +886,6 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments" \
-    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -940,7 +939,6 @@ Content-Type: application/vnd.api+json
 
 ```shell
 curl -XPATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments/<attachment_id>" \
-    -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
