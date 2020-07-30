@@ -389,3 +389,40 @@ show_passrate | Add this parameter to get the test pass rate in the data
 The pass rate is only based on three types of results: passed, failed and blocked. The pass rate is computed on the last 10 results of the test.
 Note: the pass rate is expressed as a percentage (25 meaning 25% for example). If there are no usable results to compute the data, an empty string will be returned.
 </aside>
+
+## Delete a test
+
+```http
+DELETE https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -XDELETE "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+This endpoint delete a test.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the tests from
+test_run_id | The ID of the test run that contains the test you want
+test_snapshot_id | The ID of the test you want to get
+
+<aside class="warning">
+Caution: your test snapshot will be totaly and permanently removed from your project.
+</aside>
+

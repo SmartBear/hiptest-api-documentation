@@ -70,6 +70,152 @@ Parameter | Description
 --------- | -----------
 project_id | The ID of the project you want to retrieve the folders from
 
+## Find folders by tags
+
+> Find folders by tag key
+
+```http
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/find_by_tags?key=<tag_key> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/find_by_tags?key=<tag_key>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+    "data": [
+        {
+            "type": "folders",
+            "id": "791625",
+            "attributes": {
+                "created-at": "2019-01-20T22:29:45.135Z",
+                "updated-at": "2020-07-29T14:34:20.739Z",
+                "last-author": "harry@example.org",
+                "name": "Support internationalisation",
+                "description": "As a polyglot coffee lover\nI can select the language on the coffee machine\nSo I can practice my use of greetings in several languages",
+                "definition": "folder do\nend\n",
+                "parent-id": 791623,
+                "scenarios-count": 0,
+                "feature-updated-at": "2020-07-29T14:34:20.739Z"
+            },
+            "links": {
+                "self": "/folders/791625"
+            },
+            "relationships": {
+                "tags": {}
+            }
+        },
+        {
+            "type": "folders",
+            "id": "791626",
+            "attributes": {
+                "created-at": "2019-01-20T22:29:45.190Z",
+                "updated-at": "2020-07-29T14:34:20.549Z",
+                "last-author": "harry@example.org",
+                "name": "Can be configured",
+                "description": "**In order to** get the best possible coffees\n**As a** geeky coffee lover\n**I can** configure it to match my needs\n",
+                "definition": "folder do\nend\n",
+                "parent-id": 791623,
+                "scenarios-count": 0,
+                "feature-updated-at": "2020-07-29T14:34:20.549Z"
+            },
+            "links": {
+                "self": "/folders/791626"
+            },
+            "relationships": {
+                "tags": {}
+            }
+        }
+    ],
+    "included": []
+}
+```
+
+> Find folders by tag key and value
+
+```http
+GET https://studio.cucumber.io/api/projects/<project_id>/folders/find_by_tags?key=<tag_key>&value=<tag_value> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl "https://studio.cucumber.io/api/projects/<project_id>/folders/find_by_tags?key=<tag_key>&value=<tag_value>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+    "data": [
+        {
+            "type": "folders",
+            "id": "1245135",
+            "attributes": {
+                "created-at": "2020-02-11T10:42:19.094Z",
+                "updated-at": "2020-07-29T14:34:20.663Z",
+                "last-author": "harry@example.org",
+                "name": "Serve coffee",
+                "description": "As a coffee lover\nI can get coffee from the machine\nSo I can enjoy the rest of the day",
+                "definition": "folder do\nend\n",
+                "parent-id": 791623,
+                "scenarios-count": 1,
+                "feature-updated-at": "2020-07-29T14:34:20.663Z"
+            },
+            "links": {
+                "self": "/folders/1245135"
+            },
+            "relationships": {
+                "tags": {}
+            }
+        }
+    ],
+    "included": []
+}
+```
+
+This endpoint retrieves all folders of a given project and having the given tag.
+
+Field name | Description
+--------- | -----------
+tag_key | The KEY of the tag you use to retrieve the folders
+tag_value | The VALUE of the tag you use to retrieve the folders
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The ID of the project you want to retrieve the folders from
+
+### Request parameters
+
+Parameter | Description
+--------- | -----------
+key | The key of the tag
+value | The value of the tag
+
+
 ## Get a single folder
 
 ```http
