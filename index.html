@@ -2243,6 +2243,163 @@ and not their elements (scenarios and subfolders)</aside></p>
 </tr>
 </tbody></table>
 
+<h2 id="find-folders-by-tags">Find folders by tags</h2>
+
+<blockquote>
+<p>Find folders by tag key</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/find_by_tags?key=&lt;tag_key&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/find_by_tags?key=&lt;tag_key&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"791625"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-20T22:29:45.135Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-29T14:34:20.739Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Support internationalisation"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"As a polyglot coffee lover</span><span class="se">\n</span><span class="s2">I can select the language on the coffee machine</span><span class="se">\n</span><span class="s2">So I can practice my use of greetings in several languages"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">791623</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scenarios-count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"feature-updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-29T14:34:20.739Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/791625"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"791626"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-20T22:29:45.190Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-29T14:34:20.549Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Can be configured"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"**In order to** get the best possible coffees</span><span class="se">\n</span><span class="s2">**As a** geeky coffee lover</span><span class="se">\n</span><span class="s2">**I can** configure it to match my needs</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">791623</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scenarios-count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"feature-updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-29T14:34:20.549Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/791626"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Find folders by tag key and value</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/find_by_tags?key=&lt;tag_key&gt;&amp;value=&lt;tag_value&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/find_by_tags?key=&lt;tag_key&gt;&amp;value=&lt;tag_value&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folders"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245135"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-11T10:42:19.094Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-29T14:34:20.663Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serve coffee"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"As a coffee lover</span><span class="se">\n</span><span class="s2">I can get coffee from the machine</span><span class="se">\n</span><span class="s2">So I can enjoy the rest of the day"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder do</span><span class="se">\n</span><span class="s2">end</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"parent-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">791623</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scenarios-count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"feature-updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-29T14:34:20.663Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/folders/1245135"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all folders of a given project and having the given tag.</p>
+
+<table><thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tag_key</td>
+<td>The KEY of the tag you use to retrieve the folders</td>
+</tr>
+<tr>
+<td>tag_value</td>
+<td>The VALUE of the tag you use to retrieve the folders</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the folders from</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-parameters">Request parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>The key of the tag</td>
+</tr>
+<tr>
+<td>value</td>
+<td>The value of the tag</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-a-single-folder">Get a single folder</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/folders/&lt;folder_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
@@ -5932,6 +6089,48 @@ about your tests.</p>
 <aside class="notice">
 The pass rate is only based on three types of results: passed, failed and blocked. The pass rate is computed on the last 10 results of the test.
 Note: the pass rate is expressed as a percentage (25 meaning 25% for example). If there are no usable results to compute the data, an empty string will be returned.
+</aside>
+
+<h2 id="delete-a-test">Delete a test</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -XDELETE <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre>
+<p>This endpoint delete a test.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The ID of the project you want to retrieve the tests from</td>
+</tr>
+<tr>
+<td>test_run_id</td>
+<td>The ID of the test run that contains the test you want</td>
+</tr>
+<tr>
+<td>test_snapshot_id</td>
+<td>The ID of the test you want to get</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Caution: your test snapshot will be totaly and permanently removed from your project.
 </aside>
 
           <h1 id="test-folders">Test folders</h1>
