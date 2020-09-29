@@ -5809,6 +5809,10 @@ You can override this limit by including a query parameter ex: ?limit=10.
 </tr>
 </tbody></table>
 
+<h3 id="errors">Errors</h3>
+
+<p>If the test run has just been created and the tests generation is still in progress, this endpoint will return a <strong>HTTP 423 Locked</strong> error until the tests generation finishes.</p>
+
 <h2 id="get-a-test">Get a test</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
