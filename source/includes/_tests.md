@@ -127,10 +127,14 @@ test_run_id | The ID of the test run that contains the tests you want
 </aside>
 
 ### Optional parameter
+
 Parameter | Description
 --------- | -----------
 show_step_statuses (value: 'true') | Embed detailed test results including statuses per step with every tests
 
+### Errors
+
+If the test run has just been created and the tests generation is still in progress, this endpoint will return a **HTTP 423 Locked** error until the tests generation finishes.
 
 ## Get a test
 
@@ -425,4 +429,3 @@ test_snapshot_id | The ID of the test you want to get
 <aside class="warning">
 Caution: your test snapshot will be totaly and permanently removed from your project.
 </aside>
-
