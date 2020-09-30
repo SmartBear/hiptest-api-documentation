@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.6.6
 
 RUN apt-get update && apt-get install -y nodejs \
 && apt-get clean && rm -rf /var/lib/apt/lists/*
