@@ -41,7 +41,10 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios[?include=<f
         "self": "/scenarios/1"
       },
       "relationships": {
-        "folder": {}
+          "folder": {},
+          "tags": {},
+          "actionwords": {},
+          "test-snapshots": {}
       }
     },
     {
@@ -60,7 +63,10 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/scenarios[?include=<f
         "self": "/scenarios/2"
       },
       "relationships": {
-        "folder": {}
+          "folder": {},
+          "tags": {},
+          "actionwords": {},
+          "test-snapshots": {}
       }
     }
   ]
@@ -79,6 +85,7 @@ Field name | Description
 folder | The folder scenarios belongs to
 tags | The tags of the scenarios
 actionwords | Actionwords used by the scenarios
+test-snapshots | All linked test-snapshots in test runs including their last test results
 
 ### URL Parameters
 
