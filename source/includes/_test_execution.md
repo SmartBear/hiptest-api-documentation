@@ -127,7 +127,7 @@ If the provided 'status' value does not match any of the listed possible values,
 Field | Description
 --------- | -----------
 build | (JSONAPI Relationship) The build containing your test execution result
-execution_environment | (JSONAPI Relationship) The execution environment containing your test execution result
+execution-environment | (JSONAPI Relationship) The execution environment containing your test execution result
 
 If a build is provided, the test result will be created into that build.
 
