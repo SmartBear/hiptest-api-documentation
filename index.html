@@ -6570,7 +6570,8 @@ when working with multiple environments.</p>
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All was well"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6582,7 +6583,7 @@ when working with multiple environments.</p>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
-    --data <span class="s1">'{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}'</span>
+    --data <span class="s1">'{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well", "step-statuses": ["passed", "passed", "passed"]}}}'</span>
 </code></pre>
 <blockquote>
 <p>Newly created test result</p>
@@ -6598,7 +6599,8 @@ when working with multiple environments.</p>
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Couple of miliseconds ago"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="w">
+      </span><span class="s2">"status-author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"step-statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-results/1"</span><span class="w">
@@ -6683,8 +6685,12 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
 <td>(JSONAPI Relationship) The build containing your test execution result</td>
 </tr>
 <tr>
-<td>execution_environment</td>
+<td>execution-environment</td>
 <td>(JSONAPI Relationship) The execution environment containing your test execution result</td>
+</tr>
+<tr>
+<td>step-statuses</td>
+<td>(String Array) The status for each individual step</td>
 </tr>
 </tbody></table>
 
@@ -6695,6 +6701,25 @@ If the provided 'status&rsquo; value does not match any of the listed possible v
 <aside class="warning">
 Providing an execution environment is not needed if a build is already specified, and will return an error if it does not belong to that environment.
 </aside>
+
+<p>If step statuses are provided, anything different from <code class="prettyprint">&#39;passed&#39;</code>, <code class="prettyprint">&#39;failed&#39;</code>, <code class="prettyprint">&#39;wip&#39;</code>, <code class="prettyprint">&#39;retest&#39;</code>, <code class="prettyprint">&#39;blocked&#39;</code>, <code class="prettyprint">&#39;skipped&#39;</code>, or <code class="prettyprint">&#39;undefined&#39;</code> will be interpreted as <code class="prettyprint">&#39;undefined&#39;</code>. If providing something else than a array of statuses, it will be interpreted as empty array, which means all step statuses are <code class="prettyprint">&#39;undefined&#39;</code>.</p>
+
+<p>When setting step statuses on creation, they can match the steps of the scenario, or the steps of the test. The number of steps in each case can be different because a call to an actionword step can expand into multiple steps:. So the following rules apply:</p>
+
+<ul>
+<li>If the given step statuses array is of the same size or bigger than the number of steps in the test, the given step statuses will be interpreted as test step statuses</li>
+<li>If the given step statuses array is smaller than the number of steps in the test, the given step statuses will be interpreted as scenario step statuses, and will be expanded accordingly to the scenario.</li>
+</ul>
+
+<p>For instance, if a scenario has two steps, and each one is a call to an actionword having 2 steps, then the scenario has 2 steps and the corresponding test has 4 steps. Here are the possibilities:</p>
+
+<ul>
+<li>Creating a test result with step statuses being <code class="prettyprint">[&#39;passed&#39;, &#39;failed&#39;]</code> will be interpreted as scenario steps and be expanded to <code class="prettyprint">[&#39;passed&#39;, &#39;passed&#39;, &#39;failed&#39;, &#39;failed&#39;]</code>.</li>
+<li>Creating a test result with step statuses being <code class="prettyprint">[&#39;passed&#39;, &#39;failed&#39;, &#39;skipped&#39;, &#39;skipped&#39;]</code> will be interpreted as test steps and used as-is.</li>
+<li>Creating a test result with step statuses being <code class="prettyprint">[&#39;passed&#39;]</code> will be interpreted as scenario steps and be expanded to <code class="prettyprint">[&#39;passed&#39;, &#39;passed&#39;]</code>. Unspecified statuses are always <code class="prettyprint">&#39;undefined&#39;</code>.</li>
+<li>Creating a test result with step statuses being <code class="prettyprint">[&#39;passed&#39;, &#39;failed&#39;, &#39;skipped&#39;]</code> will be interpreted as scenario steps and be expanded to <code class="prettyprint">[&#39;passed&#39;, &#39;passed&#39;, &#39;failed&#39;, &#39;failed&#39;]</code>. The extra <code class="prettyprint">&#39;skipped&#39;</code> is dropped.</li>
+<li>Creating a test result with step statuses being <code class="prettyprint">[&#39;passed&#39;, &#39;failed&#39;, &#39;skipped&#39;, &#39;skipped&#39;, &#39;wip&#39;]</code> will be interpreted as test steps and used as-is. The extra <code class="prettyprint">&#39;wip&#39;</code> is dropped.</li>
+</ul>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/test_snapshots/&lt;test_snapshot_id&gt;/test_results</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
