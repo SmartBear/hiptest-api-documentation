@@ -42,7 +42,8 @@ uid: <your uid>
     "attributes": {
       "status": "passed",
       "status-author": "Harry",
-      "description": "All was well"
+      "description": "All was well",
+      "step-statuses": ["passed", "passed", "passed"]
     }
   }
 }
@@ -60,7 +61,7 @@ curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<tes
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
     -H 'client: <your client id>' \
-    --data '{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well"}}}'
+    --data '{"data": {"type": "test-results", "attributes": {"status": "passed", "status-author": "Harry", "description": "All was well", "step-statuses": ["passed", "passed", "passed"]}}}'
 ```
 
 > Newly created test result
@@ -77,7 +78,8 @@ curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<tes
       "status": "passed",
       "created-at": "Couple of miliseconds ago",
       "description": "",
-      "status-author": "Harry"
+      "status-author": "Harry",
+      "step-statuses": ["passed", "passed", "passed"]
     },
     "links": {
       "self": "/test-results/1"
@@ -128,6 +130,7 @@ Field | Description
 --------- | -----------
 build | (JSONAPI Relationship) The build containing your test execution result
 execution-environment | (JSONAPI Relationship) The execution environment containing your test execution result
+step-statuses | (String Array) The status for each individual step
 
 If a build is provided, the test result will be created into that build.
 
@@ -136,6 +139,21 @@ If an execution environment is provided, the test result will be created into th
 <aside class="warning">
 Providing an execution environment is not needed if a build is already specified, and will return an error if it does not belong to that environment.
 </aside>
+
+If step statuses are provided, anything different from `'passed'`, `'failed'`, `'wip'`, `'retest'`, `'blocked'`, `'skipped'`, or `'undefined'` will be interpreted as `'undefined'`. If providing something else than a array of statuses, it will be interpreted as empty array, which means all step statuses are `'undefined'`.
+
+When setting step statuses on creation, they can match the steps of the scenario, or the steps of the test. The number of steps in each case can be different because a call to an actionword step can expand into multiple steps:. So the following rules apply:
+
+* If the given step statuses array is of the same size or bigger than the number of steps in the test, the given step statuses will be interpreted as test step statuses
+* If the given step statuses array is smaller than the number of steps in the test, the given step statuses will be interpreted as scenario step statuses, and will be expanded accordingly to the scenario.
+
+For instance, if a scenario has two steps, and each one is a call to an actionword having 2 steps, then the scenario has 2 steps and the corresponding test has 4 steps. Here are the possibilities:
+
+* Creating a test result with step statuses being `['passed', 'failed']` will be interpreted as scenario steps and be expanded to `['passed', 'passed', 'failed', 'failed']`.
+* Creating a test result with step statuses being `['passed', 'failed', 'skipped', 'skipped']` will be interpreted as test steps and used as-is.
+* Creating a test result with step statuses being `['passed']` will be interpreted as scenario steps and be expanded to `['passed', 'passed']`. Unspecified statuses are always `'undefined'`.
+* Creating a test result with step statuses being `['passed', 'failed', 'skipped']` will be interpreted as scenario steps and be expanded to `['passed', 'passed', 'failed', 'failed']`. The extra `'skipped'` is dropped.
+* Creating a test result with step statuses being `['passed', 'failed', 'skipped', 'skipped', 'wip']` will be interpreted as test steps and used as-is. The extra `'wip'` is dropped.
 
 ```http
 POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/test_snapshots/<test_snapshot_id>/test_results HTTP/1.1
