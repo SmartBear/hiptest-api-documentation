@@ -2,7 +2,7 @@ name: Deployment
 
 on:
   workflow_dispatch:
-  status:
+  push:
     branches: [ master ]
 
 jobs:
