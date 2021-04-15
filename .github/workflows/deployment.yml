@@ -40,8 +40,7 @@ jobs:
       - name: Slack notification
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
-          author_name: CucumberStudio API Documentation
+          status: custom
           username: CucumberStudio API Documentation
           custom_payload: |
             {
