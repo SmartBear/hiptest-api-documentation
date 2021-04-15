@@ -49,7 +49,7 @@ jobs:
                         "color": "warning",
                         "title": 'GitHub commit: ${{github.sha}}',
                         "title_link": 'https://github.com/${{github.repository}}/commit/${{github.sha}}',
-                        "text": ${{github.event.commits[0].message}},
+                        "text": '${{github.event.commits[0].message}}',
                 }
               ]
             }
