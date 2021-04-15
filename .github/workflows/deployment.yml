@@ -8,13 +8,13 @@ jobs:
   deploy-API-documentation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6.6'
-      - name: Bundle install
-        run: bundle install
+          ruby-version: 2.6.6 # Not needed with a .ruby-version file
+          bundler-cache: true
       - name: Deployment script
-        run: deploy.sh
+        run: ./deploy.sh
 
   notify-failure:
     runs-on: ubuntu-latest
