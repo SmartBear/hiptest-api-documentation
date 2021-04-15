@@ -1,4 +1,4 @@
-name: CucumberStudio API documentation nightly build
+name: Nightly build
 
 on:
   schedule:
@@ -34,7 +34,7 @@ jobs:
         id: notify
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
-          slack-channel: cucumberstudio
+          slack-channel: cucumberstudio-ci
           slack-text: |
             [CucumberStudio API documentation]
             Nightly build failed <https://github.com/SmartBear/cucumberstudio-api-documentation/commit/${{github.sha}}>

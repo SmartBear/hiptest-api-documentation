@@ -1,0 +1,32 @@
+name: Deployment
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy-API-documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.6'
+      - name: Bundle install
+        run: bundle install
+      - name: Deployment script
+        run: deploy.sh
+
+  notify-failure:
+    runs-on: ubuntu-latest
+    needs: [deploy-API-documentation]
+    if: ${{ failure() }}
+    steps:
+      - name: Notify Slack
+        uses: archive/github-actions-slack@v2.0.1
+        id: notify
+        with:
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+          slack-channel: cucumberstudio-ci
+          slack-text: |
+            [CucumberStudio API documentation]
+            Deployment failed <https://github.com/SmartBear/cucumberstudio-api-documentation/commit/${{github.sha}}>
