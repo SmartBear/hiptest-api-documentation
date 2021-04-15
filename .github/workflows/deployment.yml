@@ -2,8 +2,8 @@ name: Deployment
 
 on:
   workflow_dispatch:
-   status:
-     branches: [ master ]
+  status:
+    branches: [ master ]
 
 jobs:
   deploy-API-documentation:
@@ -40,15 +40,17 @@ jobs:
       - name: Slack notification
         uses: 8398a7/action-slack@v3
         with:
-          status: custom
+          status: ${{ job.status }}
           author_name: CucumberStudio API Documentation
+          username: CucumberStudio API Documentation
           custom_payload: |
             {
-              text: ":fire: Deployment ${ job.status } THIS IS A TEST OF SLACK NOTIFICATION",
+              text: ":fire: Deployment THIS IS A TEST OF SLACK NOTIFICATION",
               attachments: [{
                         "color": "warning",
-                        "title": "GitHub commit",
-                        "text": "<${github.repository}/commit/${github.sha}|${github.event.commits[0].message}>"
+                        "title": "GitHub commit: ${{github.sha}}",
+                        "title_link": ${{github.repository}}/commit/${{github.sha}},
+                        "text": ${{github.event.commits[0].message}},
                 }
               ]
             }
