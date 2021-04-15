@@ -34,7 +34,8 @@ jobs:
         id: notify
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.CUCUMBERSTUDIO_SLACK_BOT_OAUTH_ACCESS_TOKEN }}
-          slack-channel: cucumberstudio-ci
+          slack-channel: cucumberstudio
+          slack-optional-icon_emoji: ":fire:"
           slack-text: |
             [CucumberStudio API documentation]
-            Nightly build failed <https://github.com/SmartBear/cucumberstudio-api-documentation/commit/${{github.sha}}>
+            :fire_engine: Nightly build failed <https://github.com/SmartBear/cucumberstudio-api-documentation/commit/${{github.sha}}>
