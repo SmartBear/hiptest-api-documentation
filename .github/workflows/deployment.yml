@@ -23,20 +23,6 @@ jobs:
     needs: [deploy-API-documentation]
     if: ${{ failure() }}
     steps:
-      - name: Notify Slack
-        uses: archive/github-actions-slack@v2.0.1
-        id: notify
-        with:
-          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
-          slack-channel: cucumberstudio
-          slack-optional-icon_emoji: ":fire:"
-          slack-text: |
-            [CucumberStudio API documentation]
-            :fire_engine: Deployment failed <https://github.com/SmartBear/cucumberstudio-api-documentation/commit/${{github.sha}}>
-
-  notify:
-    runs-on: ubuntu-latest
-    steps:
       - name: Slack notification
         uses: 8398a7/action-slack@v3
         with:
@@ -44,7 +30,7 @@ jobs:
           username: CucumberStudio API Documentation
           custom_payload: |
             {
-              text: ":fire: Deployment THIS IS A TEST OF SLACK NOTIFICATION",
+              text: ":fire: CucumberStudio API Documentation deployment failed",
               attachments: [{
                         "color": "warning",
                         "title": 'GitHub commit: ${{github.sha}}',
