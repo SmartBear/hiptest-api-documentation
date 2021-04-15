@@ -41,14 +41,14 @@ jobs:
       status: custom
       author_name: CucumberStudio API Documentation
       custom_payload: |
-      {
-        "text": ":fire: Deployment ${{ job.status }} THIS IS A TEST OF SLACK NOTIFICATION",
-        "attachments": [{
-                  "color": "warning",
-                  "title": "GitHub commit",
-                  "text": "<${{github.repository}}/commit/${{github.sha}|${{github.event.commits[0].message}}>"
-          }
-        ]
-      }
+        {
+          text: ":fire: Deployment ${{ job.status }} THIS IS A TEST OF SLACK NOTIFICATION",
+          attachments: [{
+                    "color": "warning",
+                    "title": "GitHub commit",
+                    "text": "<${{github.repository}}/commit/${{github.sha}|${{github.event.commits[0].message}}>"
+            }
+          ]
+        }
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
