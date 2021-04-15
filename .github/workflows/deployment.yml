@@ -47,8 +47,8 @@ jobs:
               text: ":fire: Deployment THIS IS A TEST OF SLACK NOTIFICATION",
               attachments: [{
                         "color": "warning",
-                        "title": "GitHub commit: ${{github.sha}}",
-                        "title_link": ${{github.repository}}/commit/${{github.sha}},
+                        "title": 'GitHub commit: ${{github.sha}}',
+                        "title_link": 'https://github.com/${{github.repository}}/commit/${{github.sha}}'',
                         "text": ${{github.event.commits[0].message}},
                 }
               ]
