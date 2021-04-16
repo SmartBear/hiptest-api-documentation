@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Get replicated tag
         id: get_replicated_tag
-        run: echo ::set-output name=VERSION::$(echo ${GITHUB_REF#refs/tags/} | cut -d'-' -f1)
+        run: echo ::set-output name=VERSION::$(git describe --tags | cut -d'-' -f1)
       - name: Push the Docker image
         run: docker push registry.replicated.com/hiptest/cucumber-studio-api-documentation:${{steps.get_replicated_tag.outputs.VERSION}}
 
