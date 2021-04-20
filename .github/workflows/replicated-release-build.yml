@@ -2,6 +2,14 @@ name: Replicated release build
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: Version
+        required: true
+        default: v1.x
+  push:
+    tags:
+      - v*
 
 jobs:
 
@@ -13,16 +21,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get replicated tag
-        id: get_replicated_tag
-        run: echo ::set-output name=VERSION::$( echo ${GITHUB_REF#refs/tags/} | cut -d'-' -f1)
+      - name: Get tag
+        id: tag
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      - name: Build the Docker image
+        run: docker build -t cucumber-studio-api-documentation .
+      - name: Tag the Docker image
+        run: docker tag cucumber-studio-api-documentation registry.replicated.com/hiptest/cucumber-studio-api-documentation:${{github.event.inputs.version || steps.tag.outputs.VERSION}}
       - name: Push the Docker image
-        run: docker push registry.replicated.com/hiptest/cucumber-studio-api-documentation:${{steps.get_replicated_tag.outputs.VERSION}}
+        run: docker push registry.replicated.com/hiptest/cucumber-studio-api-documentation:${{github.event.inputs.version || steps.tag.outputs.VERSION}}
 
   notify-failuree:
     runs-on: ubuntu-latest
     needs: [prepare-replicated-release]
-    #if: ${{ failure() }}
+    if: ${{ failure() }}
     steps:
       - name: Slack notification
         uses: 8398a7/action-slack@v3
