@@ -51,7 +51,7 @@ jobs:
               attachments: [{
                         "color": "danger",
                         "title": 'GitHub action: Replicated release build',
-                        "title_link": 'https://github.com/${{github.repository}}/actions/workflows/replicated-release-build.yml
+                        "title_link": 'https://github.com/${{github.repository}}/actions/workflows/replicated-release-build.yml'
                 }
               ]
             }
