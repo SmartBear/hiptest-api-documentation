@@ -24,6 +24,8 @@ jobs:
       - name: Get tag
         id: tag
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      - name: Authenticate to Docker
+        run: docker login registry.replicated.com -u "${RR_USERNAME}" -p "${RR_PASSWORD}"
       - name: Build the Docker image
         run: docker build -t cucumber-studio-api-documentation .
       - name: Tag the Docker image
