@@ -84,7 +84,7 @@ curl "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
 This endpoint retrieves all test runs of a given project. The order is undefined.
 
 <aside class="notice">
-<p>Note: you can add use the parameter "filter[status]" to only fetch achived or active test runs
+<p>Note: you can use the "filter[status]" parameter to only fetch archived or active test runs
 as a query string of the request:</p>
 <code>
 https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[status]=active
@@ -165,6 +165,42 @@ Parameter | Description
 project_id | The ID of the project you want to retrieve the test run from
 test_run_id | The ID of the test run you want to get
 
+## Archive test runs
+
+```http
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/archive HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>'
+```
+
+```json
+{
+}
+```
+
+This endpoint archives all test runs older than the specified date.
+
+### URL Parameters
+
+Parameter  | Description
+---------- | -----------
+older_than | An ISO 8601 date. All test runs created before this date will be archived.
+
 ## Include tags when fetching your test run(s)
 
 ```http
@@ -218,7 +254,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
     -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -463,7 +499,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/synchronize" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/synchronize" \
     -H 'Content-Type: application/json' \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
@@ -885,7 +921,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -XPOST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>/attachments" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
