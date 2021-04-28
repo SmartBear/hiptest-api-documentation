@@ -4818,7 +4818,7 @@ Please notice that parameter name will get normalized.
 <p>This endpoint retrieves all test runs of a given project. The order is undefined.</p>
 
 <aside class="notice">
-<p>Note: you can add use the parameter &ldquo;filter[status]&rdquo; to only fetch achived or active test runs
+<p>Note: you can use the &ldquo;filter[status]&rdquo; parameter to only fetch archived or active test runs
 as a query string of the request:</p>
 <code>
 https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[status]=active
@@ -4910,6 +4910,41 @@ https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[stat
 </tr>
 </tbody></table>
 
+<h2 id="archive-test-runs">Archive test runs</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/archive</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre><pre class="highlight shell"><code>curl -X POST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/archive?older_than=2021-02-13"</span> <span class="se">\</span>
+    -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    -H <span class="s1">'client: &lt;your client id&gt;'</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"archived_test_run_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint archives all test runs older than the specified date.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>older_than</td>
+<td>An ISO 8601 date (YYYY-MM-DD). All test runs created before this date will be archived. Mandatory.</td>
+</tr>
+</tbody></table>
+
 <h2 id="include-tags-when-fetching-your-test-run-s">Include tags when fetching your test run(s)</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?include=tags</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
@@ -4950,7 +4985,7 @@ https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs?filter[stat
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -X POST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
@@ -5212,7 +5247,7 @@ It is strongly advised to use this endpoint to get the potential impacts of a sy
 <span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/synchronize"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -X POST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/synchronize"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
@@ -5622,7 +5657,7 @@ You can override this limit by including a query parameter ex: ?limit=10.
 (data)
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
-</code></pre><pre class="highlight shell"><code>curl -XPOST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell"><code>curl -X POST <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;/attachments"</span> <span class="se">\</span>
     -H <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
     -H <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
     -H <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
