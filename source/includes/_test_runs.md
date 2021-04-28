@@ -181,7 +181,7 @@ Content-Type: application/vnd.api+json
 ```
 
 ```shell
-curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
+curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs/archive?older_than=2021-02-13" \
     -H 'accept: application/vnd.api+json; version=1' \
     -H 'access-token: <your access token>' \
     -H 'uid: <your uid>' \
@@ -191,7 +191,7 @@ curl -X POST "https://studio.cucumber.io/api/projects/<project_id>/test_runs" \
 ```json
 {
   "meta": {
-    "archived": 34
+    "archived_test_run_ids": [12, 15]
   }
 }
 ```
@@ -202,7 +202,7 @@ This endpoint archives all test runs older than the specified date.
 
 Parameter  | Description
 ---------- | -----------
-older_than | An ISO 8601 date. All test runs created before this date will be archived.
+older_than | An ISO 8601 date (YYYY-MM-DD). All test runs created before this date will be archived. Mandatory.
 
 ## Include tags when fetching your test run(s)
 
