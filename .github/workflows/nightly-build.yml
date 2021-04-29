@@ -1,0 +1,41 @@
+name: Nightly build
+
+on:
+  schedule:
+    - cron: '0 22 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build-API-documentation:
+    env:
+      RR_USERNAME: ${{ secrets.REPLICATED_REGISTRY_USERNAME }}
+      RR_PASSWORD: ${{ secrets.REPLICATED_REGISTRY_PASSWORD }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build -t cucumber-studio-api-documentation .
+      - name: Tag the Docker image
+        run: docker tag cucumber-studio-api-documentation registry.replicated.com/hiptest/cucumber-studio-api-documentation:dev
+      - name: Authenticate to Docker
+        run: docker login registry.replicated.com -u "${RR_USERNAME}" -p "${RR_PASSWORD}"
+      - name: Push the Docker image
+        run: docker push registry.replicated.com/hiptest/cucumber-studio-api-documentation:dev
+
+  notify-failure:
+    runs-on: ubuntu-latest
+    needs: [build-API-documentation]
+    if: ${{ failure() }}
+    steps:
+      - name: Notify Slack
+        uses: archive/github-actions-slack@v2.0.1
+        id: notify
+        with:
+          slack-bot-user-oauth-access-token: ${{ secrets.CUCUMBERSTUDIO_SLACK_BOT_OAUTH_ACCESS_TOKEN }}
+          slack-channel: cucumberstudio
+          slack-optional-icon_emoji: ":fire:"
+          slack-text: |
+            [CucumberStudio API documentation]
+            :fire_engine: Nightly build failed <https://github.com/SmartBear/cucumberstudio-api-documentation/commit/${{github.sha}}>
