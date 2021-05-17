@@ -168,7 +168,7 @@ test_run_id | The ID of the test run you want to get
 ## Archive test runs
 
 ```http
-POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/archive HTTP/1.1
+POST https://studio.cucumber.io/api/projects/<project_id>/test_runs/archive?older_than=2021-02-13 HTTP/1.1
 Accept: application/vnd.api+json; version=1
 access-token: <your access token>
 client: <your client id>
