@@ -599,6 +599,9 @@
                     <a href="#create-a-test-run" class="toc-h2 toc-link" data-title="Create a test run">Create a test run</a>
                   </li>
                   <li>
+                    <a href="#update-test-run-description" class="toc-h2 toc-link" data-title="Update test run description">Update test run description</a>
+                  </li>
+                  <li>
                     <a href="#clone-a-test-run" class="toc-h2 toc-link" data-title="Clone a test run">Clone a test run</a>
                   </li>
                   <li>
@@ -5424,6 +5427,55 @@ You can create a test run from a subset of tests by specifying the list of scena
 If you specify scenario ids, `external` will be ignored. External test runs will
 be created empty.
 </aside>
+<h2 id='update-test-run-description'>Update test run description</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
+<span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
+<span class="na">client</span><span class="p">:</span> <span class="s">&lt;your client id&gt;</span>
+<span class="na">uid</span><span class="p">:</span> <span class="s">&lt;your uid&gt;</span>
+
+
+{
+  "data": {
+    "type": "test_runs",
+    "id": &lt;test_run_id&gt;,
+    "attributes": {
+      "description": "My new test run description"
+    }
+  }
+}
+</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/vnd.api+json</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="s2">"https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs/&lt;test_run_id&gt;"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'accept: application/vnd.api+json; version=1'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'access-token: &lt;your access token&gt;'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'uid: &lt;your uid&gt;'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'client: &lt;your client id&gt;'</span> <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"data": { "type": "test_runs", "id": &lt;test_run_id&gt;, {"attributes": {"description": "My new test run description" } } }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-runs"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-10T09:35:01.975Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-14T12:19:32.607Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last-author"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"harry@example.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new test run"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new test run description"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"external"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/test-runs/3"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates the description of a given test run.</p>
 <h2 id='clone-a-test-run'>Clone a test run</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://studio.cucumber.io/api/projects/&lt;project_id&gt;/test_runs</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.api+json; version=1</span>
 <span class="na">access-token</span><span class="p">:</span> <span class="s">&lt;your access token&gt;</span>
