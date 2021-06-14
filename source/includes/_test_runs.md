@@ -339,6 +339,68 @@ If you specify scenario ids, `external` will be ignored. External test runs will
 be created empty.
 </aside>
 
+## Update test run description
+
+```http
+PATCH https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id> HTTP/1.1
+Accept: application/vnd.api+json; version=1
+access-token: <your access token>
+client: <your client id>
+uid: <your uid>
+
+
+{
+  "data": {
+    "type": "test_runs",
+    "id": <test_run_id>,
+    "attributes": {
+      "description": "My new test run description"
+    }
+  }
+}
+```
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/vnd.api+json
+```
+
+```shell
+curl -X PATCH "https://studio.cucumber.io/api/projects/<project_id>/test_runs/<test_run_id>" \
+    -H 'accept: application/vnd.api+json; version=1' \
+    -H 'access-token: <your access token>' \
+    -H 'uid: <your uid>' \
+    -H 'client: <your client id>' \
+    --data '{"data": { "type": "test_runs", "id": <test_run_id>, {"attributes": {"description": "My new test run description" } } }'
+```
+
+```json
+{
+  "data":
+    {
+      "type": "test-runs",
+      "id": "3",
+      "attributes": {
+        "created-at": "2021-06-10T09:35:01.975Z",
+        "updated-at": "2021-06-14T12:19:32.607Z",
+        "last-author" : "harry@example.org",
+        "name": "My new test run",
+        "description": "My new test run description",
+        "statuses": {},
+        "archived": false,
+        "external": false
+      },
+      "links": {
+        "self": "/test-runs/3"
+      },
+      "relationships": {
+        "tags": {}
+      }
+    }
+}
+```
+
+This endpoint updates the description of a given test run.
 ## Clone a test run
 
 ```http
