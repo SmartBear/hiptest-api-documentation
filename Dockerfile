@@ -1,4 +1,4 @@
-FROM ruby:2.6.6
+FROM ruby:2.6-slim
 
 WORKDIR /srv/slate
 
@@ -9,8 +9,8 @@ COPY . /srv/slate
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        build-essential \
-        nodejs \
+    build-essential \
+    nodejs \
     && gem install bundler \
     && bundle install \
     && apt-get remove -y build-essential \
