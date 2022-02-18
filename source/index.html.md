@@ -1,12 +1,8 @@
 ---
 title: CucumberStudio API Reference
 
-<<<<<<< HEAD
-language_tabs: # must be one of https://git.io/vQNgJ
-=======
 language_tabs:
   - http
->>>>>>> 86030c5 (Add a getting started paragraph)
   - shell
 
 toc_footers:
